@@ -1,0 +1,204 @@
+{
+    "organization": {
+        "banks": {
+            "name": "banks",
+            "icon": "/solutions/banks.svg",
+            "theme": {
+                "color": "#1c352d",
+                "bgcolor": "#eee"
+            },
+            "cover": "/solutions/banks.png"
+        },
+        "government": {
+            "name": "government",
+            "icon": "/solutions/government.svg",
+            "theme": {
+                "color": "#8b0000",
+                "bgcolor": "#fff2f2"
+            },
+            "cover": "/solutions/government.png"
+        },
+        "regulators": {
+            "name": "regulators",
+            "icon": "/solutions/regulators.svg",
+            "theme": {
+                "color": "#808080",
+                "bgcolor": "#f5f5f5"
+            },
+            "cover": "/solutions/regulators.png"
+        },
+        "startups": {
+            "name": "startups",
+            "icon": "/solutions/startups.svg",
+            "theme": {
+                "color": "#ffa500",
+                "bgcolor": "#fff8ea"
+            },
+            "cover": "/solutions/startups.png"
+        },
+        "ngos": {
+            "name": "ngos",
+            "icon": "/solutions/ngos.svg",
+            "theme": {
+                "color": "#7252b4",
+                "bgcolor": "#f6f1ff"
+            },
+            "cover": "/solutions/ngos.png"
+        },
+        "universities": {
+            "name": "universities",
+            "icon": "/solutions/universities.svg",
+            "theme": {
+                "color": "#228b22",
+                "bgcolor": "rgba(230, 250, 230, 0.5)"
+            },
+            "cover": "/solutions/universities.png"
+        },
+        "enterprise": {
+            "name": "enterprise",
+            "icon": "/solutions/enterprise.svg",
+            "theme": {
+                "color": "#001f3f",
+                "bgcolor": "#ecf5ff"
+            },
+            "cover": "/solutions/enterprise.png"
+        }
+    },
+    "industry": {
+        "cybersecurity": {
+            "name": "cybersecurity",
+            "icon": "/solutions/cybersecurity.svg",
+            "theme": {
+                "color": "#1a2938",
+                "bgcolor": "#e4f2ff"
+            },
+            "cover": "/solutions/cybersecurity.png"
+        },
+        "hotel": {
+            "name": "hotel",
+            "icon": "/solutions/hotel.svg",
+            "theme": {
+                "color": "#eba352",
+                "bgcolor": "#fff4e9"
+            },
+            "cover": "/solutions/hotel.png"
+        },
+        "real-estate": {
+            "name": "real-estate",
+            "icon": "/solutions/real-estate.svg",
+            "theme": {
+                "color": "#5f845f",
+                "bgcolor": "#efffef"
+            },
+            "cover": "/solutions/real-estate.png"
+        },
+        "travels": {
+            "name": "travels",
+            "icon": "/solutions/travels.svg",
+            "theme": {
+                "color": "#2d617f",
+                "bgcolor": "rgba(231, 246, 255, 0.5)"
+            },
+            "cover": "/solutions/travels.png"
+        },
+        "financials": {
+            "name": "financials",
+            "icon": "/solutions/financials.svg",
+            "theme": {
+                "color": "#00624e",
+                "bgcolor": "#e5fffa"
+            },
+            "cover": "/solutions/financials.png"
+        },
+        "gaming": {
+            "name": "gaming",
+            "icon": "/solutions/gaming.svg",
+            "theme": {
+                "color": "#1a7693",
+                "bgcolor": "rgba(218, 246, 255, 0.5)"
+            },
+            "cover": "/solutions/gaming.png"
+        },
+        "fintech": {
+            "name": "fintech",
+            "icon": "/solutions/fintech.svg",
+            "theme": {
+                "color": "#050039",
+                "bgcolor": "#f2f1ff"
+            },
+            "cover": "/solutions/fintech.png"
+        },
+        "luxury": {
+            "name": "luxury",
+            "icon": "/solutions/luxury.svg",
+            "theme": {
+                "color": "#eba352",
+                "bgcolor": "#fff6eb"
+            },
+            "cover": "/solutions/luxury.png"
+        },
+        "tours": {
+            "name": "tours",
+            "icon": "/solutions/tours.svg",
+            "theme": {
+                "color": "#1c352d",
+                "bgcolor": "#eee"
+            },
+            "cover": "/solutions/tours.png"
+        },
+        "events": {
+            "name": "events",
+            "icon": "/solutions/events.svg",
+            "theme": {
+                "color": "#5a0904",
+                "bgcolor": "#fff4f3"
+            },
+            "cover": "/solutions/events.png"
+        },
+        "recruitment": {
+            "name": "recruitment",
+            "icon": "/solutions/recruitment.svg",
+            "theme": {
+                "color": "#727272",
+                "bgcolor": "#f3f3f3"
+            },
+            "cover": "/solutions/recruitment.png"
+        },
+        "manufacturing": {
+            "name": "manufacturing",
+            "icon": "/solutions/manufacturing.svg",
+            "theme": {
+                "color": "#0dc9a9",
+                "bgcolor": "#e7fcf8"
+            },
+            "cover": "/solutions/manufacturing.png"
+        },
+        "sustainability": {
+            "name": "sustainability",
+            "icon": "/solutions/sustainability.svg",
+            "theme": {
+                "color": "#ffa500",
+                "bgcolor": "#fff7e8"
+            },
+            "cover": "/solutions/sustainability.png"
+        },
+        "banking": {
+            "name": "banking",
+            "icon": "/solutions/banking.svg",
+            "theme": {
+                "color": "#1c352d",
+                "bgcolor": "#eee"
+            },
+            "cover": "/solutions/banking.png"
+        },
+        "fmcg": {
+            "name": "fmcg",
+            "icon": "/solutions/fmcg.svg",
+            "theme": {
+                "color": "#4a5676",
+                "bgcolor": "#eef3ff"
+            },
+            "cover": "/solutions/fmcg.png"
+        }
+    }
+}
