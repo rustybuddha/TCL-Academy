@@ -18,9 +18,9 @@ import { goto } from "$app/navigation";
       text: 'Learn industry level development skills'
     }
   ];
-  import Navbar from "$lib/components/academy/navbar.svelte";
-  import Footer from "$lib/components/academy/footer.svelte";
-  import Loader from "$lib/components/academy/loader.svelte";
+  import Navbar from "$lib/components/academy/Navbar.svelte";
+  import Footer from "$lib/components/academy/Footer.svelte";
+  import Loader from "$lib/components/academy/Loader.svelte";
   import countryCodes from "$lib/assets/countries-flag.json";
 
   import { onMount } from "svelte";
