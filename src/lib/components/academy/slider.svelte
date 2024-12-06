@@ -60,7 +60,7 @@
 >
     <div class="md:flex w-full md:w-1/2">
       <!-- Left Content -->
-        <div class="md:mb-[1px]  mb-[32px]">
+        <div class="md:mb-[1px] mb-[32px]">
           <div class="sticky top-32">
             <div class="transform transition-all duration-500 ease-out">
               <div class=" relative mb-4">
