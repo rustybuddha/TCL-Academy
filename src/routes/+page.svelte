@@ -17,7 +17,6 @@
   import TestimonialsSection from '$lib/components/academy/TestimonialsSection.svelte';
   import VideoSection from '$lib/components/academy/VideoSection.svelte';
 </script>
-
   <HeroSection/>
   <StrugglingSection />
   <VideoSection />
