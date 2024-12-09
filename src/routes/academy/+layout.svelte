@@ -1,6 +1,6 @@
 <script>
-  import Navbar from "../../lib/components/academy/navbar.svelte";
-  import Footer from "../../lib/components/academy/footer.svelte";
+  import Navbar from "../../lib/components/academy/Navbar.svelte";
+  import Footer from "../../lib/components/academy/Footer.svelte";
   export let data;
 </script>
 

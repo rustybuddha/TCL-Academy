@@ -3,7 +3,7 @@
   import Button from "../button.svelte";
   import ArrowCorner from "../icons/arrow-corner.svelte";
   import { onMount } from 'svelte';
-  import Person from "./person.svelte";
+  import Person from "./Person.svelte";
   import { goto } from "$app/navigation";
   let showButton = false;
   let y;
