@@ -64,7 +64,7 @@
       const navItems = [
         // { label: 'Community', href: '/community' },
         { label: 'Curriculum', href: '/career-paths' },
-        { label: 'Testimonials', href: 'https://timechainlabs.io/academy/#testimonials' },
+        { label: 'Testimonials', href: '/#testimonials' },
         { label: 'Blog', href: '/blogs?section=all-posts' },
         { label: 'Hire from us', href: '/academy/hire' }
       ];
