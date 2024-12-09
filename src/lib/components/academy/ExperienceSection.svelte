@@ -80,7 +80,7 @@
 </div>
 {#if modal}
   <div class="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50" on:click={closeModal}>
-   <div class="px-4">
+   <div class="px-4 w-full flex justify-center">
     <div class="bg-white p-8 rounded-lg max-w-lg w-full relative" on:click|stopPropagation>
       <button class="absolute top-2 right-2 text-3xl font-bold text-gray-600 hover:text-gray-900" on:click={closeModal}>&times;</button>
       <iframe 
