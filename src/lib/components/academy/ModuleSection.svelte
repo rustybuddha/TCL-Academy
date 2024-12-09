@@ -1,6 +1,6 @@
   <!-- module section -->
   <script>
-    import Slider from './slider.svelte';
+    import Slider from './Slider.svelte';
   </script>
   
   <div class="container" style="background-image: url('/academy/founder-section-1.svg');">
