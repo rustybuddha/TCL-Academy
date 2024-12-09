@@ -64,7 +64,7 @@
       const navItems = [
         // { label: 'Community', href: '/community' },
         { label: 'Curriculum', href: '/career-paths' },
-        { label: 'Testimonials', href: 'https://timechainlabs.io/academy/#testimonials' },
+        { label: 'Testimonials', href: '/#testimonials' },
         { label: 'Blog', href: '/blogs?section=all-posts' },
         { label: 'Hire from us', href: '/academy/hire' }
       ];
@@ -286,7 +286,7 @@
             {/each}
 
             <button
-              on:click={() => redirectTo("/academy/registration")}
+              on:click={() => redirectTo("/registration")}
               class="bg-white text-black px-6 py-2 rounded-[4px] border border-black hover:bg-gray-50 transition-colors duration-200"
             >
               Register Now

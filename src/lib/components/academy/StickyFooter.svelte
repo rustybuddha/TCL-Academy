@@ -32,7 +32,7 @@ const redirectTo = (url) => {
     <div class="flex items-center justify-around w-full sm:w-1/2 lg:w-fit lg:gap-8">
       <span class="text-sm md:text-lg line-through text-gray-300">{originalPrice}</span>
       <span class="text-lg md:text-2xl font-bold">{discountedPrice}</span>
-      <button on:click={() => redirectTo('/academy/registration')} class="bg-white text-black p-2 text-xs md:text-base lg:px-6 lg:py-2 rounded-md border border-black hover:bg-gray-50 transition-colors" style="box-shadow: 0.2rem 0.3rem 0px 0px;">
+      <button on:click={() => redirectTo('/registration')} class="bg-white text-black p-2 text-xs md:text-base lg:px-6 lg:py-2 rounded-md border border-black hover:bg-gray-50 transition-colors" style="box-shadow: 0.2rem 0.3rem 0px 0px;">
         Get it Now
       </button>
     </div>
