@@ -1,8 +1,10 @@
 <script>
     import { z } from "zod";
     import {toast,Toaster} from "svelte-french-toast";
+    import countryCodes from "$lib/assets/countries-flag.json";
   
     let showModal = false;
+    let phone = "";
   
     const formSchema = z.object({
       fullName: z.string().min(1, "Full Name is required"),
@@ -32,7 +34,14 @@
         showModal = true;
       }
     };
+
+  let selectedCountry = {
+    countryname: "India",
+    countrycode: "91",
+    flagurl: "https://flaglog.com/codes/official-ratio-120px/IN.png",
+  };
   
+  let dropdownOpen = false;
     const closeModal = () => {
       showModal = false;
     };
@@ -56,14 +65,67 @@
             <input type="email" id="email" name="email" placeholder="Email Address" class="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
           </div>
           <!-- Phone Number Input -->
-          <div class="mb-4">
+          <div class="">
             <div class="flex">
-              <select class="px-2 py-2 bg-gray-100 border border-gray-300 rounded-l-md focus:outline-none">
-                <option>+91</option>
-                <option>+1</option>
-                <option>+44</option>
-              </select>
-              <input type="tel" id="phone" name="phone" placeholder="000-000-0000" class="w-full px-4 py-2 border border-gray-300 rounded-r-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+              <!-- Country Code Dropdown -->
+              <!-- svelte-ignore a11y-no-static-element-interactions -->
+              <div class="dropdown relative">
+                <!-- svelte-ignore a11y-click-events-have-key-events -->
+                <div
+                  class="p-2 lg:px-2 lg:py-2 w-20 gap-1 bg-gray-100 border border-gray-300 flex justify-around items-center rounded-l-md cursor-pointer focus:outline-none"
+                  on:click={() => (dropdownOpen = !dropdownOpen)}
+                >
+                  <img
+                    src={selectedCountry.flagurl}
+                    class="w-5 h-5 rounded-full"
+                    alt="flag"
+                  />
+                  +{selectedCountry.countrycode.toString()}
+                  <span class="text-gray-500 font-bold">
+                    {#if dropdownOpen}
+                      <img
+                        src="/academy/downarrow-a.svg"
+                        style="transform: rotate(180deg);"
+                        alt="img"
+                      />
+                    {:else}
+                      <img src="/academy/downarrow-a.svg" alt="img" />
+                    {/if}
+                  </span>
+                </div>
+                {#if dropdownOpen}
+                  <div class="dropdown-menu bg-white shadow-lg">
+                    {#each countryCodes as country}
+                      <!-- svelte-ignore a11y-click-events-have-key-events -->
+                      <div
+                        class="dropdown-item flex justify-around"
+                        on:click={() => {
+                          selectedCountry = country;
+                          dropdownOpen = false;
+                        }}
+                      >
+                        <img
+                          src={country.flagurl}
+                          alt="flag"
+                          class="w-5 h-5 rounded-full"
+                        />
+                        +{country.countrycode}
+                      </div>
+                    {/each}
+                  </div>
+                {/if}
+              </div>
+  
+              <!-- Phone Number Input -->
+              <input
+                type="number"
+                id="phone"
+                name="phone"
+                placeholder="000-000-0000"
+                class="w-full p-2 lg:px-4 lg:py-2 border border-gray-300 rounded-r-md outline-none"
+                bind:value={phone}
+                required
+              />
             </div>
           </div>
           <!-- Message Textarea -->
@@ -107,14 +169,67 @@
             <input type="email" id="email" name="email" placeholder="Email Address" class="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
           </div>
           <!-- Phone Number Input -->
-          <div class="mb-4">
+          <div class="">
             <div class="flex">
-              <select class="px-2 py-2 bg-gray-100 border border-gray-300 rounded-l-md focus:outline-none">
-                <option>+91</option>
-                <option>+1</option>
-                <option>+44</option>
-              </select>
-              <input type="tel" id="phone" name="phone" placeholder="000-000-0000" class="w-full px-4 py-2 border border-gray-300 rounded-r-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+              <!-- Country Code Dropdown -->
+              <!-- svelte-ignore a11y-no-static-element-interactions -->
+              <div class="dropdown relative">
+                <!-- svelte-ignore a11y-click-events-have-key-events -->
+                <div
+                  class="p-2 lg:px-2 lg:py-2 w-20 gap-1 bg-gray-100 border border-gray-300 flex justify-around items-center rounded-l-md cursor-pointer focus:outline-none"
+                  on:click={() => (dropdownOpen = !dropdownOpen)}
+                >
+                  <img
+                    src={selectedCountry.flagurl}
+                    class="w-5 h-5 rounded-full"
+                    alt="flag"
+                  />
+                  +{selectedCountry.countrycode.toString()}
+                  <span class="text-gray-500 font-bold">
+                    {#if dropdownOpen}
+                      <img
+                        src="/academy/downarrow-a.svg"
+                        style="transform: rotate(180deg);"
+                        alt="img"
+                      />
+                    {:else}
+                      <img src="/academy/downarrow-a.svg" alt="img" />
+                    {/if}
+                  </span>
+                </div>
+                {#if dropdownOpen}
+                  <div class="dropdown-menu bg-white shadow-lg">
+                    {#each countryCodes as country}
+                      <!-- svelte-ignore a11y-click-events-have-key-events -->
+                      <div
+                        class="dropdown-item flex justify-around"
+                        on:click={() => {
+                          selectedCountry = country;
+                          dropdownOpen = false;
+                        }}
+                      >
+                        <img
+                          src={country.flagurl}
+                          alt="flag"
+                          class="w-5 h-5 rounded-full"
+                        />
+                        +{country.countrycode}
+                      </div>
+                    {/each}
+                  </div>
+                {/if}
+              </div>
+  
+              <!-- Phone Number Input -->
+              <input
+                type="number"
+                id="phone"
+                name="phone"
+                placeholder="000-000-0000"
+                class="w-full p-2 lg:px-4 lg:py-2 border border-gray-300 rounded-r-md outline-none"
+                bind:value={phone}
+                required
+              />
             </div>
           </div>
           <!-- Message Textarea -->
@@ -152,4 +267,72 @@
   </button>    </div>
   </div>
   {/if}
+  <style>
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 130%;
+  max-height: 150px;
+  overflow-y: auto;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.dropdown-menu::-webkit-scrollbar {
+  width: 4px;
+}
+
+.dropdown-menu::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+.dropdown-item {
+  padding: 12px;
+  font-size: 14px;
+  color: #374151;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.dropdown-item:hover {
+  background-color: #f9fafb;
+  color: #111827;
+}
+
+.loader {
+  border: 4px solid #e5e7eb;
+  border-top: 4px solid #4f46e5;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+  </style>
   
