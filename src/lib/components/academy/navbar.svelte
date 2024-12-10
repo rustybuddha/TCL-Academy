@@ -285,7 +285,7 @@
             {/each}
 
             <button
-              on:click={() => redirectTo("/academy/registration")}
+              on:click={() => redirectTo("/registration")}
               class="bg-white text-black px-6 py-2 rounded-[4px] border border-black hover:bg-gray-50 transition-colors duration-200"
             >
               Register Now
