@@ -136,7 +136,7 @@
           <div class="flex items-start mb-4">
             <input type="checkbox" id="agreement" name="agreement" class="w-4 h-4 mt-1 text-blue-600 border-gray-300 rounded focus:ring-blue-500" required>
             <label for="agreement" class="ml-2 text-sm text-gray-600">
-              I have read and agreed to Timechain <a href="/" class="text-blue-600 underline">Privacy Policy</a> and agree to receive communications
+              I have read and agreed to Timechain <a href="/privacy-policy" class="text-blue-600 underline">Privacy Policy</a> and agree to receive communications
             </label>
           </div>
           <!-- Submit Button -->
@@ -240,7 +240,7 @@
           <div class="flex items-start mb-4">
             <input type="checkbox" id="agreement" name="agreement" class="w-4 h-4 mt-1 text-blue-600 border-gray-300 rounded focus:ring-blue-500" required>
             <label for="agreement" class="ml-2 text-sm text-gray-600">
-              I have read and agreed to Timechain <a href="/" class="text-blue-600 underline">Privacy Policy</a> and agree to receive communications
+              I have read and agreed to Timechain <a href="/privacy-policy" class="text-blue-600 underline">Privacy Policy</a> and agree to receive communications
             </label>
           </div>
           <!-- Submit Button -->
