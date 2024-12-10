@@ -105,8 +105,8 @@
                 class="absolute top-1/2 mbl-lg:right-4 right-28 w-[40px] h-[40px] cursor-pointer transform -translate-y-1/2"
               >
             </div>
-            <!-- Card Content -->
-            <div class="flex justify-between p-[19px]">
+            <!-- Card Content For Multiple Instructors -->
+            <!-- <div class="flex justify-between p-[19px]">
               <div>
                 <h3 class="text-lg md:text-xl font-rubik font-[500] text-[#333333]">{recruiter.name}</h3>
                 <p class="text-sm md:text-base text-[#333333]">{recruiter.title}</p>
@@ -114,9 +114,19 @@
               <div class="justify-end">
                 <img src="/academy/linkedin.svg" alt="LinkedIn" class="w-[40px] md:w-[50px]">
               </div>
-            </div>
+            </div> -->
           </div>
         {/each}
+      </div>
+    <!-- For Single Instructor -->
+      <div class="flex justify-between p-[19px] cursor-pointer" onclick="window.open('https://www.linkedin.com/in/rohan-sharan/', '_blank');">
+        <div>
+          <h3 class="text-lg md:text-xl font-rubik font-[500] text-[#333333]">Rohan Sharan</h3>
+          <p class="text-sm md:text-base text-[#333333]">CEO & Founder, Timechain Labs</p>
+        </div>
+        <div class="justify-end">
+          <img src="/academy/linkedin.svg" alt="LinkedIn" class="w-[40px] md:w-[50px]">
+        </div>
       </div>
     </div>
   </div>
