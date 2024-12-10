@@ -16,8 +16,8 @@ export default async function sendEmail(email, subject, bodyHtml = '', bodyText 
 		throw new Error('Invalid input: Email, subject, and at least one of bodyHtml or bodyText are required.');
 	}
 
-	const AWS_ACCESS_KEY_ID = process.env.AWS_ACCESS_KEY_ID;
-	const AWS_SECRET_ACCESS_KEY = process.env.AWS_SECRET_ACCESS_KEY;
+	const AWS_ACCESS_KEY_ID = process.env.VITE_AWS_ACCESS_KEY_ID;
+	const AWS_SECRET_ACCESS_KEY = process.env.VITE_AWS_SECRET_ACCESS_KEY;
 
 	const ses = new aws.SES({
 		apiVersion: "2.1692.0",
