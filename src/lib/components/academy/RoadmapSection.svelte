@@ -2,8 +2,7 @@
    
    <!--Mobile-->
     <div class="sm:hidden w-full h-full bg-repeat py-4" style="background-image: url('/academy/roadmap-mobile-1.svg');">
-      <!-- Content inside the div if needed -->
-       <div class="flex justify-center items-center w-full mt-10">
+     <div class="flex justify-center items-center w-full mt-10">
         <div class="flex flex-col items-center justify-center">
           <img src="/academy/bytcl.svg" alt="" class="w-[60%]">
           <p class="text-2xl text-center text-[#FFFFFF] mt-6">Blockchain Developer  <br>
@@ -55,7 +54,7 @@
           <img src="/academy/bytcl.svg" alt="" class="w-[180px]">
         </div>
      </div>
-     
+
      <div class="w-[90%] flex justify-start items-start mt-[60px] mb-4  gap-10  m-auto ">
       <div class="flex flex-col justify-center items-start  ">
         <img src="/academy/roadmapf1.svg" alt="" class="w-[70%]">
