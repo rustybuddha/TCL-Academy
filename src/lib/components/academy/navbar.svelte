@@ -63,10 +63,9 @@
   });
       const navItems = [
         // { label: 'Community', href: '/community' },
-        { label: 'Curriculum', href: '/career-paths' },
-        { label: 'Testimonials', href: '/#testimonials' },
-        { label: 'Blog', href: '/blogs?section=all-posts' },
-        { label: 'Hire from us', href: '/academy/hire' }
+        { label: 'Curriculum', href: 'https://academy.timechainlabs.io/#curiculum' },
+        { label: 'Testimonials', href: 'https://academy.timechainlabs.io/#testimonials' },
+        { label: 'Blog', href: '/blogs?section=all-posts' }
       ];
     const redirectTo = (url) => {
       goto(url);  

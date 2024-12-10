@@ -9,7 +9,7 @@ const redirectTo = (url) => {
   // You might want to make these props
   let originalPrice = "₹36,000.00";
   let discountedPrice = "₹8999.00";
-  let courseTitle = "Blockchain Pro Course";
+  let courseTitle = "Blockchain Mastery Course";
   let discountPercentage = "75% off";
 </script>
 
