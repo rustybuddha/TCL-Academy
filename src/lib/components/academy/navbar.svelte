@@ -63,7 +63,7 @@
   });
       const navItems = [
         // { label: 'Community', href: '/community' },
-        { label: 'Curriculum', href: 'https://academy.timechainlabs.io/#curiculum' },
+        { label: 'Curriculum', href: 'https://academy.timechainlabs.io/#curriculum' },
         { label: 'Testimonials', href: 'https://academy.timechainlabs.io/#testimonials' },
         { label: 'Blog', href: '/blogs?section=all-posts' }
       ];
