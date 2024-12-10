@@ -78,7 +78,7 @@
 
   <!-- Carousel Section -->
   <div class="w-full relative md:w-1/3 lg:w-1/2 flex flex-col justify-center items-center rounded-xl mb-8 lg:mb-0">
-    <div class="overflow-hidden w-[320px] mbl-lg:w-[428px] h-[623px] relative border border-[#0000001A]">
+    <div class="overflow-hidden w-[320px] mbl-lg:w-[428px] h-[623px] relative border border-[#0000001A] rounded-tl-[8px] rounded-tr-[8px]">
       <!-- Carousel Wrapper -->
       <div
         bind:this={carouselWrapper}
