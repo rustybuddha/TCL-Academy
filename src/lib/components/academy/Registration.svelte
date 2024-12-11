@@ -68,7 +68,7 @@
       try {
         isLoading = true;
         const response = await axios.post(
-          "https://timechainlabs.vercel.app/api/student",
+          "https://tcl-academy.vercel.app/api/student",
           payload,
           {
             headers: {
@@ -133,9 +133,9 @@
 
   let dropdownOpen = false;
 
-  function toggleDropdown() {
-    dropdownOpen = !dropdownOpen;
-  }
+  // function toggleDropdown() {
+  //   dropdownOpen = !dropdownOpen;
+  // }
 
   const closeDropdown = (event) => {
     if (!event.target.closest(".dropdown")) {
