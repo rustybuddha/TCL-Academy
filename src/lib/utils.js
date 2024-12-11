@@ -11,12 +11,17 @@ export const clearFields = (obj) => {
     }
   }
 };
-
 export function calculateMinsRead(blocks) {
   const wordsPerMinute = 200;
 
+  // Validate input
+  if (!Array.isArray(blocks)) {
+    console.error("Invalid input: blocks must be an array");
+    return 0; // Return a default value
+  }
+
   const totalWords = blocks.reduce((acc, block) => {
-    if (block.children && block.children.length > 0) {
+    if (block.children && Array.isArray(block.children)) {
       const blockText = block.children.map((child) => child.text).join(" ");
       const words = blockText.split(/\s+/).filter((word) => word !== "").length;
       acc += words;
