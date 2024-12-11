@@ -72,10 +72,10 @@
           <div class="">
             <div class="text-[16px] gap-y-[16px] font-[300]">
               <!-- <a href="https://bigblockers.in/" class="block text-[#333333] hover:text-[#33444F] mb-[16px]">Community</a> -->
-              <a href="/career-paths" class="block text-[#333333] hover:text-[#33444F] mb-[16px]">Curriculum</a>
-              <a href="/testimonials" class="block text-[#333333] hover:text-[#33444F] mb-[16px]">Testimonials</a>
+              <a href="https://academy.timechainlabs.io/#curriculum" class="block text-[#333333] hover:text-[#33444F] mb-[16px]">Curriculum</a>
+              <a href="https://academy.timechainlabs.io/#testimonials" class="block text-[#333333] hover:text-[#33444F] mb-[16px]">Testimonials</a>
               <a href="/blogs?section=all-posts" class="block text-[#333333] hover:text-[#33444F] mb-[16px]">Blog</a>
-              <a href="/academy/hire" class="block text-[#333333] hover:text-[#33444F]">Hire from us</a>
+              <!-- <a href="/academy/hire" class="block text-[#333333] hover:text-[#33444F]">Hire from us</a> -->
             </div>
           </div>
         </div>
@@ -88,7 +88,7 @@
           <p class="text-[16px] font-[300] text-[#33444F] mb-4">Join 400+ students like you in developing a career with in-demand skills today.</p>
           <button 
             class="bg-[#093BAA] text-[#FFFFFF] px-8 py-3 rounded-lg border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500"
-            on:click={()=>{redirectTo('/academy/registration')}}
+            on:click={()=>{redirectTo('/registration')}}
           >
             Register Now
           </button>
@@ -148,11 +148,11 @@
             <div class="grid grid-cols-3 gap-y-1 text-[14px] font-[300]">
               <!-- <div> -->
                 <!-- <a href="https://bigblockers.in/" class="block text-[#33444F] hover:text-[#33444F] mb-2">Community</a> -->
-                <a href="/career-paths" class="block text-[#33444F] hover:text-[#33444F] mb-2">Curriculum</a>
-                <a href="/academy#VideoTestimonials" class="block text-[#33444F] hover:text-[#33444F] mb-2">Testimonials</a>
+                <a href="https://academy.timechainlabs.io/#curriculum" class="block text-[#33444F] hover:text-[#33444F] mb-2">Curriculum</a>
+                <a href="https://academy.timechainlabs.io/#testimonials" class="block text-[#33444F] hover:text-[#33444F] mb-2">Testimonials</a>
               
                 <a href="/blogs" class="block text-[#33444F] hover:text-[#33444F] mb-2">Blog</a>
-                <a href="/hire" class="block text-[#33444F] hover:text-[#33444F]">Hire from us</a>
+                <!-- <a href="/hire" class="block text-[#33444F] hover:text-[#33444F]">Hire from us</a> -->
               <!-- </div> -->
             </div>
           </div>
@@ -165,7 +165,7 @@
             <p class="font-rubik text-[14px] font-[300] text-[#33444F] mt-[12px] mb-[24px]">Join 400+ students like you in developing a career with in-demand skills today.</p>
             <button 
               class="font-rubik w-full bg-[#093baa] text-[#FFFFFF] py-3 rounded-lg border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500"
-              on:click={()=>{redirectTo('/academy/registration')}}
+              on:click={()=>{redirectTo('/registration')}}
             >
               Register Now
             </button>

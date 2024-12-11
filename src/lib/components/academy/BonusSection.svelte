@@ -23,13 +23,13 @@
   style="background-image: url('/academy/bonus-section-1.svg');">
   <div class="w-2/5 flex flex-col justify-center">
     <div class="pb-10 pr-6">
-      <div class="flex -mt-[80px] flex-col items-start bg-white text-left  max-w-lg mx-auto rounded-lg">
-        <h2 class="text-3xl !font-bold mb-4 leading-snug">
+      <div class="flex -mt-[40px] flex-col items-start bg-white text-left  max-w-lg mx-auto rounded-lg">
+        <div class="text-2xl md:text-3xl !font-bold mb-4 leading-snug">
           Unlock bonuses <br />
           <p class="flex">
           Worth <img src="/academy/15999.svg" alt="">
           </p>
-        </h2>
+        </div>
         <p class=" text-sm leading-relaxed font-[18px] text-[#5C5C5C]">
           Join now and unlock bonuses worth ₹15,999, including expert webinars, project templates, and personalized career support.
           These exclusive resources will accelerate your blockchain journey—don’t miss out!
