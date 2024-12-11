@@ -5,10 +5,11 @@
   import { superForm } from "sveltekit-superforms/client";
   import toast, { Toaster } from "svelte-french-toast";
   import { onMount } from "svelte";
+  import { writable } from "svelte/store";
   export let data;
   const { form, enhance, errors, message, delayed } = superForm(data.form);
   const { featuredBlog, blogs, popularBlogs } = data;
-  // console.log("first: ",  popularBlogs);
+  console.log("data: ",  data);
   // import {blogsList} from '$lib/store.js'
   // blogsList.set(popularBlogs);
   // blogsList.subscribe(value => {
@@ -20,31 +21,37 @@
   // });
   // console.log("blogsList...", blogsList);
 
-  // $: if ($message?.status == "success" && $message.content) {
-  //   toast.success($message.content, {
-  //     position: "top-right",
-  //   });
-  // } else if ($message?.status == "failed" && $message.content) {
-  //   toast.error("Error occuured while joining newletter! Try again.", {
-  //     position: "top-right",
-  //   });
-  // }
-
-  // let showModal = false;
-  
- function handleSubmit() {
-   if($form.emailID && $errors.emailID == null){
-    toast.success("Subscribed!", {
+  $: if ($message?.status == "success" && $message.content) {
+    toast.success($message.content, {
+      position: "top-right",
+    });
+  } else if ($message?.status == "failed" && $message.content) {
+    toast.error("Error occuured while joining newletter! Try again.", {
       position: "top-right",
     });
   }
-}
+  const currentSection = writable('labs');
 
+  import { page } from '$app/stores';
+// import { onMount } from 'svelte';
 
-  // function closeModal() {
-  //   showModal = false;
-  // }
-
+  onMount(() => {
+    // Check if there's a section query parameter
+    const section = $page.url.searchParams.get('section');
+    
+    if (section === 'all-posts') {
+      // Set the current section to 'labs'
+      currentSection.set('academy');
+      
+      // Optional: Scroll to the blog posts section
+      setTimeout(() => {
+        const blogPostsSection = document.querySelector('#blog-posts-section');
+        if (blogPostsSection) {
+          blogPostsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 0);
+    }
+  });
 </script>
 
 <Toaster />
@@ -167,7 +174,7 @@
               use:enhance
               novalidate
             >
-              <div class="flex-1 h-[70px]">
+              <div class="flex-1">
                 <input
                   type="email"
                   placeholder="Email"
@@ -176,7 +183,6 @@
                   aria-invalid={$errors.emailID ? "true" : undefined}
                   class="font-[300] font-rubik text-[16px] px-[16px] py-[8px] w-full rounded-[4px]"
                   style="border: 0.5px solid rgba(0, 0, 0, 0.10);"
-                  required
                 />
                 {#if $errors.emailID != null}
                   <span class="text-red-600 text-xs font-medium"
@@ -184,9 +190,7 @@
                   >
                 {/if}
               </div>
-              <div on:click={handleSubmit} class="h-[70px]">
-              <Button text="Subscribe" htmlType="submit"/>
-              </div>
+              <Button text="Subscribe" htmlType="submit" />
             </form>
           </div>
           <div
@@ -225,34 +229,35 @@
         </div>
       </div>
 
-      <div>
-        <h2
-          class="text-[48px] leading-[53px] max-[1100px]:leading-[45px] max-[500px]:leading-[41.6px] max-[360px]:leading-[28px] max-[1150px]:text-[36px] max-[500px]:text-[30px] max-[360px]:text-[20px] font-[400] text-blue-gray mt-[100px] max-[500px]:mt-[84px] mb-[40px] max-[500px]:mb-[20px]"
-        >
-          All Blog Posts
-        </h2>
-        <div
-          class="grid grid-cols-3 max-[1150px]:grid-cols-2 max-[700px]:grid-cols-1 place-items-center gap-[40px] max-[800px]:gap-[30px]"
-        >
-          {#each blogs as blog}
-            <BlogCard {blog} />
-          {/each}
+      <div id="blog-posts-section">
+        <!-- All Blog Posts -->
+        <div class="mb-[40px] gap-[20px] flex ">
+          <button
+            class="px-4 py-2 text-[20px] text-black"
+            class:text-[#093baa]="{$currentSection === 'labs'}"
+            class:border-b-2="{$currentSection === 'labs'}"
+            class:border-[#093baa]="{$currentSection === 'labs'}"
+            on:click={() => $currentSection = 'labs'}>Timechain Labs</button>
+          <button
+            class="px-4 text-[20px] py-2 text-black"
+            class:text-[#093baa]="{$currentSection === 'academy'}"
+            class:border-b-2="{$currentSection === 'academy'}"
+            class:border-[#093baa]="{$currentSection === 'academy'}"
+            on:click={() => $currentSection = 'academy'}>Timechain Academy</button>
         </div>
+        
+        {#if $currentSection === 'labs'}
+          <div class="grid grid-cols-3 max-[1150px]:grid-cols-2 max-[700px]:grid-cols-1 place-items-center gap-[40px] max-[800px]:gap-[30px]">
+            {#each blogs as blog}
+              <BlogCard {blog} />
+            {/each}
+          </div>
+        {:else}
+          <div class="grid grid-cols-3 max-[1150px]:grid-cols-2 max-[700px]:grid-cols-1 place-items-center gap-[40px] max-[800px]:gap-[30px]">
+            <h1 class="text-16 p-12">The academy Will come here once added in the Sanity</h1>
+          </div>
+        {/if}
       </div>
     </section>
   </main>
 </div>
-
-
-<!-- {#if showModal}
-  <div class="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50" on:click={closeModal}>
-   <div class="px-4 w-full flex justify-center">
-    <div class="bg-white p-8 rounded-lg max-w-lg w-full relative">
-      <button class="absolute top-2 right-2 text-3xl font-bold text-gray-600 hover:text-gray-900" on:click={closeModal}>&times;</button>
-     <p class="text-3xl pt-10 pb-10 text-center">
-       Subscription Done
-     </p>
-    </div>
-  </div>
-  </div>
-{/if} -->
