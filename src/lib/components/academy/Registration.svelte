@@ -68,7 +68,7 @@
       try {
         isLoading = true;
         const response = await axios.post(
-          "https://tcl-academy.vercel.app/api/student",
+          "https://academy.timechainlabs.io/api/student",
           payload,
           {
             headers: {
