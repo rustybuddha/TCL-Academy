@@ -6,6 +6,7 @@
   import toast, { Toaster } from "svelte-french-toast";
   import { onMount } from "svelte";
   export let data;
+  
   const { form, enhance, errors, message, delayed } = superForm(data.form);
   const { featuredBlog, blogs, popularBlogs } = data;
   // console.log("first: ",  popularBlogs);
