@@ -151,10 +151,10 @@
   <!-- Desktop View -->
   <div class="hidden sm:flex max-w-[1440px] mx-auto bg-cover bg-center justify-center p-16" style="background-image: url('/academy/contact-section-1.svg');">
     <div class="w-1/2 mx-auto pr-6 pt-8 pl-8">
-      <h1 class="text-3xl font-bold text-gray-800">Let’s have a Conversation!<br>We’re here to help.</h1>
-      <p class="mt-4 text-lg text-gray-600">
-        Tell us more about what you’re looking for. Our team is dedicated to finding the best way to support your needs, 
-        and one of our experts will be in touch with you shortly to discuss how we can assist.
+      <h1 class="font-['Bai Jamjuree'] md:text-3xl lg:text-5xl font-[500] text-[#333333]" style="line-height: 55px;">Let’s have a Conversation!<br>We’re here to help.</h1>
+      <p class="mt-4 text-lg text-[#5C5C5C] font-[300] font-['Rubik']" style="line-height: 28px;">
+        Tell us more about what you’re looking for. Our team is <br> dedicated to finding the best way to support your needs, 
+        and <br> one of our experts will be in touch with you shortly to discuss <br> how we can assist.
       </p>
     </div>
     <div class="w-1/2 pl-6 pt-6">
