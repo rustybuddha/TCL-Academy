@@ -60,8 +60,8 @@ export const GET = async () => {
 
 // Reusable function to generate PhonePe URL
 const generatePhonePeUrl = async (userId) => {
-    const redirectURL = `https://tcl-academy.vercel.app/registerdone`;
-    const callbackURL = "https://tcl-academy.vercel.app/api/phonepe";
+    const redirectURL = `https://academy.timechainlabs.io/registerdone`;
+    const callbackURL = "https://academy.timechainlabs.io/api/phonepe";
 
 
 
