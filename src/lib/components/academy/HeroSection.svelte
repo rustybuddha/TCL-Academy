@@ -87,7 +87,7 @@ import { goto } from "$app/navigation";
     <Loader />
   </div>
 {:else}
-  {#if showPopup && $page.url.pathname !== "/academy/registration"}
+  {#if showPopup && $page.url.pathname !== "/registration"}
     <div
       class="w-screen h-screen bg-black/50 backdrop-blur-sm flex justify-center items-center fixed top-0 left-0 z-50"
     >
@@ -321,7 +321,7 @@ import { goto } from "$app/navigation";
   <div class="mx-auto pt-4 pb-2">
     <button 
       class="px-8 py-2 text-white bg-[#093baa] rounded whitespace-nowrap border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500"
-      on:click={() => redirectTo('/academy/registration')}> 
+      on:click={() => redirectTo('/registration')}> 
       Register Now
     </button>
   </div>
@@ -354,7 +354,7 @@ import { goto } from "$app/navigation";
         <div class="sm:size w-1/4 items-center">
           <button
             class="sm:text-[0.5rem] md:text-[0.7rem] lg:text-base xl:text-lg sm:px-4 sm:py-2 text-white bg-[#093baa] rounded whitespace-nowrap border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500"
-            on:click={() => redirectTo('/academy/registration')}>
+            on:click={() => redirectTo('/registration')}>
             Register Now
           </button>
         </div>

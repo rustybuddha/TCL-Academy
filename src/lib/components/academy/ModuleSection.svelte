@@ -13,7 +13,7 @@
       </p>
     </div> -->
   
-    <div class="">
+    <div id="curriculum" class="">
       <Slider/>
     </div>
   </div>
