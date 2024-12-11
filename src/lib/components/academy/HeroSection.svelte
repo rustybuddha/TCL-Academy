@@ -295,7 +295,7 @@ import { goto } from "$app/navigation";
     </div>
 
     <div class="w-full flex justify-center items-center mt-[5%] mb-[10%] mr-[2.5%] px-4">
-      <img class="mr-[5%] max-w-full h-52" src="/academy/hero-section-4.svg" alt="img" loading="lazy">
+      <img class="mr-[5%] max-w-full h-52" src="/academy/herosection-Rohan.svg" alt="img" loading="lazy">
     </div>
     
     <div class="w-full flex justify-center items-center">
@@ -365,6 +365,6 @@ import { goto } from "$app/navigation";
     </div>
   </div>
   <div class="w-1/2 mt-[4%] mb-[10%] mr-[2.5%]">
-    <img class="mr-[5%] max-w-full h-auto" src="/academy/hero-section-4.svg" alt="img" loading="lazy">
+    <img class="mr-[5%] max-w-full h-auto" src="/academy/herosection-Rohan.svg" alt="img" loading="lazy">
   </div>
 </div>
