@@ -14,10 +14,10 @@
   ) {
     metaInfo.set({
       title:
-        "Timechain Labs - Creating value for your business through trust and automation",
+        "Blockchain Certification Courses - Become a Blockchain Expert",
       description:
-        "You have the vision to innovate your processes to gain an edge. We have inter-disciplinary expertise to establish a robust and enduring technology strategy for you.",
-      ogImage: "https://timechainlabs.io/tcl_banner.jpg",
+        "Master blockchain with online certification courses.  Launch your tech career in 6 weeks!",
+      ogImage: "https://academy.timechainlabs.io/sharebanner.jpg",
     });
   }
 </script>
