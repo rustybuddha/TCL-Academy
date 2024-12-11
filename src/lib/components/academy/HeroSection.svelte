@@ -229,7 +229,7 @@ import { goto } from "$app/navigation";
             <!-- Submit Button -->
             <button
               type="submit"
-              class="w-full px-4 py-2 text-white bg-[#093baa] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500"
+              class="w-full font-['Rubik'] px-4 py-2 text-white bg-[#093baa] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500"
             >
               Submit
             </button>
@@ -353,7 +353,7 @@ import { goto } from "$app/navigation";
       <div class="flex gap-8 items-center">
         <div class="sm:size w-1/4 items-center">
           <button
-            class="sm:text-[0.5rem] md:text-[0.7rem] lg:text-base xl:text-lg sm:px-4 sm:py-2 text-white bg-[#093baa] rounded whitespace-nowrap border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500"
+            class="font-['Rubik'] sm:text-[0.5rem] md:text-[0.7rem] lg:text-base xl:text-lg sm:px-4 sm:py-2 text-white bg-[#093baa] rounded whitespace-nowrap border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500"
             on:click={() => redirectTo('/registration')}>
             Register Now
           </button>

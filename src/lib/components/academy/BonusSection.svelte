@@ -36,7 +36,7 @@
         </p>
       </div>
     </div>
-    <div class="pt-[2%] pb-[2%] mt-2"><a href="/"><button class="px-[2%] py-[1%] text-white bg-[#093baa] rounded whitespace-nowrap border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500" disabled>Unlock Bonuses</button></a></div>
+    <div class="pt-[2%] pb-[2%] mt-2"><a href="/"><button class="font-['Rubik'] px-[2%] py-[1%] text-white bg-[#093baa] rounded whitespace-nowrap border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500" disabled>Unlock Bonuses</button></a></div>
   </div>
   <div class="w-3/5">
     <img src="/academy/desktop-bonus.svg" alt=""></div>

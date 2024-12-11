@@ -33,7 +33,7 @@
           <p class="ml-3 font-[300]">Add the certificate to your Linkedin and in your Resume</p>
         </div>
         <div class="mt-4 pt-[2%] pb-[2%] mb-4  w-[90%] flex justify-center items-center">
-            <button class="w-[90%]  px-[2%] py-[1%] text-white bg-[#093baa] rounded whitespace-nowrap border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500" on:click={()=>{redirectTo('/registration')}}>
+            <button class="w-[90%] font-['Rubik']  px-[2%] py-[1%] text-white bg-[#093baa] rounded whitespace-nowrap border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500" on:click={()=>{redirectTo('/registration')}}>
               Register Now
             </button>
         </div>
@@ -63,7 +63,7 @@
           <p class="ml-3 font-[300]">Add the certificate to your Linkedin and in your Resume</p>
         </div>
         <div class="mt-[70px]">
-          <div class="pt-[2%] pb-[2%]"><button class="px-[2%] py-[1%] text-white bg-[#093baa] rounded whitespace-nowrap border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500"  on:click={()=>{redirectTo('/registration')}}>Register Now</button></div>
+          <div class="pt-[2%] pb-[2%]"><button class="px-[2%] font-['Rubik'] py-[1%] text-white bg-[#093baa] rounded whitespace-nowrap border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500"  on:click={()=>{redirectTo('/registration')}}>Register Now</button></div>
         </div>
     </div>
     <!-- Right Container -->

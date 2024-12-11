@@ -87,7 +87,7 @@
           </div>
           <p class="text-[16px] font-[300] text-[#33444F] mb-4">Join 400+ students like you in developing a career with in-demand skills today.</p>
           <button 
-            class="bg-[#093BAA] text-[#FFFFFF] px-8 py-3 rounded-lg border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500"
+            class="bg-[#093BAA] font-['Rubik'] text-[#FFFFFF] px-8 py-3 rounded-lg border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500"
             on:click={()=>{redirectTo('/registration')}}
           >
             Register Now
