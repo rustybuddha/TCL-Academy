@@ -1,10 +1,37 @@
 <script>
-import { goto } from "$app/navigation";
+  import { goto } from "$app/navigation";
+  import { onMount } from 'svelte';
+  import Navbar from "$lib/components/academy/navbar.svelte";
+  import Footer from "$lib/components/academy/footer.svelte";
+  import Loader from "$lib/components/academy/loader.svelte";
+  import countryCodes from "$lib/assets/countries-flag.json";
+  import { browser } from "$app/environment";
+  import toast from "svelte-french-toast";
+  import { z } from "zod";
+  import { page } from "$app/stores";
 
-    const redirectTo = (url) => {
-      goto(url);  
+  let fwcrm;
+
+  onMount(() => {
+    // Inject the Freshworks script dynamically
+    const script = document.createElement('script');
+    script.src = 'https://in.fw-cdn.com/32126368/1134713.js';
+    script.setAttribute('chat', 'true');
+    script.onload = () => {
+      fwcrm = window.fwcrm;
     };
-    const modules = [
+    document.body.appendChild(script);
+
+    return () => {
+      script.remove(); // Cleanup script when component is unmounted
+    };
+  });
+
+  const redirectTo = (url) => {
+    goto(url);
+  };
+
+  const modules = [
     {
       image: '/academy/hero1.svg',
       text: 'Modules to upskill frontend, backend & blockchain basics'
@@ -18,21 +45,12 @@ import { goto } from "$app/navigation";
       text: 'Learn industry level development skills'
     }
   ];
-  import Navbar from "$lib/components/academy/navbar.svelte";
-  import Footer from "$lib/components/academy/footer.svelte";
-  import Loader from "$lib/components/academy/loader.svelte";
-  import countryCodes from "$lib/assets/countries-flag.json";
-
-  import { onMount } from "svelte";
-  import { browser } from "$app/environment";
-  import toast from "svelte-french-toast";
-  import { z } from "zod";
-  import { page } from "$app/stores";
 
   let isPageLoaded = false;
   let showPopup = true;
   let successPopup = false;
   let dropdownOpen = false;
+
   // Default country code and dropdown state
   let selectedCountry = {
     countryname: "India",
@@ -71,6 +89,25 @@ import { goto } from "$app/navigation";
       toast.success("Form submitted successfully!");
       showPopup = false;
       successPopup = true;
+
+      // CRM Integration
+      if (fwcrm) {
+        const newContact = {
+          "First name": data.fullName.split(" ")[0],
+          "Last name": data.fullName.split(" ").slice(1).join(" ") || "",
+          "Email": data.email,
+          "Mobile": data.phone,
+          "Message": data.message,
+        };
+
+        const identifier = data.email;
+
+        fwcrm.identify(identifier, newContact);
+        toast.success("Data successfully added to CRM!");
+      } else {
+        console.error("Freshworks CRM is not initialized.");
+        toast.error("Unable to connect to CRM. Please try again later.");
+      }
     }
   };
 
@@ -82,6 +119,7 @@ import { goto } from "$app/navigation";
     }
   });
 </script>
+
 {#if !isPageLoaded}
   <div class="loader-wrapper">
     <Loader />
