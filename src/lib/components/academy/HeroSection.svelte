@@ -267,7 +267,7 @@
             <!-- Submit Button -->
             <button
               type="submit"
-              class="w-full px-4 py-2 text-white bg-[#093baa] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500"
+              class="w-full font-['Rubik'] px-4 py-2 text-white bg-[#093baa] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500"
             >
               Submit
             </button>
@@ -333,7 +333,7 @@
     </div>
 
     <div class="w-full flex justify-center items-center mt-[5%] mb-[10%] mr-[2.5%] px-4">
-      <img class="mr-[5%] max-w-full h-52" src="/academy/hero-section-4.svg" alt="img" loading="lazy">
+      <img class="mr-[5%] max-w-full h-52" src="/academy/herosection-Rohan.svg" alt="img" loading="lazy">
     </div>
     
     <div class="w-full flex justify-center items-center">
@@ -391,7 +391,7 @@
       <div class="flex gap-8 items-center">
         <div class="sm:size w-1/4 items-center">
           <button
-            class="sm:text-[0.5rem] md:text-[0.7rem] lg:text-base xl:text-lg sm:px-4 sm:py-2 text-white bg-[#093baa] rounded whitespace-nowrap border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500"
+            class="font-['Rubik'] sm:text-[0.5rem] md:text-[0.7rem] lg:text-base xl:text-lg sm:px-4 sm:py-2 text-white bg-[#093baa] rounded whitespace-nowrap border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500"
             on:click={() => redirectTo('/registration')}>
             Register Now
           </button>
@@ -403,6 +403,6 @@
     </div>
   </div>
   <div class="w-1/2 mt-[4%] mb-[10%] mr-[2.5%]">
-    <img class="mr-[5%] max-w-full h-auto" src="/academy/hero-section-4.svg" alt="img" loading="lazy">
+    <img class="mr-[5%] max-w-full h-auto" src="/academy/herosection-Rohan.svg" alt="img" loading="lazy">
   </div>
 </div>

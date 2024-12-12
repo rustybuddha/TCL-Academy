@@ -20,7 +20,7 @@
           <input type="email" placeholder="Email Address"
               class=" mr-2 py-2 px-2 rounded-lg border border-gray-300 w-[19rem]">
           <button
-              class="bg-[#093baa] border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500 text-white px-4 py-2 rounded-lg">Submit</button>
+              class="font-['Rubik'] font-[400] bg-[#093baa] border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500 text-white px-4 py-2 rounded-lg text-sm">Submit</button>
       </div>
   </div>
 </div>
