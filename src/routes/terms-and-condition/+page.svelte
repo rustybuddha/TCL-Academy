@@ -66,8 +66,7 @@
     {
       heading: "Refund Policy",
       content:
-        "You shall be entitled to claim a refund of the payment made by you in case we are not able to provide the Service. The timelines for such return and refund will be according to the specific Service you have availed or within the time period provided in our policies (as applicable). In case you do not raise a refund claim within the stipulated time, than this would make you ineligible for a refund.",
-      id: "RefundPolicy",
+        "Services Not Rendered: If you wish to cancel a service before we begin, you may cancel at no charge by notifying us within 24 hours of placing the order. You can expect the refunded amount to be credited to your original mode of payment within 7-10 days. In case you do not raise a refund claim within the stipulated time, than this would make you ineligible for a refund.",
     },
     {
       heading: "Force Majeure Clause",

@@ -64,6 +64,16 @@
           <p class="text-[18px] font-[300] text-[#33444F] pr-18">
             We make innovation safe and easy for you. We work on building the applications of the present with the help of the technology of the future.
           </p>
+          <img src="/email.png" class="mt-[10px] h-[20px]" alt="" />
+            <p class=" text-blue-gray text-[16px] font-[400]">
+              academy@timechainlabs.io
+            </p>
+            <img src="/contact.png" alt="" class="h-[20px] mt-[10px]" />
+            <p class=" text-blue-gray text-[16px] font-[400]">
+              +91-8999351806
+            </p>
+
+          
         </div>
 
         <!-- Company Section -->
@@ -141,6 +151,15 @@
             <p class="text-[16px] font-[300] text-[#33444F]">
               We make innovation safe and easy for you. We work on building the applications of the present with the help of the technology of the future.
             </p>
+            <img src="/email.png" class="mt-[10px] h-[20px]" alt="" />
+            <p class=" text-blue-gray text-[16px] font-[400]">
+              academy@timechainlabs.io
+            </p>
+            <img src="/contact.png" alt="" class="h-[20px] mt-[10px]" />
+            <p class=" text-blue-gray text-[16px] font-[400]">
+              +91-8999351806
+            </p>
+              
           </div>
           <!-- Navigation Links -->
           <div class="">

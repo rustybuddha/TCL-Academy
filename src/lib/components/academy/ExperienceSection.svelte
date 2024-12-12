@@ -40,6 +40,25 @@
   import { z } from "zod";
   import { page } from "$app/stores";
 
+
+  let fwcrm;
+
+  onMount(() => {
+    // Inject the Freshworks script dynamically
+    const script = document.createElement('script');
+    script.src = 'https://in.fw-cdn.com/32126368/1134713.js';
+    script.setAttribute('chat', 'true');
+    script.onload = () => {
+      fwcrm = window.fwcrm;
+    };
+    document.body.appendChild(script);
+
+    return () => {
+      script.remove(); // Cleanup script when component is unmounted
+    };
+  });
+
+
   let isPageLoaded = false;
   let showPopup = false;
   let successPopup = false;
@@ -108,6 +127,24 @@
       toast.success("Form submitted successfully!");
       showPopup = false;
       successPopup = true;
+     // CRM Integration
+     if (fwcrm) {
+        const newContact = {
+          "First name": data.fullName.split(" ")[0],
+          "Last name": data.fullName.split(" ").slice(1).join(" ") || "",
+          "Email": data.email,
+          "Mobile": data.phone,
+          "Message": data.message,
+        };
+
+        const identifier = data.email;
+
+        fwcrm.identify(identifier, newContact);
+        toast.success("Data successfully added to CRM!");
+      } else {
+        console.error("Freshworks CRM is not initialized.");
+        toast.error("Unable to connect to CRM. Please try again later.");
+      }
     }
   };
 

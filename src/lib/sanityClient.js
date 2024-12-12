@@ -1,11 +1,11 @@
 import { createClient } from "@sanity/client";
 
 const client = createClient({
-  projectId: "e3lypy0y",
+  projectId: "jcnlheos",
   dataset: "production",
   apiVersion: "2021-10-21",
   token:
-    "skhJTprFPb8uVc54cwWXHovYU9Xh0gpmZZu7Yfn3WqwzKodmfOIpTNBDHewkF7o9J21VoPKv1UGJIu3UIZzAXNZuBT7zpoW6X7Iewh7uRkTObWqzYVOMdBF2nNrObE4KKNRAn628ZWvAFzv4nS0Lfqdcj8GoNmetwfrNz7iaPNCdNCSTFxiq",
+    "skFa4goQ3Im1LnzChA7FbEiEs62uY46WyqnARS7oFAjd36UJdP0RI87kDKtBmIihi6ksE2FHUPTQHjEcUMkO1PLxb5GwV2UZx28LbTCP6iM3qRV2cOkY1ydT1wRl6P26zPCAdMFppIPjnn5LcPdYySedqedvkVQTCcyQrdiSH4rgnSnLcog4",
   useCdn: false,
 });
 

@@ -1,10 +1,18 @@
 <script>
-import { goto } from "$app/navigation";
+  import { goto } from "$app/navigation";
+  import { onMount } from 'svelte';
+  import Loader from "$lib/components/academy/loader.svelte";
+  import countryCodes from "$lib/assets/countries-flag.json";
+  import { browser } from "$app/environment";
+  import toast from "svelte-french-toast";
+  import { z } from "zod";
+  import { page } from "$app/stores";
 
-    const redirectTo = (url) => {
-      goto(url);  
-    };
-    const modules = [
+  const redirectTo = (url) => {
+    goto(url);
+  };
+
+  const modules = [
     {
       image: '/academy/hero1.svg',
       text: 'Modules to upskill frontend, backend & blockchain basics'
@@ -18,7 +26,10 @@ import { goto } from "$app/navigation";
       text: 'Learn industry level development skills'
     }
   ];
+
 </script>
+
+
 <div class="sm:hidden flex flex-col justify-center mt-[5%]">
   <div class="mx-auto">
     <div class="w-full m-auto">
