@@ -14,34 +14,50 @@ import { subscribeNewletterSchema } from "$lib/schemas.js";
 import { createContactInBrevo } from "$lib/utils.js";
 
 export async function load({ params }) {
-  const data = await client.fetch(`*[_type == "blogs" && doc_type == "blog"]`);
-  if (data) {
-    const blogsWithMinsRead = data.map((blog) => {
-      blog.minsRead = calculateMinsRead(blog?.content);
+  try {
+    const data = await client.fetch(`*[_type == "blogs" && doc_type == "blog"]`);
+    
+    // Check if data is valid and map through it safely
+    const blogsWithMinsRead = (data || []).map((blog) => {
+      if (blog && blog.content) {
+        blog.minsRead = calculateMinsRead(blog.content);
+      } else {
+        blog.minsRead = 0; // Default value if content is missing
+      }
       return blog;
     });
 
+    // Fetch featured blogs and validate
     const featured = await client.fetch(
       `*[_type == "blogs" && featured == true && doc_type == "blog"]`
     );
-    featured[0].minsRead = calculateMinsRead(featured[0]?.content);
-    featured[0].formattedDate = formatDate(new Date(featured[0]?._createdAt));
+    if (featured && featured[0]) {
+      const featuredBlog = featured[0];
+      featuredBlog.minsRead = calculateMinsRead(featuredBlog?.content || []);
+      featuredBlog.formattedDate = formatDate(new Date(featuredBlog?._createdAt || Date.now()));
+    } else {
+      console.warn("No featured blog found.");
+    }
 
+    // Fetch popular blogs with validation
     const popularBlogs = await client.fetch(
       `*[_type == "blogs" && doc_type == "blog"] | order(impressions desc) [0...4]`
     );
-    // blogsList.set(blogsWithMinsRead);
+
     return {
-      featuredBlog: featured[0],
+      featuredBlog: featured?.[0] || null,
       blogs: blogsWithMinsRead || [],
       popularBlogs: popularBlogs || [],
     };
+  } catch (error) {
+    console.error("Error in load function:", error);
+    return {
+      status: 500,
+      body: new Error("Internal Server Error"),
+    };
   }
-  return {
-    status: 500,
-    body: new Error("Internal Server Error"),
-  };
 }
+
 
 export const actions = {
   subscribeNewletter: async ({ request, fetch }) => {
