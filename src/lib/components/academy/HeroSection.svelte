@@ -1,12 +1,5 @@
 <script>
   import { goto } from "$app/navigation";
-  import { onMount } from 'svelte';
-  import Loader from "$lib/components/academy/loader.svelte";
-  import countryCodes from "$lib/assets/countries-flag.json";
-  import { browser } from "$app/environment";
-  import toast from "svelte-french-toast";
-  import { z } from "zod";
-  import { page } from "$app/stores";
 
   const redirectTo = (url) => {
     goto(url);
@@ -44,7 +37,7 @@
       </div>
     </div>
 
-    <div class="flex justify-center items-center px-4">
+    <div class="flex justify-center items-center px-4 mt-4 mb-4">
       <img
         class="max-w-[355px] sm:max-w-[400px] w-full h-auto" 
         src="/academy/herosection-Rohan.svg" 
