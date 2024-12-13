@@ -20,10 +20,10 @@
 </script>
 
 <!-- Struggling Section -->
-<div class="hidden sm:flex w-full struggling-section">
+<div class="hidden sm:flex w-full struggling-section ">
 
   <!-- Desktop View -->
-  <div class="sm:flex flex-col items-center max-w-6xl mx-auto">
+  <div class="sm:flex flex-col items-center max-w-6xl mx-auto mt-10">
     <div class="text-center mb-8">
       <p class="sm:text-xl lg:text-2xl font-medium text-[#767676]">Are you struggling to</p>
       <div class="sm:text-3xl lg:text-5xl font-[400] flex mt-3">

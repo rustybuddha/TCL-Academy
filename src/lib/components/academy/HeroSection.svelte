@@ -114,7 +114,7 @@
       </div>
     </div>
   </div>
-  <div class="w-1/2 mt-[4%] mb-[10%] mr-[2.5%]">
+  <div class="w-1/2 mt-[2%] mr-[2.5%]">
     <img class="mr-[5%] max-w-full h-auto" src="/academy/herosection-Rohan.svg" alt="img" loading="lazy">
   </div>
 </div>
