@@ -152,7 +152,7 @@
             </div>
 
             <div
-              class="flex justify-between max-[25rem]:gap-[1.5rem] text-white mt-[3.75rem] max-[25rem]:mt-[1.5rem] max-[50rem]:mt-[1.875rem] max-[62.5rem]:mt-[2.375rem] max-[62.5rem]:flex-col max-[62.5rem]:gap-[2.5rem]"
+              class="flex justify-between max-[25rem]:gap-[1.5rem] text-white mt-[1rem] max-[25rem]:mt-[1.5rem] max-[50rem]:mt-[1.875rem] max-[62.5rem]:mt-[2.375rem] max-[62.5rem]:flex-col max-[62.5rem]:gap-[2.5rem]"
             >
          
               <div class="max-w-[18.75rem] w-[18.75rem] max-[50rem]:w-[75%] flex flex-col justify-center items-center m-auto">
@@ -161,7 +161,7 @@
                   <a
                     href={program.href}
                     on:click={() => (isActive = false)}
-                    class="text-[1rem] mb-5 text-[#333333] max-[56.25rem]:text-[1rem] max-[25rem]:text-[.75rem] mt-[2.5rem] max-[56.25rem]:mt-[1.875rem] max-[25rem]:my-[.625rem] cursor-pointer flex items-center gap-[.625rem]"
+                    class="text-[1rem] mb-3 text-[#333333] max-[56.25rem]:text-[1rem] max-[25rem]:text-[.75rem] mt-[1rem] max-[56.25rem]:mt-[1.875rem] max-[25rem]:my-[.625rem] cursor-pointer flex items-center gap-[.625rem]"
                   >
                     {program.label}
                   </a>
