@@ -66,21 +66,23 @@
 </script>
 
 <div 
-  style="transform: translateY({Math.max(-1 * ($scrollY), 0)}px); max-width:1320px!important;"
-  class="py-20 lg:flex w-full gap-[100px] m-auto px-5"
+  style="transform: translateY({Math.max(-1 * ($scrollY), 0)}px);"
+  class="!w-full py-20 lg:flex m-auto px-5 max-w-[1320px]"
 >
-    <div class=" lg:flex w-full lg:w-1/2">
+    <div class="!w-full lg:flex  lg:w-1/2">
       <!-- Left Content -->
-        <div class="lg:mb-[1px]  mb-[32px]">
+        <div class="lg:mb-[1px] mb-[32px] lg:w-[90%]">
           <div class="sticky top-32">
             <div class="transform transition-all duration-500 ease-out">
-              <div class=" relative mb-4">
-                <p class="text-[#292929] bai-jamjuree-font text-5xl font-[500]">
+              <div class="relative mb-4">
+                <p class="text-[#292929] bai-jamjuree-font text-3xl text-center sm:text-left sm:text-5xl font-[500]">
                   What you'll <span class="text-[#059E93] !font-[500]"> learn?</span>
                 </p>
-                <img class="justify-end absolute left-[260px]" src="/learn.svg" alt="">
+                <!-- Image always below the "learn" text on small screens -->
+                <img class="absolute custom-margin left-1/4 transform ml-[150px]  sm:ml-[260px] -translate-x-1/2 sm:relative sm:mt-2 sm:left-auto sm:right-0 sm:translate-x-0 w-[80px] sm:w-[115px]" src="/learn.svg" alt="">
               </div>
-              <p class="text-[#5C5C5C] font-[300] text-lg rubik-font mt-5">
+              
+              <p class="text-[#5C5C5C] font-[300] text-sm text-center sm:text-left sm:text-lg rubik-font mt-5 md:pr-[50px]">
                 Through our Blockchain Pro course specifically tailored for students and developers
                 even without any prior experience in development, you will explore the following modules in detail:
               </p>
@@ -88,7 +90,7 @@
           </div>
         </div>
     </div>
-    <div class="lg:w-1/2">
+    <div class="lg:w-1/1">
       {#each cards as card, i}
       <div 
         class="mb-8 {i === cards.length - 1 ? '' : 'mb-32'} sticky"
@@ -97,52 +99,64 @@
         <div
           class="transform transition-all duration-500 ease-out {card.bgColor} rounded-xl shadow-lg "
         >
-        <div class="flex justify-start items-center {card.headColor} rounded-t-[8px] h-[5rem]">
-          <p class="text-sm ml-6 flex justify-center items-center !font-[500] text-center rounded-full w-[6rem] h-8 {card.moduleColor} rubik-font bg-[#FFFFFF]" style="font-weight: 300;">{card.module}</p>
+        <div class="flex justify-start items-center {card.headColor} rounded-t-[8px] h-[3.5rem] sm:h-[5rem]">
+          <p class="text-[12px] ml-6 flex justify-center items-center !font-[500] text-center rounded-full w-[5rem] sm:w-[6rem] h-6 sm:h-8 {card.moduleColor} rubik-font bg-[#FFFFFF]" style="font-weight: 300;">{card.module}</p>
           
-          <p class="text-2xl ml-5 font-[500] text-[#FFFFFF] bai-jamjuree-font">{card.title}</p>
+          <p class=" text-lg sm:text-2xl ml-5 font-[500] text-[#FFFFFF] bai-jamjuree-font">{card.title}</p>
         </div>
           
           <!-- Flex container with wrapping for items -->
-          <div class="flex flex-col border p-6 gap-2">
+          <div class="flex flex-col p-6 gap-2">
        
             {#if card.module === 'Module 2'}
-            <div class="grid grid-cols-2 lg:grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 md:w-[500px] lg:grid-cols-2 lg:gap-4">
               <!-- Display subHeading at the top if it exists -->
               {#if card?.subHeading}
-              <div class="col-span-2 mt-4 text-lg font-semibold">{card?.subHeading}</div>
-            {/if}
+                <div class="col-span-2 mt-4 text-lg font-semibold">{card?.subHeading}</div>
+              {/if}
           
-              <!-- First 7 items in one column -->
-              <div>
-                {#each card.items.slice(0, 7) as item}
+              <!-- Mobile View (only visible on small screens) -->
+              <div class="sm:hidden">
+                {#each card.items as item}
                   <div class="flex items-center mb-2">
                     <img src="/academy/learntick.svg" alt="">
-                    <p class="text-[#333333] text-xl !font-[400] rubik-font ml-2">{item}</p>
+                    <p class="text-[#333333] text-sm !font-[400] rubik-font ml-2">{item}</p>
                   </div>
                 {/each}
               </div>
           
-              <!-- Remaining items in another column -->
-              <div>
-                {#each card.items.slice(7) as item}
-                  <div class="flex items-center mb-2">
-                    <img src="/academy/learntick.svg" alt="">
-                    <p class="text-[#333333] text-xl !font-[400] rubik-font ml-2">{item}</p>
-                  </div>
-                {/each}
-              </div>
+              <!-- Desktop View (hidden on small screens) -->
+              
+                <!-- First 7 items in one column -->
+                <div class="hidden sm:flex sm:flex-col">
+                  {#each card.items.slice(0, 7) as item}
+                    <div class="flex items-center mb-2">
+                      <img src="/academy/learntick.svg" alt="">
+                      <p class="text-[#333333] text-sm sm:text-xl !font-[400] rubik-font ml-2">{item}</p>
+                    </div>
+                  {/each}
+                </div>
+          
+                <!-- Remaining items in another column -->
+                <div class="hidden sm:flex sm:flex-col">
+                  {#each card.items.slice(7) as item}
+                    <div class="flex items-center mb-2">
+                      <img src="/academy/learntick.svg" alt="">
+                      <p class="text-[#333333] text-sm sm:text-xl !font-[400] rubik-font ml-2">{item}</p>
+                    </div>
+                  {/each}
+                </div>
+           
             </div>
           {:else}
             <!-- Default layout for other modules -->
-              {#if card?.subHeading}
-              <div class="col-span-2 mt-6 mb-5 text-xl rubik-font font-[400]">{card?.subHeading}</div>
-               {/if}
+            {#if card?.subHeading}
+              <div class="col-span-2 mt-3 mb-2 sm:mt-6 sm:mb-5 text-sm sm:text-xl rubik-font font-[400]">{card?.subHeading}</div>
+            {/if}
             {#each card.items as item}
-            
               <div class="flex items-center mb-2">
                 <img src="/academy/learntick.svg" alt="">
-                <p class="text-[#333333] text-xl !font-[400] rubik-font ml-2">{item}</p>
+                <p class="text-[#333333] text-sm sm:text-xl !font-[400] rubik-font ml-2">{item}</p>
               </div>
             {/each}
           {/if}
@@ -169,4 +183,55 @@
 .rubik-font {
   font-family: 'Rubik', sans-serif !important;
 }
+
+@media (max-width: 1034px) and (min-width: 1024px) {
+  .custom-margin {
+    margin-left: 0px !important;
+  }
+}
+
+@media (max-width: 640px) and (min-width: 90px) {
+  .custom-margin {
+    margin-left: calc(50% - 70px) !important;
+  }
+}
+
+
+ @media (max-width: 600px) and (min-width: 550px) {
+  .custom-margin {
+    margin-left: calc(50% - 60px) !important;
+  }
+} 
+
+
+@media (max-width: 550px) and (min-width: 450px) {
+  .custom-margin {
+    margin-left: calc(50% - 45px) !important;
+  }
+} 
+
+@media (max-width: 480px) and (min-width: 430px) {
+  .custom-margin {
+    margin-left: calc(50% - 30px) !important;
+  }
+} 
+
+@media (max-width: 430px) and (min-width: 380px) {
+  .custom-margin {
+    margin-left: calc(50% - 20px) !important;
+  }
+} 
+
+@media (max-width: 380px) and (min-width: 340px) {
+  .custom-margin {
+    margin-left: calc(50% - 5px) !important;
+  }
+} 
+
+@media (max-width: 340px) {
+  .custom-margin {
+    margin-left: calc(50% - 0px) !important;
+  }
+} 
+
 </style>
