@@ -3,7 +3,8 @@
     import Slider from './slider.svelte';
   </script>
   
-  <div class="container" style="background-image: url('/academy/founder-section-1.svg');">
+  <Slider/>
+  <!-- <div class="container w-full" > -->
 
     <!-- <div class="left-content">
       <h1>What you'll learn?</h1>
@@ -13,10 +14,9 @@
       </p>
     </div> -->
   
-    <div id="curriculum" class="">
-      <Slider/>
+    <!-- <div id="curriculum" class="">
     </div>
-  </div>
+  </div> -->
 
 <style>
 
