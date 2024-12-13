@@ -1,4 +1,10 @@
-  <!-- Bonus Section  -->
+ <script>
+  import { goto } from "$app/navigation";
+  const redirectTo = (url) => {
+    goto(url);  
+  };
+ </script>
+
   <div class="sm:hidden mx-auto flex flex-col bg-cover bg-center justify-center p-8" style="background-image: url('/academy/bonus-mobile-1.svg');">
   <div>
     <div class="flex flex-col items-center bg-white text-center  max-w-lg mx-auto rounded-lg">
@@ -16,7 +22,7 @@
     </div>
    </div>  
     <div class="mx-auto pb-2 pt-4"><img class="mx-auto" src="/academy/mobile-bonus.svg" alt=""></div>
-    <div class="pt-[2%] pb-[2%] mx-auto"><a href="/"><button class="px-[24px] py-[8px] text-white bg-[#093baa] rounded whitespace-nowrap border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500">Unlock Bonuses</button></a></div>
+    <div class="pt-[2%] pb-[2%] mx-auto"><button on:click={() => redirectTo('/registration')} class="cursor-pointer px-[24px] py-[8px] text-white bg-[#093baa] rounded whitespace-nowrap border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500">Unlock Bonuses</button></div>
   </div>
   
 <div class="hidden sm:flex max-w-[1440px] mx-auto bg-cover bg-center justify-center px-16 pt-16 pb-8"
@@ -36,7 +42,7 @@
         </p>
       </div>
     </div>
-    <div class="pt-[2%] pb-[2%] mt-2"><a href="/"><button class="px-[2%] py-[1%] text-white bg-[#093baa] rounded whitespace-nowrap border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500" disabled>Unlock Bonuses</button></a></div>
+    <div class="pt-[2%] pb-[2%] mt-2"><button on:click={() => redirectTo('/registration')} class="cursor-pointer font-['Rubik'] px-[2%] py-[1%] text-white bg-[#093baa] rounded whitespace-nowrap border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500">Unlock Bonuses</button></div>
   </div>
   <div class="w-3/5">
     <img src="/academy/desktop-bonus.svg" alt=""></div>

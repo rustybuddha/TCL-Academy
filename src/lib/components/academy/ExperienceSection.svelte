@@ -124,7 +124,6 @@
     if (!result.success) {
       result.error.errors.forEach((err) => toast.error(err.message));
     } else {
-      toast.success("Form submitted successfully!");
       showPopup = false;
       successPopup = true;
      // CRM Integration
@@ -140,7 +139,7 @@
         const identifier = data.email;
 
         fwcrm.identify(identifier, newContact);
-        toast.success("Data successfully added to CRM!");
+        toast.success("Form submitted successfully!");
       } else {
         console.error("Freshworks CRM is not initialized.");
         toast.error("Unable to connect to CRM. Please try again later.");
