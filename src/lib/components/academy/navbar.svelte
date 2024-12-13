@@ -1,5 +1,4 @@
 <script>
-  import Button from "../button.svelte";
   import { initializeCalendlyPopup } from "../../utils";
   import { onMount } from "svelte";
   import { browser } from "$app/environment";
@@ -57,7 +56,7 @@
 
     return () => {
       if (browser) {
-        window.removeEventListener("scroll", handleScroll);
+        windowNaNpxoveEventListener("scroll", handleScroll);
       }
     };
   });
@@ -76,36 +75,36 @@
 
 <div class="flex justify-center">
   <nav
-    class="w-full fixed top-0 left-0 z-[20] transition-all duration-[0.3s] ease-[ease-in-out] border-x-0 border-[1px] border-b-[rgba(0,0,0,0.05)]"
-    style="background-color: white; border-bottom: solid 1px rgba(0, 0, 0, 0.05);"
+    class="w-full fixed top-0 left-0 z-[20] transition-all duration-[0.3s] ease-[ease-in-out] border-x-0 border-[.0625rem] border-b-[rgba(0,0,0,0.05)]"
+    style="background-color: white; border-bottom: solid .0625rem rgba(0, 0, 0, 0.05);"
   >
     <div
-      class="relative laptop:hidden block bg-white desktop:px-[100px] laptop:px-[60px] mbl-lg:px-[40px] mbl-sm:px-[25px] px-[16px]"
-      style=" border-bottom: solid 1px rgba(0, 0, 0, 0.05);
+      class="relative laptop:hidden block bg-white desktop:px-[6.25rem] laptop:px-[3.75rem] mbl-lg:px-[2.5rem] mbl-sm:px-[1.5625rem] px-[1rem]"
+      style=" border-bottom: solid .0625rem rgba(0, 0, 0, 0.05);
       "
     >
       <div
-        class="py-[25px] max-[500px]:py-[12px] max-[800px]:py-[20px] flex items-center justify-between"
+        class="py-[1.5625rem] max-[31.25rem]:py-[.75rem] max-[50rem]:py-[1.25rem] flex items-center justify-between"
       >
         <div class="">
           <a href="/">
             <img
               src="../../tcl.svg"
-              class="cursor-pointer tablet:h-[50px] mbl-sm:h-[40px] h-[30px] w-auto"
+              class="cursor-pointer tablet:h-[3.125rem] mbl-sm:h-[2.5rem] h-[1.875rem] w-auto"
               alt="TCL logo"
             /></a
           >
         </div>
-        <div class="flex justify-center items-center gap-[40px]">
+        <div class="flex justify-center items-center gap-[2.5rem]">
           <!-- <select
             id="country-code"
             name="country-Code"
-            class=" bg-white w-16 max-[600px]:hidden"
+            class=" bg-white w-16 max-[37.5rem]:hidden"
           >
             <option value="Eng">ENG</option>
           </select>
 
-          <div class="max-[600px]:hidden">
+          <div class="max-[37.5rem]:hidden">
             <Button text="Let's Build" onClick={initializeCalendlyPopup} />
           </div> -->
           <div
@@ -125,23 +124,23 @@
       >
         <div class="flex justify-center relative">
           <div
-            class="w-[1400px] max-[1400px]:w-screen desktop:px-[100px] laptop:px-[60px] mbl-lg:px-[40px] mbl-sm:px-[25px] px-[16px]"
+            class="w-[87.5rem] max-[87.5rem]:w-screen desktop:px-[6.25rem] laptop:px-[3.75rem] mbl-lg:px-[2.5rem] mbl-sm:px-[1.5625rem] px-[1rem]"
           >
             <!-- HEADER OF POPUP -->
             <div
-              class="py-[25px] max-[500px]:py-[12px] max-[800px]:py-[20px] flex items-center justify-between"
+              class="py-[1.5625rem] max-[31.25rem]:py-[.75rem] max-[50rem]:py-[1.25rem] flex items-center justify-between"
             >
               <div class="text-gray-600 text-xl font-semibold">
                 <a href="/" on:click={() => (isActive = false)}>
                   <img
                     src="/academy/academy-logo.svg"
-                    class="cursor-pointer tablet:h-[50px] mbl-sm:h-[40px] h-[30px] w-auto"
+                    class="cursor-pointer tablet:h-[3.125rem] mbl-sm:h-[2.5rem] h-[1.875rem] w-auto"
                     alt="TCL logo"
                   /></a
                 >
               </div>
               <!-- svelte-ignore a11y-no-static-element-interactions -->
-              <div class="flex items-center justify-between gap-[40px]">
+              <div class="flex items-center justify-between gap-[2.5rem]">
                 <!-- svelte-ignore a11y-click-events-have-key-events -->
                 <div
                   class="relative z-[12] cursor-pointer"
@@ -153,24 +152,24 @@
             </div>
 
             <div
-              class="flex justify-between max-[400px]:gap-[24px] text-white mt-[60px] max-[400px]:mt-[24px] max-[800px]:mt-[30px] max-[1000px]:mt-[38px] max-[1000px]:flex-col max-[1000px]:gap-[40px]"
+              class="flex justify-between max-[25rem]:gap-[1.5rem] text-white mt-[3.75rem] max-[25rem]:mt-[1.5rem] max-[50rem]:mt-[1.875rem] max-[62.5rem]:mt-[2.375rem] max-[62.5rem]:flex-col max-[62.5rem]:gap-[2.5rem]"
             >
          
-              <div class="max-w-[300px] w-[300px] max-[800px]:w-[75%] flex flex-col justify-center items-center m-auto">
+              <div class="max-w-[18.75rem] w-[18.75rem] max-[50rem]:w-[75%] flex flex-col justify-center items-center m-auto">
                 <!-- svelte-ignore a11y-missing-attribute -->
                 {#each navItems as program}
                   <a
                     href={program.href}
                     on:click={() => (isActive = false)}
-                    class="text-[16px] mb-5 text-[#333333] max-[900px]:text-[16px] max-[400px]:text-[12px] mt-[40px] max-[900px]:mt-[30px] max-[400px]:my-[10px] cursor-pointer flex items-center gap-[10px]"
+                    class="text-[1rem] mb-5 text-[#333333] max-[56.25rem]:text-[1rem] max-[25rem]:text-[.75rem] mt-[2.5rem] max-[56.25rem]:mt-[1.875rem] max-[25rem]:my-[.625rem] cursor-pointer flex items-center gap-[.625rem]"
                   >
                     {program.label}
                   </a>
                 {/each}
                 <div class="w-full mt-5">
                   <button
-                  on:click={() => redirectTo("/registration")}
-                  class=" w-full font-['Rubik'] bg-white text-black px-6 py-2 rounded-[4px] border border-black hover:bg-gray-50 transition-colors duration-200 shadow-[3px_6px_0px_#000000]"
+                  on:click={() => { redirectTo("/registration"); isActive = !isActive; }}
+                  class="w-full font-['Rubik'] bg-white text-black px-6 py-2 rounded-[.25rem] border border-black hover:bg-gray-50 transition-colors duration-200 shadow-[.1875rem_.375rem_0rem_#000000]"
                 >
                   Register Now
                 </button>          
@@ -188,22 +187,22 @@
 <!-- Desktop Navbar -->
       <div
         class="relative hidden laptop:block bg-white"
-        style="border-bottom: solid 1px rgba(0, 0, 0, 0.05);"
+        style="border-bottom: solid .0625rem rgba(0, 0, 0, 0.05);"
       >
         <div
-          class="py-[25px] max-[500px]:py-[12px] max-[800px]:py-[20px] desktop:px-[100px] laptop:px-[60px] mbl-lg:px-[40px] mbl-sm:px-[25px] px-[16px] flex items-center justify-between"
+          class="py-[1.5625rem] max-[31.25rem]:py-[.75rem] max-[50rem]:py-[1.25rem] desktop:px-[6.25rem] laptop:px-[3.75rem] mbl-lg:px-[2.5rem] mbl-sm:px-[1.5625rem] px-[1rem] flex items-center justify-between"
         >
           <div>
             <a href="/">
               <img
                 src="/tcl.svg"
-                class="cursor-pointer tablet:h-[50px] mbl-sm:h-[40px] h-[30px] w-auto"
+                class="cursor-pointer tablet:h-[3.125rem] mbl-sm:h-[2.5rem] h-[1.875rem] w-auto"
                 alt="TCL logo"
               />
             </a>
           </div>
 
-          <div class="flex justify-center items-center gap-[40px]">
+          <div class="flex justify-center items-center gap-[2.5rem]">
             {#each navItems as item}
               <a
                 href={item.href}
@@ -217,7 +216,7 @@
           <div>
             <button
             on:click={() => redirectTo("/registration")}
-            class=" font-['Rubik'] bg-white text-black px-6 py-2 rounded-[4px] border border-black hover:bg-gray-50 transition-colors duration-200 shadow-[3px_6px_0px_#000000]"
+            class=" font-['Rubik'] bg-white text-black px-6 py-2 rounded-[.25rem] border border-black hover:bg-gray-50 transition-colors duration-200 shadow-[.1875rem_.375rem_0rem_#000000]"
           >
             Register Now
           </button>          
