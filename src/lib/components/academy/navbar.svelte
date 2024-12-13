@@ -119,7 +119,7 @@
 
       <div
         id="menu"
-        class="fixed overflow-y-scroll pb-12 z-[11] transition-transform duration-300 -translate-x-[-100%] top-0 left-0 bg-primary h-screen w-screen {isActive
+        class="fixed overflow-y-scroll pb-12 z-[11] transition-transform duration-300 -translate-x-[-100%] top-0 left-0 bg-[#ffffff] h-screen w-screen {isActive
           ? 'translate-x-0'
           : ''}"
       >
@@ -134,7 +134,7 @@
               <div class="text-gray-600 text-xl font-semibold">
                 <a href="/" on:click={() => (isActive = false)}>
                   <img
-                    src="../../tcl3.svg"
+                    src="/academy/academy-logo.svg"
                     class="cursor-pointer tablet:h-[50px] mbl-sm:h-[40px] h-[30px] w-auto"
                     alt="TCL logo"
                   /></a
@@ -147,7 +147,7 @@
                   class="relative z-[12] cursor-pointer"
                   on:click={() => (isActive = !isActive)}
                 >
-                  <img src="/close.svg" alt="" srcset="" />
+                  <img src="/academy/close-black.svg" alt="" srcset="" />
                 </div>
               </div>
             </div>
@@ -156,23 +156,25 @@
               class="flex justify-between max-[400px]:gap-[24px] text-white mt-[60px] max-[400px]:mt-[24px] max-[800px]:mt-[30px] max-[1000px]:mt-[38px] max-[1000px]:flex-col max-[1000px]:gap-[40px]"
             >
          
-              <div class="max-w-[300px] w-[300px] max-[800px]:w-[75%]">
-                <h1
-                  class="pb-[20px] max-[400px]:pb-[10px] border-b font-bold text-[32px] max-[900px]:text-[24px] max-[400px]:text-[16px]"
-                >
-                  Explore Menu
-                </h1>
+              <div class="max-w-[300px] w-[300px] max-[800px]:w-[75%] flex flex-col justify-center items-center m-auto">
                 <!-- svelte-ignore a11y-missing-attribute -->
                 {#each navItems as program}
                   <a
                     href={program.href}
                     on:click={() => (isActive = false)}
-                    class="text-[20px] max-[900px]:text-[16px] max-[400px]:text-[12px] mt-[40px] max-[900px]:mt-[30px] max-[400px]:my-[10px] cursor-pointer flex items-center gap-[10px]"
+                    class="text-[16px] mb-5 text-[#333333] max-[900px]:text-[16px] max-[400px]:text-[12px] mt-[40px] max-[900px]:mt-[30px] max-[400px]:my-[10px] cursor-pointer flex items-center gap-[10px]"
                   >
                     {program.label}
-                    <img src="/arrow-right.svg" class="" />
                   </a>
                 {/each}
+                <div class="w-full mt-5">
+                  <button
+                  on:click={() => redirectTo("/registration")}
+                  class=" w-full font-['Rubik'] bg-white text-black px-6 py-2 rounded-[4px] border border-black hover:bg-gray-50 transition-colors duration-200 shadow-[3px_6px_0px_#000000]"
+                >
+                  Register Now
+                </button>          
+                </div>
               </div>
  
             </div>
