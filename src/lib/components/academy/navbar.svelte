@@ -142,23 +142,6 @@
               </div>
               <!-- svelte-ignore a11y-no-static-element-interactions -->
               <div class="flex items-center justify-between gap-[40px]">
-                <select
-                  id="country-code"
-                  name="country-Code"
-                  class="bg-primary text-white max-[600px]:hidden"
-                >
-                  <option class="text-white" value="Eng">ENG</option>
-                </select>
-
-                <Button
-                  text="Let's Build"
-                  outlined={true}
-                  className="bg-primary text-white border-2 max-[600px]:hidden"
-                  onClick={() => {
-                    isActive = false;
-                    initializeCalendlyPopup();
-                  }}
-                />
                 <!-- svelte-ignore a11y-click-events-have-key-events -->
                 <div
                   class="relative z-[12] cursor-pointer"
@@ -172,37 +155,17 @@
             <div
               class="flex justify-between max-[400px]:gap-[24px] text-white mt-[60px] max-[400px]:mt-[24px] max-[800px]:mt-[30px] max-[1000px]:mt-[38px] max-[1000px]:flex-col max-[1000px]:gap-[40px]"
             >
+         
               <div class="max-w-[300px] w-[300px] max-[800px]:w-[75%]">
                 <h1
                   class="pb-[20px] max-[400px]:pb-[10px] border-b font-bold text-[32px] max-[900px]:text-[24px] max-[400px]:text-[16px]"
                 >
-                  Our Products
-                </h1>
-                <!-- <ul> -->
-                  {#each products as product}
-                    <!-- <li> -->
-                      <a
-                        href={product.link}
-                        on:click={() => (isActive = false)}
-                        class="capitalize text-[20px] max-[900px]:text-[16px] max-[400px]:text-[12px] flex items-center gap-[10px] mt-[40px] max-[900px]:mt-[30px] max-[400px]:mt-[10px]"
-                      >
-                        {product.label}
-                        <img src="/arrow-right.svg" class="" alt="" />
-                      </a>
-                    <!-- </li> -->
-                  {/each}
-                <!-- </ul> -->
-              </div>
-              <div class="max-w-[300px] w-[300px] max-[800px]:w-[75%]">
-                <h1
-                  class="pb-[20px] max-[400px]:pb-[10px] border-b font-bold text-[32px] max-[900px]:text-[24px] max-[400px]:text-[16px]"
-                >
-                  Our Programs
+                  Explore Menu
                 </h1>
                 <!-- svelte-ignore a11y-missing-attribute -->
-                {#each programs as program}
+                {#each navItems as program}
                   <a
-                    href={program.link}
+                    href={program.href}
                     on:click={() => (isActive = false)}
                     class="text-[20px] max-[900px]:text-[16px] max-[400px]:text-[12px] mt-[40px] max-[900px]:mt-[30px] max-[400px]:my-[10px] cursor-pointer flex items-center gap-[10px]"
                   >
@@ -211,45 +174,7 @@
                   </a>
                 {/each}
               </div>
-              <div class="max-w-[400px] w-[400px] max-[800px]:w-[75%]">
-                <h1
-                  class="pb-[20px] max-[400px]:pb-[10px] border-b font-bold text-[32px] max-[900px]:text-[24px] max-[400px]:text-[16px]"
-                >
-                  About Timechain Labs
-                </h1>
-                <!-- svelte-ignore a11y-missing-attribute -->
-                {#each navLinks as { label, href }}
-                  <a
-                    {href}
-                    on:click={() => (isActive = false)}
-                    class="text-[20px] max-[900px]:text-[16px] max-[400px]:text-[12px] mt-[40px] max-[900px]:mt-[30px] max-[400px]:my-[10px] cursor-pointer flex items-center gap-[10px]"
-                  >
-                    {label}
-                    <img src="/arrow-right.svg" class="" />
-                  </a>
-                {/each}
-              </div>
-              <div class="max-[600px]:block hidden">
-                <select
-                  id="country-code"
-                  name="country-Code"
-                  class=" bg-white w-16 text-black"
-                >
-                  <option value="Eng">ENG</option>
-                </select>
-
-                <div class="mt-[24px]">
-                  <Button
-                    text="Let's Build"
-                    outlined={true}
-                    className="text-primary bg-secondary"
-                    onClick={() => {
-                      isActive = false;
-                      initializeCalendlyPopup();
-                    }}
-                  />
-                </div>
-              </div>
+ 
             </div>
           </div>
         </div>
@@ -257,6 +182,8 @@
     </div>
 
     <div>
+
+<!-- Desktop Navbar -->
       <div
         class="relative hidden laptop:block bg-white"
         style="border-bottom: solid 1px rgba(0, 0, 0, 0.05);"
@@ -295,6 +222,8 @@
           </div>
         </div>
       </div>
+
+
     </div>
   </nav>
 </div>
