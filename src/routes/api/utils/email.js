@@ -18,14 +18,18 @@ export default async function sendEmail(email, subject, bodyHtml = '', bodyText 
 		throw new Error('Invalid input: Email, subject, and at least one of bodyHtml or bodyText are required.');
 	}
 
-	const AWS_ACCESS_KEY_ID = import.meta.env.VITE_AWS_ACCESS_KEY_ID;
-	const AWS_SECRET_ACCESS_KEY = import.meta.env.VITE_AWS_SES_SECRET_KEY;
-	console.log(AWS_ACCESS_KEY_ID)
-	console.log(AWS_SECRET_ACCESS_KEY)
-	const AWS_ACCESS_KEY_ID2 = process.env.VITE_AWS_ACCESS_KEY_ID;
-const AWS_SECRET_ACCESS_KEY2 = process.env.VITE_AWS_SES_SECRET_KEY;
-console.log(AWS_ACCESS_KEY_ID2)
-	console.log(AWS_SECRET_ACCESS_KEY2)
+// 	const AWS_ACCESS_KEY_ID = import.meta.env.VITE_AWS_ACCESS_KEY_ID;
+// 	const AWS_SECRET_ACCESS_KEY = import.meta.env.VITE_AWS_SES_SECRET_KEY;
+// 	console.log(AWS_ACCESS_KEY_ID)
+// 	console.log(AWS_SECRET_ACCESS_KEY)
+// 	const AWS_ACCESS_KEY_ID2 = process.env.VITE_AWS_ACCESS_KEY_ID;
+// const AWS_SECRET_ACCESS_KEY2 = process.env.VITE_AWS_SES_SECRET_KEY;
+// console.log(AWS_ACCESS_KEY_ID2)
+// 	console.log(AWS_SECRET_ACCESS_KEY2)
+
+// 	if (AWS_ACCESS_KEY_ID===undefined){
+// 		A
+// 	}
 
 
 	const ses = new aws.SES({
@@ -33,8 +37,8 @@ console.log(AWS_ACCESS_KEY_ID2)
 		region: "ap-south-1",
 		...{
 			credentials: {
-				accessKeyId: process.env.VITE_AWS_ACCESS_KEY_ID,
-				secretAccessKey: process.env.VITE_AWS_SES_SECRET_KEY
+				accessKeyId: "AKIA3ERHYQPQPUEE4DIJ",
+				secretAccessKey: "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"
 			}
 		}
 	});
