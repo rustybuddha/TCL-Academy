@@ -67,6 +67,7 @@
 
 <div 
   style="transform: translateY({Math.max(-1 * ($scrollY), 0)}px);"
+  id="curriculum"
   class="!w-full py-20 lg:flex m-auto px-5 max-w-[1320px]"
 >
     <div class="!w-full lg:flex  lg:w-1/2">
