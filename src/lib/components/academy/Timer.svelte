@@ -27,45 +27,64 @@
     });
   </script>
   
-  <style>
-    .shadow-custom {
-      box-shadow: 3px 6px 0px #000000;
-    }
-  </style>
+
   
-  <div class="flex items-center justify-center gap-1 md:gap-2 lg:gap-4">
+  <div class="flex items-center justify-center p gap-1 md:gap-2 lg:gap-4">
     <!-- Days Container -->
-    <div class="flex flex-col items-center justify-center w-20 h-16 sm:w-16 sm:h-16 bg-white rounded-md border border-gray-300 shadow-custom">
-      <span class="text-2xl sm:text-xl font-bold">{days}</span>
-      <span class="text-sm text-gray-600">Days</span>
+    <div class="flex flex-col  items-center justify-center w-20 h-16 sm:w-[110px] sm:h-[110px] bg-white rounded-md border border-[1.6px] border-[#151515] shadow-custom">
+      <span class="text-2xl sm:text-5xl !font-[500] bai-jamjuree-font">{days}</span>
+      <span class="text-[1rem] -mt-1 text-[#5C5C5C] font-[400] rubik-font text">Days</span>
     </div>
   
     <!-- Separator -->
-    <span class="text-2xl font-bold text-gray-800">:</span>
+    <span class="text-3xl mx-1 sm:text-5xl !font-[500] text-[#333333]">:</span>
   
     <!-- Hours Container -->
-    <div class="flex flex-col items-center justify-center w-20 h-16 sm:w-16 sm:h-16 bg-white rounded-md border border-gray-300 shadow-custom">
-      <span class="text-2xl sm:text-xl font-bold">{hours}</span>
-      <span class="text-sm text-gray-600">Hours</span>
+    <div class="flex flex-col items-center justify-center w-20 h-16 sm:w-[110px] sm:h-[110px] bg-white rounded-md border border-[1.6px] border-[#151515] shadow-custom">
+      <span class="text-2xl sm:text-5xl !font-[500] bai-jamjuree-font">{hours}</span>
+      <span class="text-[1rem] -mt-1 text-[#5C5C5C] font-[400] rubik-font text">Hours</span>
     </div>
   
     <!-- Separator -->
-    <span class="text-2xl font-bold text-gray-800">:</span>
+    <span class="text-3xl mx-1 sm:text-5xl !font-[500] text-[#333333]">:</span>
   
     <!-- Minutes Container -->
-    <div class="flex flex-col items-center justify-center w-20 h-16 sm:w-16 sm:h-16 bg-white rounded-md border border-gray-300 shadow-custom">
-      <span class="text-2xl sm:text-xl font-bold">{minutes}</span>
-      <span class="text-sm text-gray-600">Minutes</span>
+    <div class="flex flex-col items-center justify-center w-20 h-16 sm:w-[110px] sm:h-[110px] bg-white rounded-md border border-[1.6px] border-[#151515] shadow-custom">
+      <span class="text-2xl sm:text-5xl !font-[500] bai-jamjuree-font">{minutes}</span>
+      <span class="text-[1rem] -mt-1 text-[#5C5C5C] font-[400] rubik-font text">Minutes</span>
     </div>
   
     <!-- Separator -->
-    <span class="text-2xl font-bold text-gray-800">:</span>
+    <span class="text-3xl mx-1 sm:text-5xl !font-[500] text-[#333333]">:</span>
   
     <!-- Seconds Container -->
-    <div class="flex flex-col items-center justify-center w-20 h-16 sm:w-16 sm:h-16 bg-white rounded-md border border-gray-300 shadow-custom">
-      <span class="text-2xl sm:text-xl font-bold">{seconds}</span>
-      <span class="text-sm text-gray-600">Seconds</span>
+    <div class="flex flex-col items-center justify-center w-20 h-16 sm:w-[110px] sm:h-[110px] bg-white rounded-md border border-[1.6px] border-[#151515] shadow-custom">
+      <span class="text-2xl sm:text-5xl !font-[500] bai-jamjuree-font">{seconds}</span>
+      <span class="text-[1rem] -mt-1 text-[#5C5C5C] font-[400] rubik-font text">Seconds</span>
     </div>
   </div>
   
-  
+  <style>
+    .shadow-custom {
+      box-shadow: 4px 6px 0px #000000;
+    }
+    .bai-jamjuree-font {
+      font-family: 'Bai Jamjuree', sans-serif !important;
+    }
+    .rubik-font {
+      font-family: 'Rubik', sans-serif !important;
+    }
+
+    
+@media (max-width: 429px) {
+  .text {
+    font-size: 16px !important;
+  }
+}
+@media (max-width: 351px) {
+  .text {
+    font-size: 12px !important;
+  }
+}
+
+  </style>
