@@ -184,17 +184,6 @@ export const POST = async ({ request }) => {
         // Close database connection
         await client.end();
 
-        try {
-                        await sendEmail(
-                            email,    
-                            'Enrollment Complete!!',
-                            registrationDone,
-                            `Dear ${fullName},\n\nThank you for enrolling in our course. Your payment has been successfully received, and your enrollment is now confirmed.\n\nWe look forward to seeing you in the course!`
-                        );
-                        console.log("Confirmation email sent successfully!");
-                    } catch (emailError) {
-                        console.error("Error sending confirmation email:", emailError);
-                    }
 
         return new Response(
             JSON.stringify({ message: "Student data saved successfully", id: res.rows[0].id, URL: paymentURL }),
