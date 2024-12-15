@@ -1,12 +1,5 @@
 <script>
   import { goto } from "$app/navigation";
-  import { onMount } from 'svelte';
-  import Loader from "$lib/components/academy/loader.svelte";
-  import countryCodes from "$lib/assets/countries-flag.json";
-  import { browser } from "$app/environment";
-  import toast from "svelte-french-toast";
-  import { z } from "zod";
-  import { page } from "$app/stores";
 
   const redirectTo = (url) => {
     goto(url);
@@ -44,33 +37,40 @@
       </div>
     </div>
 
-    <div class="w-full flex justify-center items-center mt-[5%] mb-[10%] mr-[2.5%] px-4">
-      <img class="mr-[5%] max-w-full h-52" src="/academy/herosection-Rohan.svg" alt="img" loading="lazy">
+    <div class="flex justify-center items-center px-4 mt-4 mb-4">
+      <img
+        class="max-w-[355px] sm:max-w-[400px] w-full h-auto" 
+        src="/academy/herosection-Rohan.svg" 
+        alt="img" 
+        loading="lazy">
     </div>
     
     <div class="w-full flex justify-center items-center">
-      <img class="max-w-full h-auto" src="/academy/hero-section-3.svg" alt="img">
+      <img class="max-w-[274px] sm:max-w-[300px] w-full h-auto" src="/academy/hero-section-3.svg" alt="img">
     </div>
     
     <div class="w-full flex justify-center items-center flex-col px-4">
-      <div class="mt-4 mb-3 justify-center">
+      <div class="mt-4 mb-3 flex flex-col justify-center items-center w-[274px]">
         {#each modules as module}
-        <div class="flex items-center  mt-5 w-full max-w-screen-lg px-4 sm:px-6 md:px-8">
-          <img 
-          class="max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[350px] h-auto transition-all duration-300 ease-in-out" 
-          src={module.image} 
-          alt={module.text} 
-          />
-          <p class="font-[400] text-[16px] sm:text-[18px] ml-4">{module.text}</p>
-        </div>
+          <div class="flex justify-start items-center mt-5 w-full max-w-screen-lg  sm:px-8">
+            <img 
+              class="w-4 sm:w-6 md:w-8" 
+              src={module.image} 
+              alt={module.text} 
+            />
+            <p class="font-[400] text-sm text-[#3333333] sm:text-[18px] ml-4 text-left sm:text-left tracking-[-0.5px]">
+              {module.text}
+            </p>
+          </div>
         {/each}
       </div>
+      
     </div>
 
   </div>
-  <div class="mx-auto pt-4 pb-2">
+  <div class="mx-auto flex justify-center items-center pt-4 pb-2 w-full">
     <button 
-      class="px-8 py-2 text-white bg-[#093baa] rounded whitespace-nowrap border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500"
+      class="px-8  py-2 w-[80%] text-white bg-[#093baa] rounded whitespace-nowrap border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500"
       on:click={() => redirectTo('/registration')}> 
       Register Now
     </button>
@@ -114,7 +114,7 @@
       </div>
     </div>
   </div>
-  <div class="w-1/2 mt-[4%] mb-[10%] mr-[2.5%]">
+  <div class="w-1/2 mt-[2%] mr-[2.5%]">
     <img class="mr-[5%] max-w-full h-auto" src="/academy/herosection-Rohan.svg" alt="img" loading="lazy">
   </div>
 </div>
