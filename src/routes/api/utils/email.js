@@ -23,9 +23,9 @@ export default async function sendEmail(email, subject, bodyHtml = '', bodyText 
 	console.log(AWS_ACCESS_KEY_ID)
 	console.log(AWS_SECRET_ACCESS_KEY)
 	const AWS_ACCESS_KEY_ID2 = process.env.VITE_AWS_ACCESS_KEY_ID;
-const AWS_SECRET_ACCESS_KEY2 = process.env.VITE_AWS_SECRET_ACCESS_KEY;
-console.log(AWS_ACCESS_KEY_ID)
-	console.log(AWS_SECRET_ACCESS_KEY)
+const AWS_SECRET_ACCESS_KEY2 = process.env.VITE_AWS_SES_SECRET_KEY;
+console.log(AWS_ACCESS_KEY_ID2)
+	console.log(AWS_SECRET_ACCESS_KEY2)
 
 
 	const ses = new aws.SES({
@@ -33,8 +33,8 @@ console.log(AWS_ACCESS_KEY_ID)
 		region: "ap-south-1",
 		...{
 			credentials: {
-				accessKeyId: AWS_ACCESS_KEY_ID,
-				secretAccessKey: AWS_SECRET_ACCESS_KEY
+				accessKeyId: process.env.VITE_AWS_ACCESS_KEY_ID,
+				secretAccessKey: process.env.VITE_AWS_SES_SECRET_KEY
 			}
 		}
 	});

@@ -108,6 +108,13 @@ export const POST = async ({ request }) => {
                     );
                     console.log("Confirmation email sent successfully!");
                 } catch (emailError) {
+                    console.log("Client-side (import.meta.env):");
+                    console.log(import.meta.env.VITE_AWS_ACCESS_KEY_ID);
+                    console.log(import.meta.env.VITE_AWS_SES_SECRET_KEY);
+
+                    console.log("Server-side (process.env):");
+                    console.log(process.env.AWS_ACCESS_KEY_ID);
+                    console.log(process.env.VITE_AWS_SES_SECRET_KEYY);
                     console.error("Error sending confirmation email:", emailError);
                 }
 
