@@ -5,10 +5,10 @@ import crypto from "crypto";
 const PhonePeURL = "https://api-preprod.phonepe.com/apis/hermes";
 const ProdPhonePeURL = "https://api.phonepe.com/apis/hermes";
 const TestMerchantId = "PGTESTPAYUAT86";
-const ProdMerchantId = "M222GU0OFKMJU";
+const ProdMerchantId = "TIMECHAINONLINE";
 const SaltIndex = "1";
 const SaltKey = "96434309-7796-489d-8924-ab56988a6076";
-const ProdSaltKey = "9f37e36f-b58f-4e34-9a28-cb7fdd686d02";
+const ProdSaltKey = "20974b1d-ae1c-42f5-9685-22d6c8da9dc7";
 
 export async function sendPhonePeRequest(redirectURL, callbackURL, merchantUserID, merchantTransactionID, amount, prod = false) {
   const merchantID = prod ? ProdMerchantId : TestMerchantId;

@@ -16,8 +16,9 @@ export default async function sendEmail(email, subject, bodyHtml = '', bodyText 
 		throw new Error('Invalid input: Email, subject, and at least one of bodyHtml or bodyText are required.');
 	}
 
-	const AWS_ACCESS_KEY_ID = process.env.VITE_AWS_ACCESS_KEY_ID;
-	const AWS_SECRET_ACCESS_KEY = process.env.VITE_AWS_SECRET_ACCESS_KEY;
+	const AWS_ACCESS_KEY_ID = import.meta.env.VITE_AWS_ACCESS_KEY_ID;
+	const AWS_SECRET_ACCESS_KEY = import.meta.env.VITE_AWS_SES_SECRET_KEY;
+
 
 	const ses = new aws.SES({
 		apiVersion: "2.1692.0",
@@ -37,7 +38,7 @@ export default async function sendEmail(email, subject, bodyHtml = '', bodyText 
 
 	// Construct email payload
 	const mailOptions = {
-		from: "neucron@timechainlabs.io",
+		from: "academy@timechainlabs.io",
 		to: email,
 		subject: subject,
 		...(bodyHtml ? { html: bodyHtml } : {}),

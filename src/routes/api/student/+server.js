@@ -2,6 +2,8 @@ import pkg from 'pg';
 const { Client } = pkg;
 import { v4 as uuidv4 } from 'uuid';
 import { sendPhonePeRequest } from '../utils/phonepe-init.js';
+import { registrationDone } from '../utils/registrationComplete.js';
+import sendEmail from '../utils/email.js';
 import axios from "axios";
 
 const dbUri = "postgresql://neondb_owner:ieZAv95SntYJ@ep-lively-shape-a5ts91cg.us-east-2.aws.neon.tech/neondb?sslmode=require";
@@ -72,7 +74,7 @@ const generatePhonePeUrl = async (userId) => {
             "PGTESTPAYUAT86", // MerchantUserID (replace with dynamic if needed)
             userId,           // MerchantTransactionID
             8999,           // Payment amount in INR
-            false             // Set to true for production
+            true             // Set to true for production
         );
         return paymentURL;
     } catch (error) {
@@ -181,6 +183,7 @@ export const POST = async ({ request }) => {
 
         // Close database connection
         await client.end();
+
 
         return new Response(
             JSON.stringify({ message: "Student data saved successfully", id: res.rows[0].id, URL: paymentURL }),
