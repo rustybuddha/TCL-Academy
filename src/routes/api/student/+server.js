@@ -73,7 +73,7 @@ const generatePhonePeUrl = async (userId) => {
             callbackURL,
             "PGTESTPAYUAT86", // MerchantUserID (replace with dynamic if needed)
             userId,           // MerchantTransactionID
-            8999,           // Payment amount in INR
+            10,           // Payment amount in INR
             true             // Set to true for production
         );
         return paymentURL;
@@ -105,12 +105,9 @@ export const POST = async ({ request }) => {
             WHERE email = $1;
         `;
         const checkRes = await client.query(checkQuery, [email]);
-        console.log(checkRes.rows)
 
         if (checkRes.rows.length > 0) {
-            console.log("entered code")
             const existingUser = checkRes.rows[0];
-            console.log(existingUser)
             const { paymentStatus, updatedAt, id: userId } = existingUser;
             const lastUpdatedTime = new Date(updatedAt);
             const currentTime = new Date();
