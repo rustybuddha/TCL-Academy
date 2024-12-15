@@ -1,5 +1,7 @@
 import nodemailer from 'nodemailer';
 import * as aws from '@aws-sdk/client-ses';
+import dotenv from 'dotenv'
+dotenv.config();
 
 
 /**
@@ -18,6 +20,12 @@ export default async function sendEmail(email, subject, bodyHtml = '', bodyText 
 
 	const AWS_ACCESS_KEY_ID = import.meta.env.VITE_AWS_ACCESS_KEY_ID;
 	const AWS_SECRET_ACCESS_KEY = import.meta.env.VITE_AWS_SES_SECRET_KEY;
+	console.log(AWS_ACCESS_KEY_ID)
+	console.log(AWS_SECRET_ACCESS_KEY)
+	const AWS_ACCESS_KEY_ID2 = process.env.VITE_AWS_ACCESS_KEY_ID;
+const AWS_SECRET_ACCESS_KEY2 = process.env.VITE_AWS_SECRET_ACCESS_KEY;
+console.log(AWS_ACCESS_KEY_ID)
+	console.log(AWS_SECRET_ACCESS_KEY)
 
 
 	const ses = new aws.SES({
