@@ -64,14 +64,14 @@
  <div class="py-16 bg-gray-50" style="width: 100vw; height: full; background-image: url('/academy/testiback.svg'); background-repeat: no-repeat; background-size: cover; background-position: center;">
     <div class="flex justify-between h-15 mb-5 ">
         <img src="/academy/greatAchievments.svg" alt="img" style="margin-top:-80px !important">
-               <p class="text-center text-4xl font-bold mb-8">
+               <p class="text-center text-4xl lg:text-5xl !font-[500] mb-8">
                    Here's what our Students have to say
                 </p>
-                <img src="/academy/aspiringDevelopers.svg" alt="img" style="margin-top:-20px !important">
+                <img src="/academy/aspiringDevelopers.svg" alt="img" style="margin-top:-20px !important" class="-ml-2">
             </div>
     <div class="max-w-[1440px] m-auto">
     
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-6 max-w-6xl mx-auto card-care">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-6 max-w-7xl mx-auto card-care">
       {#each columns as column}
         <div class="flex flex-col gap-6 w-1/1 ">
           {#each column as testimonial}
@@ -118,7 +118,7 @@
       {/each}
     </div>
 </div>
-<div class="flex justify-between h-15 mb-5 ">
+<div class="flex justify-between h-15 mb-2 mt-5">
     <img src="/academy/impactfulresults.svg" alt="img">
     <img src="/academy/transformation.svg" alt="img">
         </div>
