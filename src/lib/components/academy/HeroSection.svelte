@@ -27,7 +27,7 @@
     <div class="w-full m-auto">
       <div class="flex items-center justify-center m-auto relative px-5">
         <span class="text-xl md:text-[24px] text-center !font-[500]">
-          Master Blockchain Developmnet<br> and Boost your Experience <br>
+          Master Blockchain Development<br> and Boost your Experience <br>
           with Projects and <br> Internships
           <p class="flex justify-center">
             in just  
@@ -131,7 +131,7 @@
       <div class="w-full">
         <div class=" flex w-full">
           <span class="text-2xl lg:text-3xl xl:text-4xl !font-[500]">
-            Master Blockchain Developmnet <br>
+            Master Blockchain Development <br>
             and Boost your Experience <br>
             with Projects and <br> Internships
             <p class="flex">
