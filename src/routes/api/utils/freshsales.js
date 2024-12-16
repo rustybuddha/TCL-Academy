@@ -1,21 +1,21 @@
 
 
-export async function createDeal(salesName, contactNumber, linkedIN, address, countryName) {
+export async function createDeal(name, email, contactNumber, linkedIN, address, countryName) {
     const url = "https://tclabs.myfreshworks.com/crm/sales/api/deals";
 
     const payload = {
         deal: {
-            name: "Blockchain Mastery",
+            name: name,
             amount: 8999,
             sales_account: {
-                name: salesName,
+                name: email,
                 phone: contactNumber,
                 linkedin: linkedIN,
                 address: address,
                 country: countryName,
             },
-            "deal_pipeline_id": 402000189098,
-            
+            "currency_id":402000190124, 
+            "deal_pipeline_id": 402000189098,        
         },
     };
 
