@@ -7,10 +7,21 @@
 </div>
 
 
-<div class="lg:hidden mx-auto bg-cover bg-center justify-center p-8 flex flex-col pb-12" style="background-image: url('/academy/testimonials-mobile-1.svg'); background-repeat:no-repeat; object-fit:cover;">
-  <div class="mx-auto py-6 pt-12"><img class="mx-auto" src="/academy/testimonials-mobile-2.svg" alt=""></div>
+<div class="lg:hidden mx-auto flex flex-col pb-12 relative"
+  style="background-image: url('/academy/testimoniMo.svg'); 
+         background-size: cover; 
+         background-position: center center; 
+         background-repeat: no-repeat;">
 
-  <div class="mx-auto bg-white rounded-md p-6 border border-gray-200 shadow-sm mb-2">
+         <div class="flex mt-6 -mb-12 justify-between items-center">
+          <img src="/academy/testiimg1.svg" alt="">
+          <img src="/academy/testiimg4.svg" alt="">
+         </div>
+
+  <div class="mx-auto py-2 pt-12"><p class="heading text-[#333333] bai-jamjuree-font !font-[500] text-center text-3xl">Here's what our Students  <br>
+    have to say</p></div>
+    <div class="p-6">
+  <div class="mx-auto bg-white rounded-md p-6 border border-gray-200 shadow-md mb-2">
     <div class="mx-auto pb-4"><span>Joining TSoC, I was eager to learn—and my expectations were greatly exceeded.</span> I completed this course with not only a deeper understanding of blockchain but also with the confidence and skill set to take future challenges in my career.</div>
     <div class="flex justify-between">
       <div class="flex pt-1 pr-3">
@@ -27,7 +38,7 @@
     </div>
   </div>
 
-  <div class="mx-auto bg-white rounded-md p-6 border border-gray-200 shadow-sm my-2">
+  <div class="mx-auto mt-5 bg-white rounded-md p-6 border border-gray-200 shadow-md my-2">
     <div class="mx-auto pb-4"><span>My learning experience through Timechain Labs has been incredibly enriching. Before enrolling for the Timechain Summer of Code (TSoC) program, I was familiar with the MERN stack and had a basic understanding of blockchain. Thanks to the TSoC program,</span> I've advanced my skills in blockchain to an intermediate level <span>by learning new frameworks like Svelte and NestJS. I'm grateful to the Timechain Labs team for this amazing opportunity to grow and expand my knowledge.</span></div>
     <div class="flex justify-between">
       <div class="flex pt-1 pr-3">
@@ -44,7 +55,7 @@
     </div>
   </div>
 
-  <div class="mx-auto bg-white rounded-md p-6 border border-gray-200 shadow-sm my-2">
+  <div class="mx-auto mt-5 bg-white rounded-md p-6 border border-gray-200 shadow-md my-2">
     <div class="mx-auto pb-4">I’m thrilled to share my recent upskilling journey, where I delved into the fundamentals of blockchain technology and expanded my technical repertoire. I gained hands-on experience with technologies like Node.js, SvelteKit, and NestJS, mastering both frontend and backend development. <span>Participating in TSoC, in collaboration with BSV and Timechain Labs, was a pivotal experience that significantly boosted my growth as a developer.</span></div>
     <div class="flex justify-between">
       <div class="flex pt-1 pr-3">
@@ -61,7 +72,7 @@
     </div>
   </div>
 
-  <div class="mx-auto bg-white rounded-md p-6 border border-gray-200 shadow-sm my-2">
+  <div class="mx-auto mt-5 bg-white rounded-md p-6 border border-gray-200 shadow-md my-2">
     <div class="mx-auto pb-4">This was my first blockchain course, and I gained a lot of value from Timechain Labs, from the fundamentals of blockchain to advanced hands-on development. <span>Initially I struggled with the React framework, but this course introduced me to SvelteKit and NestJS, which I found more approachable. Additionally I gained experience with tools like sCrypt for smart contract development and explored both frontend and backend development.</span></div>
     <div class="flex justify-between">
       <div class="flex pt-1 pr-3">
@@ -78,7 +89,7 @@
     </div>
   </div>
 
-  <div class="mx-auto bg-white rounded-md p-6 border border-gray-200 shadow-sm my-2">
+  <div class="mx-auto mt-5 bg-white rounded-md p-6 border border-gray-200 shadow-md my-2">
     <div class="mx-auto pb-4"><span>During TSoC, I delved into blockchain technology and smart contracts, gaining practical insights and enhancing my skills in Web3 development. </span>The mentorship and real-world projects were particularly valuable, allowing me to apply theoretical knowledge to practical scenarios.</div>
     <div class="flex justify-between">
       <div class="flex pt-1 pr-3">
@@ -95,7 +106,7 @@
     </div>
   </div>
 
-  <div class="mx-auto bg-white rounded-md p-6 border border-gray-200 shadow-sm mt-2">
+  <div class="mx-auto mt-5 bg-white rounded-md p-6 border border-gray-200 shadow-md ">
     <div class="mx-auto pb-4"><span>I dug into the principles of blockchain during TSoC, where I got to use satoshis in actual transactions and deploy contracts. I gained more insight into blockchain technology, which also introduced me to the idea of tokens. Working with NestJS for backend development and SvelteKit for frontend implementation helped me advance my knowledge. Having worked with both frameworks in practice, </span> I was able to build scalable and responsive applications and improved my full stack development skills. </div>
     <div class="flex justify-between">
       <div class="flex pt-1 pr-3">
@@ -112,4 +123,28 @@
     </div>
   </div>
 
+  </div>
+  <div class="flex mt-4 justify-between items-center">
+    <img src="/academy/testiimg3.svg" alt="">
+    <img src="/academy/testiimg2.svg" alt="">
+   </div>
 </div>
+
+<style>
+  .bai-jamjuree-font {
+  font-family: 'Bai Jamjuree', sans-serif !important;
+}
+.rubik-font {
+  font-family: 'Rubik', sans-serif !important;
+}
+@media (max-width:420px){
+  .heading{
+    font-size:24px !important;
+  }
+}
+@media (max-width:350px){
+  .heading{
+    font-size:20px !important;
+  }
+}
+</style>
