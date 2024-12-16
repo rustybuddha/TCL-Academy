@@ -57,7 +57,7 @@
 
 <Toaster/>
   <!-- Mobile View -->
-  <div class="sm:hidden mx-auto bg-cover bg-center justify-center py-6 flex flex-col" style="background-image: url('/academy/contact-mobile-1.svg');">
+  <div class="md:hidden mx-auto bg-cover bg-center justify-center py-6 flex flex-col" style="background-image: url('/academy/contact-mobile-1.svg');">
     <div class="flex w-full justify-between items-center">
       <img src="/academy/contact4.svg" alt="">
       <img src="/academy/contact3.svg" alt="">
@@ -186,13 +186,18 @@
   </div>
   
   <!-- Desktop View -->
-  <div class="hidden sm:flex max-w-[1440px] mx-auto bg-cover bg-center justify-center p-16" style="background-image: url('/academy/contact-section-1.svg');">
+  <div class="hidden md:flex w-full bg-center bg-no-repeat bg-cover" style="background-image: url('/academy/contact-section-1.svg');">
+
+  <div class=" flex max-w-[1440px] m-auto justify-center p-16">
     <div class="w-1/2 mx-auto pr-6 pt-8 pl-8">
       <h1 class="font-['Bai Jamjuree'] md:text-3xl lg:text-5xl font-[500] text-[#333333]" style="line-height: 55px;">Let’s have a Conversation!<br>We’re here to help.</h1>
       <p class="mt-4 text-lg text-[#5C5C5C] font-[300] font-['Rubik']" style="line-height: 28px;">
         Tell us more about what you’re looking for. Our team is <br> dedicated to finding the best way to support your needs, 
         and <br> one of our experts will be in touch with you shortly to discuss <br> how we can assist.
       </p>
+      <div class=" mt-10">
+        <img src="/academy/desktopcontactimg.svg" alt="">
+      </div>
     </div>
     <div class="w-1/2 pl-6 pt-6">
       <div class="w-full max-w-lg p-6 bg-white rounded-lg shadow-md mb-12 mt-4 mx-auto border border-grey-400">
@@ -295,6 +300,7 @@
     </div>
   </div>
   
+  </div>
   <!-- Success Modal -->
   {#if showModal}
   <div class="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center z-50 px-4 sm:px-8">
