@@ -384,7 +384,7 @@
 </div>
 
 <!-- Testimonial Cards -->
-<div class=" !-mt-4 md:pt-10 flex container-care sm:flex-col md:flex-row gap-6 justify-center items-start max-w-[1300px] m-auto" style="margin-top: 30px; margin-bottom:100px;">
+<div class=" !-mt-4 md:pt-10 flex container-care sm:flex-col md:flex-row gap-6 justify-center items-start max-w-[1300px] m-auto" style="margin-top: 30px;">
   {#each testimonials as testimonial}
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <!-- svelte-ignore a11y-no-static-element-interactions -->
