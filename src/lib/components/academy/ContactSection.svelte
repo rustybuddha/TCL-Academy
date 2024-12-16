@@ -186,11 +186,11 @@
   </div>
   
   <!-- Desktop View -->
-  <div class="hidden md:flex w-full bg-center bg-no-repeat bg-cover" style="background-image: url('/academy/contact-section-1.svg');">
+  <div class="hidden md:flex justify-center items-center w-full bg-center bg-no-repeat bg-cover p-10" style="background-image: url('/academy/contact-section-1.svg');">
 
-  <div class=" flex max-w-[1440px] m-auto justify-center p-16">
-    <div class="w-1/2 mx-auto pr-6 pt-8 pl-8">
-      <h1 class="font-['Bai Jamjuree'] md:text-3xl lg:text-5xl font-[500] text-[#333333]" style="line-height: 55px;">Let’s have a Conversation!<br>We’re here to help.</h1>
+    <div class="flex max-w-[1280px] w-full mx-auto justify-between items-center gap-10">
+    <div class="w-2/2  mx-auto">
+      <h1 class="font-['Bai Jamjuree'] md:text-3xl lg:text-5xl font-[500] text-[#333333]">Let’s have a Conversation!<br>We’re here to help.</h1>
       <p class="mt-4 text-lg text-[#5C5C5C] font-[300] font-['Rubik']" style="line-height: 28px;">
         Tell us more about what you’re looking for. Our team is <br> dedicated to finding the best way to support your needs, 
         and <br> one of our experts will be in touch with you shortly to discuss <br> how we can assist.
@@ -199,7 +199,7 @@
         <img src="/academy/desktopcontactimg.svg" alt="">
       </div>
     </div>
-    <div class="w-1/2 pl-6 pt-6">
+    <div class="w-2/2 mx-auto">
       <div class="w-full max-w-lg p-6 bg-white rounded-lg shadow-md mb-12 mt-4 mx-auto border border-grey-400">
         <form on:submit={handleSubmit}>
           <!-- Full Name Input -->
