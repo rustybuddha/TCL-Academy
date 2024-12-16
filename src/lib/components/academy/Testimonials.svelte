@@ -1,29 +1,15 @@
-<style>
-@media (min-width: 1024px) {
-  .testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    grid-template-areas:
-      "card1 card1 card2"
-      "card3 card4 card4"
-      "card5 card6 card6";
-  }
-}
-</style>
-
 
 
 <div class="flex flex-col items-center space-y-8 p-8 bg-gray-50">
     <!-- Header Section -->
-    <h2 class="text-2xl font-bold text-gray-900">Here's what our Students have to say</h2>
+    <h2 class="text-5xl !font-[500] text-[#333333] bai-jamjuree-font">Here's what our Students have to say</h2>
   
     <!-- Testimonials Grid -->
     <div class="testimonial-grid max-w-7xl w-full">
       
       <!-- Testimonial Card 1 (Spans 2 Columns) -->
       <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col justify-between" style="grid-area: card1;">
-        <p class="text-gray-700 mb-4">Joining TSoC, I was eager to learn and my expectations were greatly exceeded. I completed this course with not only a deeper understanding of blockchain but also with the confidence and skill set to take future challenges in my career.</p>
+        <p class="text-[#292929] rubik !font-[500] text mb-4">Joining TSoC, I was eager to learn and my expectations were greatly exceeded. I completed this course with not only a deeper understanding of blockchain but also with the confidence and skill set to take future challenges in my career.</p>
         <div class="flex items-center mt-4">
           <img src="https://via.placeholder.com/40" alt="Amisha Akhtar Mulani" class="rounded-full w-10 h-10 mr-3">
           <div>
@@ -114,3 +100,23 @@
     </div>
   </div>
   
+
+  <style>
+    @media (min-width: 1024px) {
+      .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        grid-template-areas:
+          "card1 card1 card2"
+          "card3 card4 card4"
+          "card5 card6 card6";
+      }
+    }
+    .bai-jamjuree-font {
+      font-family: 'Bai Jamjuree', sans-serif !important;
+    }
+    .rubik-font {
+      font-family: 'Rubik', sans-serif !important;
+    }
+    </style>

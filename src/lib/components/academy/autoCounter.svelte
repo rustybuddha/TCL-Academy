@@ -40,13 +40,13 @@
     });
   </script>
   
-  <div class="mx-auto max-w-5xl px-4 py-10 text-center">
+  <div class="mx-auto max-w-5xl px-2 py-10 text-center">
     <div class="mt-10 m-auto grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8">
       {#each counters as counter}
         <div class="flex flex-col  md:items-center">
           <div class="flex justify-start w-full">
-            <p id={`counter-${counter.id}`} class="text-4xl font-extrabold text-indigo-600 text-left">0</p>
-            <p class="text-left text-4xl font-extrabold text-indigo-600">+</p>
+            <p id={`counter-${counter.id}`} class="text-4xl font-extrabold text-[#093BAA] text-left">0</p>
+            <p class="text-left text-4xl font-extrabold text-[#093BAA]">+</p>
           </div>
           <p class="mt-2 text-gray-700 text-left">{counter.label}</p>
         </div>

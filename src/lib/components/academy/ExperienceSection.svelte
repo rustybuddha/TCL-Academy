@@ -361,43 +361,50 @@
 <div class="flex flex-col items-center max-w-6xl mx-auto mt-[100px]" >
   <div class="text-center mb-8">
     <div class="!max-w-[650px] flex justify-center mt-2 mb-2">
-      <p class="bg-[#E6EBF4] w-[170px] rounded-full text-[#093BAA] text-sm sm:text-base md:text-lg"> Featured Stories </p>
+      <p class="bg-[#E6EBF4] w-[150px] sm:w-[170px] rounded-full text-[#093BAA] bai-jamjuree-font font-[500] text-[12px] sm:text-base md:text-[1rem] p-1"> Featured Stories </p>
     </div>
-    <div class="text-center flex max-w-[650px] m-auto">
-      <p class="text-2xl sm:text-3xl md:text-4xl font-[700] text-[#333333]">
-        Over
+    <div class="text-center !max-w-[1050px] m-auto">
+      <p class="text-2xl sm:text-3xl md:text-4xl bai-jamjuree-font !font-[500] text-[#333333] text-size">
+        <span class="!font-[500] text-size text-2xl sm:text-2xl md:text-4xl mr-1">Over</span>
+        <span class="text-size text-[#093BAA] !font-[600] mr-1 text-2xl sm:text-2xl md:text-4xl">400+ Students</span>
+        <span class=" text-size hidden sm:inline-block !font-[500] text-2xl sm:text-2xl md:text-4xl">
+          have benefited
+        </span>
+        <span class="text-size sm:hidden !font-[500] text-2xl sm:text-2xl md:text-4xl">have</span>
       </p>
-      <p class="text-[#093BAA] font-[700] ml-2 mr-2 text-xl sm:text-2xl md:text-4xl">
-        400+ Students
-      </p>
-      <p class="text-xl sm:text-3xl md:text-4xl font-[700] text-[#333333]">
-        have benefited
+      <p class="text-size text-2xl sm:text-3xl md:text-4xl bai-jamjuree-font !font-[500] text-[#333333]">
+        <span class="text-size sm:hidden text-[#333333] !font-[500] text-2xl sm:text-3xl md:text-4xl">
+          benefited
+        </span>
+        <span class="text-size text-[#333333] !font-[500] text-2xl sm:text-3xl md:text-4xl"> from Timechain Labs.</span>
       </p>
     </div>
-    <p class="text-xl sm:text-3xl md:text-4xl !font-[700] flex mt-0 sm:mt-3 justify-center text-xl sm:text-2xl md:text-4xl">
-      from Timechain Labs.
-    </p>
+        
   </div>
 </div>
 
 <!-- Testimonial Cards -->
-<div class=" flex container-care sm:flex-col md:flex-row sm:flex-row gap-6 justify-center items-start max-w-[1300px] m-auto" style="margin-top: 30px; margin-bottom:100px;">
+<div class=" !-mt-4 md:pt-10 flex container-care sm:flex-col md:flex-row gap-6 justify-center items-start max-w-[1300px] m-auto" style="margin-top: 30px;">
   {#each testimonials as testimonial}
-    <div class="bg-white border rounded-lg  sm:w-1/2 flex flex-col card-care  md:flex-row gap-4 sm:gap-6 text-sm sm:text-base">
-      <div class=" text-white overflow-hidden  w-full">
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <!-- svelte-ignore a11y-no-static-element-interactions -->
+    <div class="bg-white border rounded-lg  sm:w-1/2 flex flex-col card-care  md:flex-row gap-4 sm:gap-6 text-sm sm:text-base cursor-pointer" on:click={() => openModal(testimonial.videoUrl)}>
+      <div class="text-white overflow-hidden w-full relative">
         <img src={testimonial.img} alt={testimonial.name} class="w-full rounded-l-[8px] img-care">
+        <img src="/academy/play-circle-02.svg" alt="" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
       </div>
+      
       <div class="flex flex-col justify-between px-2">
         <p class="text-green-500 text-2xl font-bold quote mt-5"><img src="/academy/card-quote.svg" alt=""></p>
-        <p class="text-gray-700 mt-2 text-sm sm:text-3xl font-[400] italic dis">{testimonial.description}</p>
+        <p class="text-[#333333] mt-2 text-xl sm:text-3xl !font-[400] rubik-font italic">{testimonial.description}</p>
         <div class="mt-4 mb-6 flex justify-between items-center">
          <div>
-           <p class="font-medium">{testimonial.name}</p>
-           <p class="text-xs text-gray-500">{testimonial.role}</p>
+           <p class="font-[400] rubik-font">{testimonial.name}</p>
+           <p class="text-xs font-[400] text-[#5C5C5C] rubik-font">{testimonial.role}</p>
           </div>
-          <button on:click={() => openModal(testimonial.videoUrl)} class="mt-2 w-10 !mr-[15px] h-10 rounded-full bg-blue-50 text-blue-500 flex items-center justify-center shadow-md hover:bg-blue-100">
+          <!-- <button on:click={() => openModal(testimonial.videoUrl)} class="mt-2 w-10 !mr-[15px] h-10 rounded-full bg-blue-50 text-blue-500 flex items-center justify-center shadow-md hover:bg-blue-100">
           <img src="/academy/play-btn.svg" alt="">
-          </button>
+          </button> -->
         </div>
       </div>
     </div>
@@ -423,6 +430,25 @@
 {/if}
 
 <style>
+  @media (max-width: 400px) {
+    .text-size {
+      font-size: 20px !important; 
+    }
+  }
+
+  @media (max-width: 360px) {
+    .text-size {
+      font-size: 18px !important; 
+    }
+  }
+
+
+.bai-jamjuree-font {
+  font-family: 'Bai Jamjuree', sans-serif !important;
+}
+.rubik-font {
+  font-family: 'Rubik', sans-serif !important;
+}
   @media (max-width: 640px) {
     .container-care {
       flex-direction: column !important;
@@ -432,9 +458,6 @@
   @media (max-width: 1144px) {
     .text-lg {
       font-size: 1.25rem !important; 
-    }
-    .text-4xl {
-      font-size: 2rem !important; 
     }
     .dis{
       font-size: 18px;
