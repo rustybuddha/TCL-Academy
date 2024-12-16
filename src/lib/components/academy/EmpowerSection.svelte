@@ -6,8 +6,9 @@
     import AutoCounter from "./autoCounter.svelte";
 </script>
 <!-- Empower Section  -->
-  <div class="hidden md:flex max-w-[1440px] mx-auto bg-cover bg-center py-4"
+  <div class="hidden max-w-full md:flex  mx-auto bg-cover bg-center py-4"
   style="background-image: url('/academy/empower-section-1.svg');">
+  <div class="max-w-[1440px] md:flex  mx-auto">
   <div class="w-1/2"><img src="/academy/empowernewdesk.svg" alt=""></div>
   <div class="w-1/2 flex flex-col justify-center pr-[5%]">
     <div class="pb-2 pt-6">
@@ -30,6 +31,7 @@
       <div class="pt-[2%] pb-[2%]"><button class="font-['Rubik'] px-[2%] py-[1%] text-white bg-[#093baa] rounded whitespace-nowrap border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500"  on:click={()=>{redirectTo('/registration')}}>Register Now</button></div>
       <!-- <div class="hidden pt-4 pb-4"><a href="/"><button class="px-8 py-2 text-white bg-[#093baa] rounded whitespace-nowrap border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500">Register Now</button></a></div> -->
   </div>
+</div>
 </div>
 <div class="md:hidden py-4 mx-auto bg-cover bg-center flex flex-col justify-center pb-6" style="background-image: url('/academy/empower-mobile-1.svg');">
 
