@@ -1,4 +1,4 @@
-<div class="mx-auto max-w-7xl py-10 px-6">
+<div class="mx-auto max-w-7xl py-10 px-6 lg:px-2">
     <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
       <div class="rounded-lg bg-[#08369B] p-8 text-white shadow-xl">
         <div class="flex items-center mb-8"> 
