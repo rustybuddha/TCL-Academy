@@ -89,7 +89,7 @@
         <div class="">
           <a href="/">
             <img
-              src="../../tcl.svg"
+              src="/academy/academy-logo.svg"
               class="cursor-pointer tablet:h-[3.125rem] mbl-sm:h-[2.5rem] h-[1.875rem] w-auto"
               alt="TCL logo"
             /></a
@@ -195,7 +195,7 @@
           <div>
             <a href="/">
               <img
-                src="/tcl.svg"
+                src="/academy/academy-logo.svg"
                 class="cursor-pointer tablet:h-[3.125rem] mbl-sm:h-[2.5rem] h-[1.875rem] w-auto"
                 alt="TCL logo"
               />

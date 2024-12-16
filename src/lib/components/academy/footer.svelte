@@ -60,7 +60,7 @@
       <!-- Top Section -->
       <div class="flex w-full items-start desktop:gap-x-[200px] gap-x-[100px] mb-[60px]">
         <div class="w-1/3 flex-2">
-          <img src="/tcl.svg" alt="Timechain Academy" class="h-12 mb-4" />
+          <img src="/academy/academy-logo.svg" alt="Timechain Academy" class="h-12 mb-4" />
           <p class="text-[18px] font-[300] text-[#33444F] pr-18">
             We make innovation safe and easy for you. We work on building the applications of the present with the help of the technology of the future.
           </p>
@@ -147,7 +147,7 @@
         <div class="space-y-[32px]">
           <!-- Logo and Description -->
           <div>
-            <img src="/tcl.svg" alt="Timechain Academy" class="h-[50px] w-[115px] my-[24px]" />
+            <img src="/academy/academy-logo.svg" alt="Timechain Academy" class="h-[50px] w-[115px] my-[24px]" />
             <p class="text-[16px] font-[300] text-[#33444F]">
               We make innovation safe and easy for you. We work on building the applications of the present with the help of the technology of the future.
             </p>
