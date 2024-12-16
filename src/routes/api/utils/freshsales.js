@@ -1,6 +1,6 @@
 
 
-export async function createDeal(salesName, userData) {
+export async function createDeal(salesName, contactNumber, linkedIN, address, countryName) {
     const url = "https://tclabs.myfreshworks.com/crm/sales/api/deals";
 
     const payload = {
@@ -9,9 +9,13 @@ export async function createDeal(salesName, userData) {
             amount: 8999,
             sales_account: {
                 name: salesName,
+                phone: contactNumber,
+                linkedin: linkedIN,
+                address: address,
+                country: countryName,
             },
             "deal_pipeline_id": 402000189098,
-            "custom_data": userData,
+            
         },
     };
 

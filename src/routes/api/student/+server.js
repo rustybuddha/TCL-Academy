@@ -148,7 +148,7 @@ export const POST = async ({ request }) => {
             }
         }
 
-        const dealId  = await createDeal(email)
+        const dealId  = await createDeal(email, phone, linkedIn, mailingAddress, countryCode.countryname)
         
 
 
