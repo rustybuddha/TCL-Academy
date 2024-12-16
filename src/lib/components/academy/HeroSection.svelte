@@ -26,7 +26,7 @@
   <div class="mx-auto">
     <div class="w-full m-auto">
       <div class="flex items-center justify-center m-auto relative px-5">
-        <span class="text-xl md:text-[24px] text-center !font-[500]">
+        <span class="text-xl text md:text-[24px] text-center !font-[500]">
           Master Blockchain Development<br> and Boost your Experience <br>
           with Projects and <br> Internships
           <p class="flex justify-center">
@@ -216,3 +216,11 @@
     <img class="mr-[5%] max-w-full h-auto" src="/academy/herosection-Rohan.svg" alt="img" loading="lazy">
   </div>
 </div>
+
+<style>
+  @media(max-width:360px){
+    .text{
+      font-size: 16px !important;
+    }
+  }
+</style>
