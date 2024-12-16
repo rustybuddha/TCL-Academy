@@ -4,6 +4,8 @@ import sendEmail from '../utils/email.js'; // Ensure you have this file for send
 import { registrationDone  } from '../utils/registrationComplete.js';
 import {  pendingPayment } from '../utils/paymentPending.js';
 
+import { updateDeal } from '../utils/freshsales.js';
+
 const { Pool } = pkg;
 
 // PostgreSQL connection configuration
@@ -40,7 +42,7 @@ export const POST = async ({ request }) => {
         }
 
         // Step 6: Calculate checksum
-        const checksumInput = callbackData.response + "20974b1d-ae1c-42f5-9685-22d6c8da9dc7" //'//20974b1d-ae1c-42f5-9685-22d6c8da9dc7' //'9f37e36f-b58f-4e34-9a28-cb7fdd686d0' // Prod key 
+        const checksumInput = callbackData.response + "9f37e36f-b58f-4e34-9a28-cb7fdd686d0" //20974b1d-ae1c-42f5-9685-22d6c8da9dc7// Prod key  //'9f37e36f-b58f-4e34-9a28-cb7fdd686d0' test key 
         const calculatedChecksum = sha256(checksumInput);
         console.log("Step 6: Calculated checksum:", calculatedChecksum);
 
@@ -83,8 +85,12 @@ export const POST = async ({ request }) => {
                 return new Response(JSON.stringify({ message: "User not found" }), { status: 404 });
             }
 
+
+
             const student = rows[0]; // Extract student details
             const studentEmail = student.email;
+
+            
 
             // Update the payment status
             let paymentStatus = 'Pending';
@@ -117,6 +123,8 @@ export const POST = async ({ request }) => {
                     { status: 400 }
                 );
             }
+
+            await updateDeal(student.deal_id)
 
             await client.query(
                 `UPDATE "Student" SET "paymentStatus" = $1 WHERE id = $2`,

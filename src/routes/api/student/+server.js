@@ -2,9 +2,7 @@ import pkg from 'pg';
 const { Client } = pkg;
 import { v4 as uuidv4 } from 'uuid';
 import { sendPhonePeRequest } from '../utils/phonepe-init.js';
-import { registrationDone } from '../utils/registrationComplete.js';
-import sendEmail from '../utils/email.js';
-import axios from "axios";
+import { createDeal } from '../utils/freshsales.js';
 
 const dbUri = "postgresql://neondb_owner:ieZAv95SntYJ@ep-lively-shape-a5ts91cg.us-east-2.aws.neon.tech/neondb?sslmode=require";
 
@@ -73,8 +71,8 @@ const generatePhonePeUrl = async (userId) => {
             callbackURL,
             "PGTESTPAYUAT86", // MerchantUserID (replace with dynamic if needed)
             userId,           // MerchantTransactionID
-            10,           // Payment amount in INR
-            true             // Set to true for production
+            8999,           // Payment amount in INR
+            false             // Set to true for production
         );
         return paymentURL;
     } catch (error) {
@@ -150,12 +148,16 @@ export const POST = async ({ request }) => {
             }
         }
 
+        const dealId  = await createDeal(email)
+        
+
+
         // If no existing entry, insert new record
         const userId = uuidv4();
         const updatedAt = new Date();
         const query = `
-            INSERT INTO "Student" (id, "fullName", email, phone, "linkedIn", "mailingAddress", "referedBy", "paymentStatus", "updatedAt", "countryCode", organization, profession)
-            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
+            INSERT INTO "Student" (id, "fullName", email, phone, "linkedIn", "mailingAddress", "referedBy", "paymentStatus", "updatedAt", "countryCode", organization, profession, deal_id)
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)
             RETURNING id;
         `;
         const values = [
@@ -171,6 +173,7 @@ export const POST = async ({ request }) => {
             countryCode,
             organization,
             profession,
+            dealId,
         ];
 
         const res = await client.query(query, values);
