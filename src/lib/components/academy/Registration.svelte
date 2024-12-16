@@ -471,9 +471,11 @@
     </div>
   </div>
 </div>
-<div class="sm:hidden mx-auto w-full -mt-8">
-  <img class="mx-auto w-full" src="/academy/rear-img-2.png" alt="" />
+<div class="sm:hidden mx-auto w-full flex justify-between items-center">
+  <img src="/academy/register2.svg" alt="Image2" >
+  <img src="/academy/regiter1.svg" alt="Image1" >
 </div>
+
 
 <!--Desktop View-->
 <div

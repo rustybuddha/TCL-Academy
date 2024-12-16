@@ -8,11 +8,11 @@
   const modules = [
     {
       image: '/academy/hero1.svg',
-      text: 'Modules to upskill frontend, backend & blockchain basics'
+      text: '6 Portfolio projects on six most popular blockchains'
     },
     {
       image: '/academy/hero2.svg',
-      text: 'Get certified as a Full Stack Blockchain Developer'
+      text: 'Master fullstack development with blockchain integration'
     },
     {
       image: '/academy/hero3.svg',
@@ -26,9 +26,9 @@
   <div class="mx-auto">
     <div class="w-full m-auto">
       <div class="flex items-center justify-center m-auto relative px-5">
-        <span class="text-2xl md:text-[24px] text-center !font-[500]">
-          Build Future-Proof Skills <br>
-          to Boost Your Career<br>
+        <span class="text-xl md:text-[24px] text-center !font-[500]">
+          Master Blockchain Developmnet<br> and Boost your Experience <br>
+          with Projects and <br> Internships
           <p class="flex justify-center">
             in just  
             <img class="w-20" src="/academy/hero-pin.svg" alt="img">
@@ -46,8 +46,56 @@
     </div>
     
     <div class="w-full flex justify-center items-center">
-      <img class="max-w-[274px] sm:max-w-[300px] w-full h-auto" src="/academy/hero-section-3.svg" alt="img">
+      <div class="flex items-center space-x-4">
+        <!-- Avatar Group -->
+        <div class="flex -space-x-2">
+          <img
+            src="/academy/shivamani.svg"
+            alt="avatar"
+            class="w-10 h-10 rounded-full border-2 border-white"
+          />
+          <img
+            src="/academy/meet.svg"
+            alt="avatar"
+            class="w-10 h-10 rounded-full border-2 border-white"
+          />
+          <img
+            src="/academy/nidhi.svg"
+            alt="avatar"
+            class="w-10 h-10 rounded-full border-2 border-white"
+          />
+          <!-- Student Count -->
+          <div
+            class="w-10 h-10 rounded-full bg-teal-500 flex items-center justify-center text-white font-bold border-2 border-white"
+          >
+            <img src="/academy/hero-img-1.svg" alt="">
+          </div>
+        </div>
+    
+        <!-- Star Ratings and Review Count -->
+        <div>
+          <div class="flex items-center">
+            <!-- Star Icons -->
+            {#each Array(5) as _, i}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 25 25"
+                class="w-6 h-6 text-yellow-500 px-1"
+              >
+                <path
+                  d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.547 1.6 8.147L12 18.896l-7.536 4.104 1.6-8.147L.001 9.306l8.332-1.151z"
+                />
+              </svg>
+            {/each}
+          </div>
+          <p class="text-[#333333] text-[11px] text-center">
+            4.8 of 5 (3.5k reviews)
+          </p>
+        </div>
+      </div>
     </div>
+    
     
     <div class="w-full flex justify-center items-center flex-col px-4">
       <div class="mt-4 mb-3 flex flex-col justify-center items-center w-[274px]">
@@ -79,14 +127,15 @@
 
 <div class="hidden sm:flex max-w-[1440px] mx-auto">
   <div class="w-1/2">
-    <div class="ml-[10%] mt-[15%] mr-[5%]">
+    <div class="ml-[10%] mt-[10%] mr-[5%]">
       <div class="w-full">
         <div class=" flex w-full">
-          <span class="text-2xl lg:text-4xl xl:text-5xl !font-[500]">
-            Build Future-Proof Skills <br>
-            to Boost Your Career in <br>
+          <span class="text-2xl lg:text-3xl xl:text-4xl !font-[500]">
+            Master Blockchain Developmnet <br>
+            and Boost your Experience <br>
+            with Projects and <br> Internships
             <p class="flex">
-              just  
+              in just  
               <img class="w-1/3 xl:w-1/4" src="/academy/hero-pin.svg" alt="img">
             </p>
           </span>
@@ -109,8 +158,57 @@
           </button>
         </div>
         <div class="w-3/4 ml-[4.3%]">
-          <img class="max-w-full h-auto" src="/academy/hero-section-3.svg" alt="img">
+          <div class="flex items-center space-x-4">
+            <!-- Avatar Group -->
+            <div class="flex -space-x-2 flex-shrink-0">
+              <img
+                src="/academy/shivamani.svg"
+                alt="avatar"
+                class="w-10 h-10 rounded-full border-2 border-white"
+              />
+              <img
+                src="/academy/meet.svg"
+                alt="avatar"
+                class="w-10 h-10 rounded-full border-2 border-white"
+              />
+              <img
+                src="/academy/nidhi.svg"
+                alt="avatar"
+                class="w-10 h-10 rounded-full border-2 border-white"
+              />
+              <!-- Student Count -->
+              <div
+                class="w-10 h-10 rounded-full bg-teal-500 flex items-center justify-center text-white font-bold border-2 border-white"
+              >
+                <img src="/academy/hero-img-1.svg" alt="" />
+              </div>
+            </div>
+        
+            <!-- Star Ratings and Review Count -->
+            <div class="flex flex-col flex-shrink-0 items-center space-x-2">
+              <div class="flex items-center space-x-1">
+                <!-- Star Icons -->
+                {#each Array(5) as _, i}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 25 25"
+                    class="w-5 h-5 text-yellow-500"
+                    style="padding: 2px;"
+                  >
+                    <path
+                      d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.547 1.6 8.147L12 18.896l-7.536 4.104 1.6-8.147L.001 9.306l8.332-1.151z"
+                    />
+                  </svg>
+                {/each}
+              </div>
+              <p class="text-[#333333] text-left text-[12px]">
+                4.8 of 5 (3.5k reviews)
+              </p>
+            </div>
+          </div>
         </div>
+        
       </div>
     </div>
   </div>

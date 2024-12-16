@@ -3,22 +3,22 @@
     const profiles = [
       {
         id: 1,
-        image: ' /person.svg',
+        image: '/academy/shivamani.svg ',
         background: 'bg-slate-100'
       },
       {
         id: 2,
-        image: '/academy/madam-1.svg',
+        image: '/academy/meet.svg',
         background: 'bg-stone-200'
       },
       {
         id: 3,
-        image: '/academy/sir-2.svg',
+        image: '/academy/nidhi.svg',
         background: 'bg-gray-200'
       },
       {
         id: 4,
-        image: '/academy/madam-2.svg',
+        image: '/academy/rick.svg',
         background: 'bg-red-100'
       }
     ];

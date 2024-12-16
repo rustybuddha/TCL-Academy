@@ -70,7 +70,7 @@
         <div class="">
           <a href="/">
             <img
-              src="../../tcl.svg"
+              src="/academy/academy-logo.svg"
               class="cursor-pointer tablet:h-[50px] mbl-sm:h-[40px] h-[30px] w-auto"
               alt="TCL logo"
             /></a

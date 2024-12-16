@@ -5,6 +5,7 @@
   
     let showModal = false;
     let phone = "";
+    let disable = true;
   
     const formSchema = z.object({
       fullName: z.string().min(1, "Full Name is required"),
@@ -15,6 +16,7 @@
     });
 
     const handleSubmit = (event) => {
+      
       event.preventDefault();
         const formData = new FormData(event.target);
         const data = {
@@ -23,6 +25,7 @@
         phone: formData.get("phone"),
         message: formData.get("message"),
         agreement: formData.get("agreement") === "on",
+        
       };
   
       const result = formSchema.safeParse(data);
@@ -45,14 +48,34 @@
     const closeModal = () => {
       showModal = false;
     };
+  
+    let isAgreementChecked = false;
+
+
+    $: isButtonDisabled = !isAgreementChecked;
   </script>
 
 <Toaster/>
   <!-- Mobile View -->
-  <div class="sm:hidden mx-auto bg-cover bg-center justify-center p-8 flex flex-col" style="background-image: url('/academy/contact-mobile-1.svg');">
-    <div class="mx-auto mt-12">
-      <img class="mx-auto" src="/academy/contact-mobile-2.svg" alt="">
+  <div class="md:hidden mx-auto bg-cover bg-center justify-center py-6 flex flex-col" style="background-image: url('/academy/contact-mobile-1.svg');">
+    <div class="flex w-full justify-between items-center">
+      <img src="/academy/contact4.svg" alt="">
+      <img src="/academy/contact3.svg" alt="">
+     </div>
+   <div class="px-6">
+   
+    <div class="mx-auto mt-0 text-center">
+      <!-- Header Section -->
+      <p class="text text-3xl sm:text-4xl !font-[500] leading-tight text-[#333333]">
+        Let’s have a Conversation! <br> We’re here to help.
+      </p>
+    
+      <!-- Supporting Text -->
+      <p class="text-para mt-4 text-[#5C5C5C] max-w-[400px] text-sm font-['Rubik'] sm:text-lg leading-relaxed mx-auto">
+        Tell us more about what you’re looking for. Our team is dedicated to finding the best way to support your needs, and one of our experts will be in touch with you shortly to discuss how we can assist.
+      </p>
     </div>
+    
     <div>
       <div class="w-full max-w-md p-6 bg-white rounded-lg shadow-md mb-12 mt-6 mx-auto">
         <form on:submit={handleSubmit}>
@@ -134,28 +157,47 @@
           </div>
           <!-- Checkbox Agreement -->
           <div class="flex items-start mb-4">
-            <input type="checkbox" id="agreement" name="agreement" class="w-4 h-4 mt-1 text-blue-600 border-gray-300 rounded focus:ring-blue-500" required>
+            <input  bind:checked={isAgreementChecked} type="checkbox" id="agreement" name="agreement" class="w-4 h-4 mt-1 text-blue-600 border-gray-300 rounded focus:ring-blue-500" required>
             <label for="agreement" class="ml-2 text-sm text-gray-600">
               I have read and agreed to Timechain <a href="/privacy-policy" class="text-blue-600 underline">Privacy Policy</a> and agree to receive communications
             </label>
           </div>
           <!-- Submit Button -->
-          <button type="submit" class="w-full font-['Rubik'] px-4 py-2 text-white bg-[#093baa] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500">
-            Submit
-          </button>
+          <button 
+          type="submit" 
+          class="w-full font-['Rubik'] px-4 py-2 text-[#FFFFFF] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500"
+          disabled={isButtonDisabled}
+          class:text-gray-400={isButtonDisabled}  
+          class:bg-[#093baa]={!isButtonDisabled}  
+          class:bg-gray-400={isButtonDisabled}  
+          class:cursor-not-allowed={isButtonDisabled} 
+        >
+          Submit
+        </button>
+        
         </form>
       </div>
     </div>
+    <div class="flex w-full justify-between items-center">
+      <img src="/academy/contact2.svg" alt="">
+      <img src="/academy/contact1.svg" alt="">
+     </div>
+  </div>
   </div>
   
   <!-- Desktop View -->
-  <div class="hidden sm:flex max-w-[1440px] mx-auto bg-cover bg-center justify-center p-16" style="background-image: url('/academy/contact-section-1.svg');">
+  <div class="hidden md:flex w-full bg-center bg-no-repeat bg-cover" style="background-image: url('/academy/contact-section-1.svg');">
+
+  <div class=" flex max-w-[1440px] m-auto justify-center p-16">
     <div class="w-1/2 mx-auto pr-6 pt-8 pl-8">
       <h1 class="font-['Bai Jamjuree'] md:text-3xl lg:text-5xl font-[500] text-[#333333]" style="line-height: 55px;">Let’s have a Conversation!<br>We’re here to help.</h1>
       <p class="mt-4 text-lg text-[#5C5C5C] font-[300] font-['Rubik']" style="line-height: 28px;">
         Tell us more about what you’re looking for. Our team is <br> dedicated to finding the best way to support your needs, 
         and <br> one of our experts will be in touch with you shortly to discuss <br> how we can assist.
       </p>
+      <div class=" mt-10">
+        <img src="/academy/desktopcontactimg.svg" alt="">
+      </div>
     </div>
     <div class="w-1/2 pl-6 pt-6">
       <div class="w-full max-w-lg p-6 bg-white rounded-lg shadow-md mb-12 mt-4 mx-auto border border-grey-400">
@@ -238,13 +280,19 @@
           </div>
           <!-- Checkbox Agreement -->
           <div class="flex items-start mb-4">
-            <input type="checkbox" id="agreement" name="agreement" class="w-4 h-4 mt-1 text-blue-600 border-gray-300 rounded focus:ring-blue-500" required>
+            <input bind:checked={isAgreementChecked} type="checkbox" id="agreement" name="agreement" class="w-4 h-4 mt-1 text-blue-600 border-gray-300 rounded focus:ring-blue-500" required>
             <label for="agreement" class="ml-2 text-sm text-gray-600">
               I have read and agreed to Timechain <a href="/privacy-policy" class="text-blue-600 underline">Privacy Policy</a> and agree to receive communications
             </label>
           </div>
           <!-- Submit Button -->
-          <button type="submit" class="w-full font-['Rubik'] px-4 py-2 text-white bg-[#093baa] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500">
+          <button
+          disabled={isButtonDisabled}
+          class:text-gray-400={isButtonDisabled}  
+          class:bg-[#093baa]={!isButtonDisabled}  
+          class:bg-gray-400={isButtonDisabled}  
+          class:cursor-not-allowed={isButtonDisabled} 
+          type="submit" class="w-full font-['Rubik'] px-4 py-2 text-white bg-[#093baa] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500">
             Submit
           </button>
         </form>
@@ -252,6 +300,7 @@
     </div>
   </div>
   
+  </div>
   <!-- Success Modal -->
   {#if showModal}
   <div class="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center z-50 px-4 sm:px-8">
@@ -316,13 +365,19 @@
   color: #111827;
 }
 
-.loader {
+/* .loader {
   border: 4px solid #e5e7eb;
   border-top: 4px solid #4f46e5;
   border-radius: 50%;
   width: 40px;
   height: 40px;
   animation: spin 1.5s linear infinite;
+} */
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: #d1d1d1;
 }
 
 @keyframes spin {
@@ -331,6 +386,21 @@
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@media(max-width:420px){
+  .text{
+    font-size:26px !important;
+  }
+  .text-para{
+    font-size: 10px !important;
+  }
+}
+
+@media(max-width:370px){
+  .text{
+    font-size:22px !important;
   }
 }
 
