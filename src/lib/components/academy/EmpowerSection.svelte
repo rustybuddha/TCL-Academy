@@ -8,13 +8,18 @@
 <!-- Empower Section  -->
   <div class="hidden md:flex max-w-[1440px] mx-auto bg-cover bg-center py-4"
   style="background-image: url('/academy/empower-section-1.svg');">
-  <div class="w-1/2"><img src="/academy/empower-section-2.svg" alt=""></div>
+  <div class="w-1/2"><img src="/academy/empowernewdesk.svg" alt=""></div>
   <div class="w-1/2 flex flex-col justify-center pr-[5%]">
-      <div class="pb-2 pt-6">
-        <p class="text-3xl font-[500] text-[#333333] text-left bai-jamjuree-font ">
-          Empowering Next Generation of Blockchain Developers
-        </p>
-        <p class="mt-4 text-[#5C5C5C] text-left rubik-font ">
+    <div class="pb-2 pt-6">
+      <p class="text-desk sm:text-3xl md:text-4xl lg:text-5xl !font-[500] text-[#333333] text-left bai-jamjuree-font -tracking-[0.8px] relative z-10">
+        Empowering Next Generation of Blockchain Developers
+      </p>
+ 
+      <hr class="border-0 hrmanipulatedesk1 h-[4.2px] bg-[#099d9b] w-[348px] sm:w-[250px] md:w-[340px] lg:w-[515px] mx-auto -mt-14 ml-1 z-0">
+      <hr class="border-0 hrmanipulatedesk2 h-[4.2px] bg-[#099d9b] w-[288px] sm:w-[300px] md:w-[330px] lg:w-[515px] mx-auto mt-11 ml-1 z-0">
+
+
+        <p class="mt-10 text-[#5C5C5C] !font-[300] text-lg text-left rubik-font ">
           We are transforming careers in blockchain technology through comprehensive programs. Our partnerships with colleges worldwide foster a global community of skilled professionals ready to make an impact.
         </p>
         <div class="-mt-10">
@@ -39,7 +44,7 @@
         We are transforming careers in blockchain technology through comprehensive programs. Our partnerships with colleges worldwide foster a global community of skilled professionals ready to make an impact.
       </p>
       <img src="/academy/empowernew.svg" alt="" class="m-auto">
-      <div class="-mt-10 flex justify-center items-center">
+      <div class="-mt-10 flex justify-between items-center">
       <div class="mx-auto max-w-7xl py-10 px-3 text-center">
         <div class="grid grid-cols-2 gap-6 md:grid-cols-2 lg:grid-cols-4">
           <!-- Counter 1 -->
@@ -109,5 +114,69 @@
     .text-size{
       font-size: 20px !important;
     }
+}
+
+@media (max-width:1400px){
+ .text-desk{
+  font-size: 40px !important;
+ }
+ .hrmanipulatedesk1{
+   width: 430px !important;
+   margin-top: -46px !important;
+ }
+ .hrmanipulatedesk2{
+  width: 340px !important;
+  margin-top: 35px !important;
+ }
+}
+
+@media (max-width:1155px){
+ .text-desk{
+  font-size: 36px !important;
+ }
+ .hrmanipulatedesk1{
+   width: 390px !important;
+   margin-top: -42px !important;
+ }
+ .hrmanipulatedesk2{
+  width: 340px !important;
+  margin-top: 32px !important;
+ }
+}
+@media (max-width:1035px){
+ .text-desk{
+  font-size: 32px !important;
+ }
+ .hrmanipulatedesk1{
+   width: 360px !important;
+   margin-top: -38px !important;
+ }
+ .hrmanipulatedesk2{
+  width: 290px !important;
+  margin-top: 28px !important;
+ }
+}
+@media (max-width:1025px){
+ .hrmanipulatedesk1{
+   width: 340px !important;
+   margin-top: -49px !important;
+ }
+ .hrmanipulatedesk2{
+  width: 280px !important;
+  margin-top: 35px !important;
+ }
+}
+@media (max-width:915px){
+ .text-desk{
+  font-size: 24px !important;
+ }
+ .hrmanipulatedesk1{
+   width: 270px !important;
+   margin-top: -52px !important;
+ }
+ .hrmanipulatedesk2{
+  width: 190px !important;
+  margin-top: 35px !important;
+ }
 }
 </style>
