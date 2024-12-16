@@ -396,7 +396,7 @@
       
       <div class="flex flex-col justify-between px-2">
         <p class="text-green-500 text-2xl font-bold quote mt-5"><img src="/academy/card-quote.svg" alt=""></p>
-        <p class="text-[#333333] mt-2 text-xl sm:text-3xl !font-[400] rubik-font italic">{testimonial.description}</p>
+        <p class="text-[#333333] mt-2 text-xl sm:text-2xl text  lg:text-3xl !font-[400] rubik-font italic">{testimonial.description}</p>
         <div class="mt-4 mb-6 flex justify-between items-center">
          <div>
            <p class="font-[400] rubik-font">{testimonial.name}</p>
@@ -491,6 +491,7 @@
     flex-direction: column !important;
   }
   
+  
   .img-care {
     border-top-left-radius: 8px !important;
     border-top-right-radius: 8px !important;
@@ -507,4 +508,11 @@
       flex-direction: row;
     }
   }
+
+  @media (max-width: 1130px) and (min-width: 890px) {
+  .text {
+    font-size: 18px !important;
+  }
+}
+
 </style>
