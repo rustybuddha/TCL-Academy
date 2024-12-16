@@ -99,7 +99,7 @@
         </div>
       </div>
 
-      <div class="flex justify-center items-baseline gap-4 mt-10 ">
+      <div class="flex md:flex-wrap lg:flex-nowrap justify-center items-baseline gap-4 mt-10 ">
 <!-- 1st card -->
 <div class="flex flex-col px-2 justify-center items-center max-w-[313px] pb-5 h-auto">
   <img src="/academy/newroadmapitem1.svg" alt="newroadmapitem" class="mb-4">
