@@ -392,13 +392,13 @@
             alt="checkmark"
           />
           <h2 class="text-lg md:text-2xl md:mb-4 font-bold">
-            Registration Successful!
+            Thankyou for your interest!
           </h2>
-          <p class="text-gray-600 mb-6 text-xs md:text-base text-center font-thin">
+          <!-- <p class="text-gray-600 mb-6 text-xs md:text-base text-center font-thin">
             Thank you for signing up! You're all set to join our next cohort.
             Our team will reach out soon with more details to help you get
             started. We're excited to have you on board!
-          </p>
+          </p> -->
 
           <button
             on:click={() => (successPopup = false)}
