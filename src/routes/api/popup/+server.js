@@ -1,85 +1,10 @@
 import pkg from 'pg';
 const { Client } = pkg;
 import { v4 as uuidv4 } from 'uuid';
-import { sendPhonePeRequest } from '../utils/phonepe-init.js';
 import { createDeal } from '../utils/freshsales.js';
 
 const dbUri = "postgresql://neondb_owner:ieZAv95SntYJ@ep-lively-shape-a5ts91cg.us-east-2.aws.neon.tech/neondb?sslmode=require";
 
-
-export const GET = async () => {
-    const client = new Client({
-        connectionString: dbUri,
-    });
-
-    try {
-        // Connect to the database
-        await client.connect();
-
-        // Example query to retrieve a list of tables
-        const res = await client.query(`
-            SELECT table_name 
-            FROM information_schema.tables 
-            WHERE table_schema = 'public';
-        `);
-
-        // Close the database connection
-        await client.end();
-
-        // Return the table names in the response
-        return new Response(
-            JSON.stringify({ message: "Database details fetched successfully", tables: res.rows }),
-            {
-                status: 200,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*', // Allow all origins or specify specific ones
-                    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-                    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-                },
-            }
-        );
-    } catch (error) {
-        console.error('Error fetching database details:', error);
-
-        // Return error response if something goes wrong
-        return new Response(
-            JSON.stringify({ message: "Error fetching database details", error: error.message }),
-            {
-                status: 500,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*', // Allow all origins or specify specific ones
-                    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-                    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-                },
-            }
-        );
-    }
-};
-
-// Reusable function to generate PhonePe URL
-const generatePhonePeUrl = async (userId) => {
-    const redirectURL = `https://academy.timechainlabs.io/registerdone`;
-    const callbackURL = "https://academy.timechainlabs.io/api/phonepe";
-
-
-
-    try {
-        const paymentURL = await sendPhonePeRequest(
-            redirectURL,
-            callbackURL,
-            "PGTESTPAYUAT86", // MerchantUserID (replace with dynamic if needed)
-            userId,           // MerchantTransactionID
-            8999,           // Payment amount in INR
-            false             // Set to true for production
-        );
-        return paymentURL;
-    } catch (error) {
-        console.error('Error generating PhonePe URL:', error);
-        throw new Error('Failed to generate payment URL');
-    }
-};
 
 export const POST = async ({ request }) => {
     const client = new Client({
@@ -92,7 +17,7 @@ export const POST = async ({ request }) => {
         console.log(formData);
 
         // Destructure the form data
-        const { fullName, email, phone, linkedIn, mailingAddress, referedBy, organization, profession, countryCode } = formData;
+        const { fullName, email, phone, message, countryCode } = formData;
 
         await client.connect(); // Establish database connection
 
@@ -106,17 +31,14 @@ export const POST = async ({ request }) => {
 
         if (checkRes.rows.length > 0) {
             const existingUser = checkRes.rows[0];
-            const { paymentStatus, updatedAt, id: userId } = existingUser;
-            const lastUpdatedTime = new Date(updatedAt);
-            const currentTime = new Date();
-            const timeDifference = (currentTime - lastUpdatedTime) / 1000 / 60; // Time difference in minutes
+            const { paymentStatus } = existingUser;
+            
 
             //   
-            if ((paymentStatus === 'FAILED' || paymentStatus === 'PENDING') && timeDifference > 5) {
-                // Generate new PhonePe URL if last updated > 5 minutes
-                const paymentURL = await generatePhonePeUrl(userId);
+            if ((paymentStatus === 'FAILED' || paymentStatus === 'PENDING')) {
+                
                 return new Response(
-                    JSON.stringify({ message: "Payment URL generated.", id: userId, URL: paymentURL }),
+                    JSON.stringify({ message: "Thank you for your interest! OUr team will contact you soon." }),
                     {
                         status: 200,
                         headers: {
@@ -136,7 +58,7 @@ export const POST = async ({ request }) => {
                 return new Response(
                     JSON.stringify({ message: responceMsg }),
                     {
-                        status: 400,
+                        status: 200,
                         headers: {
                             'Content-Type': 'application/json',
                             'Access-Control-Allow-Origin': '*', // Allow all origins or specify specific ones
@@ -148,7 +70,7 @@ export const POST = async ({ request }) => {
             }
         }
 
-        const { contact_id, deal_id }  = await createDeal(fullName, email, phone, linkedIn, mailingAddress, countryCode.countryname)
+        const { contact_id, deal_id }  = await createDeal(fullName, email, phone, "", "", countryCode.countryname,"", "", message)
         
 
 
@@ -165,29 +87,26 @@ export const POST = async ({ request }) => {
             fullName,
             email,
             phone,
-            linkedIn,
-            mailingAddress || null, // Handle optional field
-            referedBy || null,       // Handle optional field
-            'PENDING',               // Default to 'PENDING'
+            "",
+            "", // Handle optional field
+            message || null,       // Handle optional field
+            'INTEREST',               // Default to 'PENDING'
             updatedAt,
             countryCode,
-            organization,
-            profession,
+            "",
+            "",
             deal_id,
             contact_id,
         ];
 
-        const res = await client.query(query, values);
-
-        // Generate the PhonePe URL
-        const paymentURL = await generatePhonePeUrl(userId);
+        const res = await client.query(query, values)
 
         // Close database connection
         await client.end();
 
 
         return new Response(
-            JSON.stringify({ message: "Student data saved successfully", id: res.rows[0].id, URL: paymentURL }),
+            JSON.stringify({ message: "Student data saved successfully", id: res.rows[0].id }),
             {
                 status: 200,
                 headers: {

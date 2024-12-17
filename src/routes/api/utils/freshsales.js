@@ -95,7 +95,7 @@ export async function createDeal(name, email, contactNumber, linkedIN, address, 
         console.log("Response data:", data);
 
         // Return the deal ID from the response
-        return data.deal.id;
+        return { contact_id, deal_id: data.deal.id };
 
     } catch (error) {
         console.error("Error while calling the API:", error);
