@@ -31,43 +31,28 @@ export const POST = async ({ request }) => {
 
         if (checkRes.rows.length > 0) {
             const existingUser = checkRes.rows[0];
-            const { paymentStatus } = existingUser;
+            const { paymentstatus } = existingUser;
             
 
-            //   
-            if ((paymentStatus === 'FAILED' || paymentStatus === 'PENDING')) {
-                
-                return new Response(
-                    JSON.stringify({ message: "Thank you for your interest! OUr team will contact you soon." }),
-                    {
-                        status: 200,
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Access-Control-Allow-Origin': '*', // Allow all origins or specify specific ones
-                            'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-                            'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-                        },
-                    }
-                );
-            } else {
-                let responceMsg = "Course is already bought by this email."
-                if (paymentStatus !== 'COMPLETED') {
-                    responceMsg = "Please wait a few minutes as your previous payment is either still processing or has failed. Kindly try again in 5 minutes."
+            //
+            let responceMsg = "Course is already bought by this email."
+            if ((paymentstatus !== 'COMPLETED')) {
+                responceMsg = "Thank you for your interest! Our team will contact you soon."
+            
+            } 
+
+            return new Response(
+                JSON.stringify({ message: responceMsg }),
+                {
+                    status: 200,
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Access-Control-Allow-Origin': '*', // Allow all origins or specify specific ones
+                        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+                        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+                    },
                 }
-                // Return error if course is already bought
-                return new Response(
-                    JSON.stringify({ message: responceMsg }),
-                    {
-                        status: 200,
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Access-Control-Allow-Origin': '*', // Allow all origins or specify specific ones
-                            'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-                            'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-                        },
-                    }
-                );
-            }
+            );
         }
 
         const { contact_id, deal_id }  = await createDeal(fullName, email, phone, "", "", countryCode.countryname,"", "", message)
