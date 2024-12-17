@@ -16,7 +16,7 @@
     },
     {
       image: '/academy/hero3.svg',
-      text: 'Get certified and become industry ready in the competitive world'
+      text: 'Get an internship offer with one leading blockchain company'
     }
   ];
 
@@ -28,9 +28,9 @@
       <div class="flex items-center justify-center m-auto relative px-5">
         <span class="text-xl text md:text-[24px] text-center !font-[500]">
           <!-- Master <span class="!font-[600]"> BLOCKCHAIN </span>  & boost your <br>  experience  with Projects -->
-          Master Blockchain & boost your <br>  experience  with Projects
+          Master Blockchain with portfolio <br>  projects & get job opportunities
           <p class="flex justify-center">
-            in just  
+            in
             <img class="w-20" src="/academy/hero-pin.svg" alt="img">
           </p>
         </span>
@@ -131,7 +131,7 @@
       <div class="w-full">
         <div class=" flex w-full">
           <span class="text-2xl lg:text-3xl xl:text-4xl !font-[500]">
-            Master Blockchain & boost your <br>  experience  with Projects
+            Master Blockchain with <br> portfolio projects & <br> get job opportunities
             <p class="flex">
               in just  
               <img class="w-1/3 xl:w-1/4" src="/academy/hero-pin.svg" alt="img">
