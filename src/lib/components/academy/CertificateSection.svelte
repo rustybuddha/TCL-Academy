@@ -32,10 +32,12 @@
           <img src="/academy/certiImg3.svg" alt="">
           <p class="ml-1 -tracking-[0.4px] font-[300] text-sm text pb-3 text-[#333333]">Add the certificate to your Linkedin and in your Resume</p>
         </div>
-        <div class="mt-4 pt-[2%] pb-[2%] mb-4  w-[100%] flex justify-center items-center">
-            <button class="w-[80%] font-['Rubik']  px-[2%] py-[1%] text-white bg-[#093baa] rounded whitespace-nowrap border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500" on:click={()=>{redirectTo('/registration')}}>
-              Register Now
-            </button>
+        <div class="mx-auto flex justify-center items-center pt-4 pb-2 w-full">
+          <button 
+            class="px-8  py-2 w-[80%] text-white bg-[#093baa] rounded whitespace-nowrap border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500"
+            on:click={() => redirectTo('/registration')}> 
+            Register Now
+          </button>
         </div>
     </div>
   </div>

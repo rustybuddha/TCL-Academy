@@ -91,12 +91,13 @@
           </div>
         </div>
     </div>
-    <div class="lg:w-1/1">
+    <!-- desktop -->
+    <div class="lg:w-1/1 block sm:hidden">
       {#each cards as card, i}
       <div 
-        class="mb-8 {i === cards.length - 1 ? '' : 'mb-32'} sticky"
-        style="top: {120 + i * 20}px"
-      >
+      class="mb-8 {i === cards.length - 1 ? '' : 'mb-32'} sticky"
+      style="top: calc(120px + {i} * 50px);"
+  >
         <div
           class="transform transition-all duration-500 ease-out {card.bgColor} rounded-xl shadow-lg "
         >
@@ -169,6 +170,85 @@
     {/each}
     
     </div>
+    <!-- Desktop -->
+    <div class="lg:w-1/1 hidden sm:block">
+      {#each cards as card, i}
+      <div 
+      class="mb-8 {i === cards.length - 1 ? '' : 'mb-32'} sticky"
+      style="top: calc(120px + {i} * 68px);"
+  >
+        <div
+          class="transform transition-all duration-500 ease-out {card.bgColor} rounded-xl shadow-lg "
+        >
+        <div class="flex justify-start items-center {card.headColor} rounded-t-[8px] h-[3.5rem] sm:h-[5rem]">
+          <p class="text-[12px] ml-6 flex justify-center items-center !font-[500] text-center rounded-full w-[5rem] sm:w-[6rem] h-6 sm:h-8 {card.moduleColor} rubik-font bg-[#FFFFFF]" style="font-weight: 300;">{card.module}</p>
+          
+          <p class=" text-lg sm:text-2xl ml-5 font-[500] text-[#FFFFFF] bai-jamjuree-font">{card.title}</p>
+        </div>
+          
+          <!-- Flex container with wrapping for items -->
+          <div class="flex flex-col p-6 gap-2">
+       
+            {#if card.module === 'Module 2'}
+            <div class="grid grid-cols-1 md:w-[500px] lg:grid-cols-2 lg:gap-4">
+              <!-- Display subHeading at the top if it exists -->
+              {#if card?.subHeading}
+                <div class="col-span-2 mt-4 text-lg font-semibold">{card?.subHeading}</div>
+              {/if}
+          
+              <!-- Mobile View (only visible on small screens) -->
+              <div class="sm:hidden">
+                {#each card.items as item}
+                  <div class="flex items-center mb-2">
+                    <img src="/academy/learntick.svg" alt="">
+                    <p class="text-[#333333] text-sm !font-[400] rubik-font ml-2">{item}</p>
+                  </div>
+                {/each}
+              </div>
+          
+              <!-- Desktop View (hidden on small screens) -->
+              
+                <!-- First 7 items in one column -->
+                <div class="hidden sm:flex sm:flex-col">
+                  {#each card.items.slice(0, 7) as item}
+                    <div class="flex items-center mb-2">
+                      <img src="/academy/learntick.svg" alt="">
+                      <p class="text-[#333333] text-sm sm:text-xl !font-[400] rubik-font ml-2">{item}</p>
+                    </div>
+                  {/each}
+                </div>
+          
+                <!-- Remaining items in another column -->
+                <div class="hidden sm:flex sm:flex-col">
+                  {#each card.items.slice(7) as item}
+                    <div class="flex items-center mb-2">
+                      <img src="/academy/learntick.svg" alt="">
+                      <p class="text-[#333333] text-sm sm:text-xl !font-[400] rubik-font ml-2">{item}</p>
+                    </div>
+                  {/each}
+                </div>
+           
+            </div>
+          {:else}
+            <!-- Default layout for other modules -->
+            {#if card?.subHeading}
+              <div class="col-span-2 mt-3 mb-2 sm:mt-6 sm:mb-5 text-sm sm:text-xl rubik-font font-[400]">{card?.subHeading}</div>
+            {/if}
+            {#each card.items as item}
+              <div class="flex items-center mb-2">
+                <img src="/academy/learntick.svg" alt="">
+                <p class="text-[#333333] text-sm sm:text-xl !font-[400] rubik-font ml-2">{item}</p>
+              </div>
+            {/each}
+          {/if}
+          
+          
+          </div>
+        </div>
+      </div>
+    {/each}
+    
+    </div> 
 </div>
 
 <style>
@@ -234,5 +314,7 @@
     margin-left: calc(50% - 0px) !important;
   }
 } 
+
+
 
 </style>

@@ -22,7 +22,7 @@
     </div>
    </div>  
     <div class="mx-auto pb-2 pt-4"><img class="mx-auto" src="/academy/newbonusmobile.svg" alt=""></div>
-    <div class="pt-[2%] pb-[2%] mx-auto"><button on:click={() => redirectTo('/registration')} class="cursor-pointer px-[24px] py-[8px] text-white bg-[#093baa] rounded whitespace-nowrap border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500">Unlock Bonuses</button></div>
+    <div class="pt-[2%] pb-[2%] mx-auto mt-4"><button on:click={() => redirectTo('/registration')} class="cursor-pointer px-[24px] py-[8px] text-white bg-[#093baa] rounded whitespace-nowrap border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500">Unlock Bonuses</button></div>
   </div>
   
 <div class="hidden sm:flex max-w-[1440px] mx-auto bg-cover bg-center justify-center px-16 pt-16 pb-8"
