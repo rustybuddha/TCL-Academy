@@ -39,6 +39,7 @@
   import toast from "svelte-french-toast";
   import { z } from "zod";
   import { page } from "$app/stores";
+  import axios from "axios";
 
 
   let fwcrm;
@@ -63,41 +64,35 @@
   let showPopup = false;
   let successPopup = false;
   let dropdownOpen = false;
-  // Default country code and dropdown state
-  let selectedCountry = {
-    countryname: "India",
-    countrycode: "91",
-    flagurl: "https://flaglog.com/codes/official-ratio-120px/IN.png",
-  }; // Default to India
-
-  const closeDropdown = (event) => {
-    if (!event.target.closest(".dropdown")) {
-      dropdownOpen = false;
-    }
-  };
-
-  const formSchema = z.object({
-    fullName: z.string().min(1, "Full Name is required"),
-    email: z.string().email("Invalid email address"),
-    phone: z.string().min(1, "Phone Number is Required"),
-    message: z.string().optional(),
-  });
-
-
-  let hasModalBeenShown = false;
-  let scrollPosition = 0;
-
-  const checkScrollPosition = () => {
-    if (typeof window !== 'undefined') { 
-      scrollPosition = window.scrollY;
-      if (scrollPosition >= 900 && !hasModalBeenShown) { 
-        showPopup = true;
-        hasModalBeenShown = true;
-      }
-    }
-  };
-
-  onMount(() => {
+  let isLoading = false;
+  
+  // const closeDropdown = (event) => {
+    //   if (!event.target.closest(".dropdown")) {
+      //     dropdownOpen = false;
+      //   }
+      // };
+      
+      const formSchema = z.object({
+        fullName: z.string().min(1, "Full Name is required"),
+        email: z.string().email("Invalid email address"),
+        phone: z.string().min(1, "Phone Number is Required"),
+        message: z.string().optional(),
+      });
+      
+      let hasModalBeenShown = false;
+      let scrollPosition = 0;
+      
+      const checkScrollPosition = () => {
+        if (typeof window !== 'undefined') { 
+          scrollPosition = window.scrollY;
+          if (scrollPosition >= 900 && !hasModalBeenShown) { 
+            showPopup = true;
+            hasModalBeenShown = true;
+          }
+        }
+      };
+      
+      onMount(() => {
     if (typeof window !== 'undefined') {
       window.addEventListener('scroll', checkScrollPosition);
     }
@@ -108,44 +103,101 @@
       window.removeEventListener('scroll', checkScrollPosition);
     }
   });
+  
+  // Default country code and dropdown state
+  let selectedCountry = {
+    countryname: "India",
+    countrycode: "91",
+    flagurl: "https://flaglog.com/codes/official-ratio-120px/IN.png",
+  }; // Default to India
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const data = {
-      fullName: formData.get("full-name"),
-      email: formData.get("email"),
-      phone: formData.get("phone"),
-      message: formData.get("message"),
-    };
-
-    const result = formSchema.safeParse(data);
-
-    if (!result.success) {
-      result.error.errors.forEach((err) => toast.error(err.message));
-    } else {
-      showPopup = false;
-      successPopup = true;
-     // CRM Integration
-     if (fwcrm) {
-        const newContact = {
-          "First name": data.fullName.split(" ")[0],
-          "Last name": data.fullName.split(" ").slice(1).join(" ") || "",
-          "Email": data.email,
-          "Mobile": data.phone,
-          "Message": data.message,
-        };
-
-        const identifier = data.email;
-
-        fwcrm.identify(identifier, newContact);
-        toast.success("Form submitted successfully!");
-      } else {
-        console.error("Freshworks CRM is not initialized.");
-        toast.error("Unable to connect to CRM. Please try again later.");
-      }
-    }
+  const handleSubmit = async (event) => {
+  event.preventDefault();
+  const formData = new FormData(event.target);
+  const data = {
+    fullName: formData.get("full-name"),
+    email: formData.get("email"),
+    phone: formData.get("phone"),
+    message: formData.get("message"),
+    countryCode: selectedCountry,
   };
+
+  const result = formSchema.safeParse(data);
+  // console.log("Result :: ", data);
+
+  if (!result.success) {
+    result.error.errors.forEach((err) => toast.error(err.message));
+    return; 
+  }
+
+  const payload = {
+    fullName: result.data.fullName,
+    email: result.data.email,
+    phone: result.data.phone,
+    linkedIn: "",
+    mailingAddress: "",
+    referredBy: result.data.message,
+    countryCode: selectedCountry,
+    organization: "",
+    profession: "",
+  };
+
+
+// console.log(payload)
+  try {
+    isLoading = true;
+    const response = await axios.post(
+      "https://academy.timechainlabs.io/api/popup",
+      payload,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    // console.log(response);
+    if (response.status === 200) {
+      // const result = response.data;
+      // console.log(result)
+      isLoading = false;
+      // const redirectUrl = result.URL;
+
+      // if (redirectUrl) {
+        // window.open(redirectUrl);
+      // }
+
+      toast.success("Thanks for your interest.");
+      // showModal = true;
+    } else {
+      toast.error("Please try again!");
+    }
+  } catch (error) {
+    console.error("Error during API call:", error);
+    toast.error(error.response?.data?.message || "An error occurred");
+    isLoading = false;
+  }
+
+  // CRM Integration
+  // if (fwcrm) {
+  //   const newContact = {
+  //     "First name": data.fullName.split(" ")[0],
+  //     "Last name": data.fullName.split(" ").slice(1).join(" ") || "",
+  //     "Email": data.email,
+  //     "Mobile": data.phone,
+  //     "Message": data.message,
+  //   };
+
+  //   const identifier = data.email;
+
+  //   fwcrm.identify(identifier, newContact);
+  //   // toast.success("Form submitted successfully!");
+  // } else {
+  //   console.error("Freshworks CRM is not initialized.");
+  //   toast.error("Unable to connect to CRM. Please try again later.");
+  // }
+
+
+};
 
   // onMount(() => {
   //   if (browser) {
@@ -304,11 +356,15 @@
 
             <!-- Submit Button -->
             <button
-              type="submit"
-              class="w-full px-4 py-2 text-white bg-[#093baa] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500"
-            >
+            type="submit"
+            class="w-full flex justify-center items-center px-4 py-2 text-white bg-[#093baa] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500"
+          >
+            {#if isLoading}
+              <div class="loader" />
+            {:else}
               Submit
-            </button>
+            {/if}
+          </button>
           </form>
         </div>
       </div>
@@ -515,4 +571,21 @@
   }
 }
 
+.loader {
+    border: 4px solid #e5e7eb; 
+    border-top: 4px solid #4f46e5; 
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1.5s linear infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 </style>
