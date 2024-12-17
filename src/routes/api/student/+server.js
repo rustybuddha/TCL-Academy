@@ -114,7 +114,7 @@ export const POST = async ({ request }) => {
 
             if (paymentstatus === "INTEREST") {
 
-                await updateContact(contact_id, fullName, linkedIn, mailingAddress, profession, phone, organization, referedBy, countryCode.countryname)
+                await updateContact(contact_id, fullName, linkedIn, mailingAddress, phone, profession,  organization, referedBy, countryCode.countryname)
                 // Update the existing record with new form data and set paymentStatus to 'PENDING'
                 const updateQuery = `
                     UPDATE "student"
