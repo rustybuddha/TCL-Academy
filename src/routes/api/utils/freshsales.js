@@ -5,7 +5,6 @@ export async function createContact(fullname, email, linkedin, address, mobile_n
     const [first_name, ...lastNameParts] = fullname.split(" ");
     const last_name = lastNameParts.join(" ");
 
-    console.log("error catch 1")
 
     const payload = {
         contact: {
@@ -22,8 +21,8 @@ export async function createContact(fullname, email, linkedin, address, mobile_n
         },
     };
 
-    console.log(payload)
-    console.log(JSON.stringify(payload))
+    // console.log(payload)
+    // console.log(JSON.stringify(payload))
 
 
     try {
@@ -41,7 +40,7 @@ export async function createContact(fullname, email, linkedin, address, mobile_n
         }
 
         const data = await response.json();
-        console.log("Response data:", data);
+        // console.log("Response data:", data);
 
         // Return the created contact data
         return data.contact.id;
@@ -94,7 +93,7 @@ export async function createDeal(name, email, contactNumber, linkedIN, address, 
         }
 
         const data = await response.json();
-        console.log("Response data:", data);
+        // console.log("Response data:", data);
 
         // Return the deal ID from the response
         return { contact_id, deal_id: data.deal.id };
@@ -128,7 +127,7 @@ export async function updateDeal(dealId) {
         }
 
         const data = await response.json();
-        console.log("Response data:", data);
+        // console.log("Response data:", data);
 
         // Return the updated deal data
         return data;
@@ -136,3 +135,51 @@ export async function updateDeal(dealId) {
         console.error("Error while updating the deal:", error);
     }
 }
+
+
+export async function updateContact(contactId, fullname, linkedin, address, mobile_number, profession, organization, referedBy, country) {
+    const url = `https://tclabs.myfreshworks.com/crm/sales/api/contacts/${contactId}`;
+
+    const [first_name, ...lastNameParts] = fullname.split(" ");
+    const last_name = lastNameParts.join(" ");
+
+    // Construct the payload
+    const payload = {
+        contact: {
+            first_name: first_name,
+            last_name: last_name,
+            linkedin: linkedin,
+            address: address,
+            mobile_number: mobile_number,
+            job_title: profession ,
+            keyword: organization,
+            medium: referedBy,
+            country: country,
+        }
+    };
+
+    try {
+        const response = await fetch(url, {
+            method: "PUT",
+            headers: {
+                "Authorization": "Token t6MwZk-wEKklzOlJmcIWGA", // Replace with your API token
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload) // Convert JS object to JSON string
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error: ${response.status} ${response.statusText}`);
+        }
+
+        // Parse and return the response data
+        const data = await response.json();
+        // console.log("Contact updated successfully:", data);
+        return data;
+    } catch (error) {
+        console.error("Error updating contact:", error.message);
+        return null;
+    }
+}
+
+

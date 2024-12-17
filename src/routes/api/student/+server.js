@@ -2,7 +2,7 @@ import pkg from 'pg';
 const { Client } = pkg;
 import { v4 as uuidv4 } from 'uuid';
 import { sendPhonePeRequest } from '../utils/phonepe-init.js';
-import { createDeal } from '../utils/freshsales.js';
+import { createDeal,updateContact } from '../utils/freshsales.js';
 
 const dbUri = "postgresql://neondb_owner:ieZAv95SntYJ@ep-lively-shape-a5ts91cg.us-east-2.aws.neon.tech/neondb?sslmode=require";
 
@@ -106,13 +106,15 @@ export const POST = async ({ request }) => {
 
         if (checkRes.rows.length > 0) {
             const existingUser = checkRes.rows[0];
-            const { paymentStatus, updatedAt, id: userId } = existingUser;
+            const { paymentStatus, updatedAt, contact_id, id: userId } = existingUser;
             const lastUpdatedTime = new Date(updatedAt);
             const currentTime = new Date();
             const timeDifference = (currentTime - lastUpdatedTime) / 1000 / 60; // Time difference in minutes
 
 
             if (paymentStatus === "INTEREST") {
+
+                await updateContact(contact_id, fullName, linkedIn, mailingAddress, profession, phone, organization, referedBy, countryCode.countryname)
                 // Update the existing record with new form data and set paymentStatus to 'PENDING'
                 const updateQuery = `
                     UPDATE "Student"
