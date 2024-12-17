@@ -36,7 +36,7 @@
 </footer>
 
 <style>
-  @media (max-width: 460px) {
+  @media (max-width: 464px) {
   .course-title-sm {
     font-size: 10px !important;
   }
