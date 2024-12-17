@@ -106,13 +106,13 @@ export const POST = async ({ request }) => {
 
         if (checkRes.rows.length > 0) {
             const existingUser = checkRes.rows[0];
-            const { paymentStatus, updatedAt, contact_id, id: userId } = existingUser;
-            const lastUpdatedTime = new Date(updatedAt);
+            const { paymentstatus, updatedat, contact_id, id: userId } = existingUser;
+            const lastUpdatedTime = new Date(updatedat);
             const currentTime = new Date();
             const timeDifference = (currentTime - lastUpdatedTime) / 1000 / 60; // Time difference in minutes
 
 
-            if (paymentStatus === "INTEREST") {
+            if (paymentstatus === "INTEREST") {
 
                 await updateContact(contact_id, fullName, linkedIn, mailingAddress, profession, phone, organization, referedBy, countryCode.countryname)
                 // Update the existing record with new form data and set paymentStatus to 'PENDING'
@@ -163,10 +163,7 @@ export const POST = async ({ request }) => {
                         },
                     }
                 );
-            }
-
-            //   
-            if ((paymentStatus === 'FAILED' || paymentStatus === 'PENDING') && timeDifference > 5) {
+            }else if ((paymentstatus === 'FAILED' || paymentstatus === 'PENDING') && timeDifference > 5) {
                 // Generate new PhonePe URL if last updated > 5 minutes
                 const paymentURL = await generatePhonePeUrl(userId);
                 return new Response(
@@ -183,7 +180,7 @@ export const POST = async ({ request }) => {
                 );
             } else {
                 let responceMsg = "Course is already bought by this email."
-                if (paymentStatus !== 'COMPLETED') {
+                if (paymentstatus !== 'COMPLETED') {
                     responceMsg = "Please wait a few minutes as your previous payment is either still processing or has failed. Kindly try again in 5 minutes."
                 }
                 // Return error if course is already bought
