@@ -3,7 +3,7 @@ const { Client } = pkg;
 import { v4 as uuidv4 } from 'uuid';
 import { createDeal } from '../utils/freshsales.js';
 
-const dbUri = "postgresql://neondb_owner:ieZAv95SntYJ@ep-lively-shape-a5ts91cg.us-east-2.aws.neon.tech/neondb?sslmode=require";
+const dbUri = "postgres://default:V5kO8cAFriym@ep-tight-surf-a4yjbe8r.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require";
 
 
 export const POST = async ({ request }) => {
@@ -24,7 +24,7 @@ export const POST = async ({ request }) => {
         // Check for existing entry with the same email
         const checkQuery = `
             SELECT * 
-            FROM "Student" 
+            FROM "student" 
             WHERE email = $1;
         `;
         const checkRes = await client.query(checkQuery, [email]);
@@ -78,7 +78,7 @@ export const POST = async ({ request }) => {
         const userId = uuidv4();
         const updatedAt = new Date();
         const query = `
-            INSERT INTO "Student" (id, "fullName", email, phone, "linkedIn", "mailingAddress", "referedBy", "paymentStatus", "updatedAt", "countryCode", organization, profession, deal_id, contact_id)
+            INSERT INTO "student" (id, "fullname", email, phone, "linkedin", "mailingaddress", "referedby", "paymentstatus", "updatedat", "countrycode", organization, profession, deal_id, contact_id)
             VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
             RETURNING id;
         `;
