@@ -10,7 +10,7 @@ const { Pool } = pkg;
 
 // PostgreSQL connection configuration
 const pool = new Pool({
-    connectionString: 'postgresql://neondb_owner:ieZAv95SntYJ@ep-lively-shape-a5ts91cg.us-east-2.aws.neon.tech/neondb?sslmode=require',
+    connectionString: 'postgres://default:V5kO8cAFriym@ep-tight-surf-a4yjbe8r.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require',
 });
 
 export const POST = async ({ request }) => {
@@ -77,7 +77,7 @@ export const POST = async ({ request }) => {
         try {
             // Check if the event exists
             const { rows } = await client.query(
-                `SELECT * FROM "Student" WHERE id = $1`,
+                `SELECT * FROM "student" WHERE id = $1`,
                 [merchantTransactionId]
             );
 
@@ -127,7 +127,7 @@ export const POST = async ({ request }) => {
             await updateDeal(student.deal_id)
 
             await client.query(
-                `UPDATE "Student" SET "paymentStatus" = $1 WHERE id = $2`,
+                `UPDATE "student" SET "paymentstatus" = $1 WHERE id = $2`,
                 [paymentStatus, merchantTransactionId]
             );
 
