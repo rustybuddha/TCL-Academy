@@ -143,7 +143,7 @@
   };
 
 
-
+// console.log(payload)
   try {
     isLoading = true;
     const response = await axios.post(
@@ -155,7 +155,7 @@
         },
       }
     );
-    console.log(response);
+    // console.log(response);
     if (response.status === 200) {
       // const result = response.data;
       // console.log(result)
@@ -169,7 +169,7 @@
       toast.success("Thanks for your interest.");
       // showModal = true;
     } else {
-      toast.error("Registration failed. Please try again.");
+      toast.error("Please try again!");
     }
   } catch (error) {
     console.error("Error during API call:", error);
@@ -178,23 +178,25 @@
   }
 
   // CRM Integration
-  if (fwcrm) {
-    const newContact = {
-      "First name": data.fullName.split(" ")[0],
-      "Last name": data.fullName.split(" ").slice(1).join(" ") || "",
-      "Email": data.email,
-      "Mobile": data.phone,
-      "Message": data.message,
-    };
+  // if (fwcrm) {
+  //   const newContact = {
+  //     "First name": data.fullName.split(" ")[0],
+  //     "Last name": data.fullName.split(" ").slice(1).join(" ") || "",
+  //     "Email": data.email,
+  //     "Mobile": data.phone,
+  //     "Message": data.message,
+  //   };
 
-    const identifier = data.email;
+  //   const identifier = data.email;
 
-    fwcrm.identify(identifier, newContact);
-    // toast.success("Form submitted successfully!");
-  } else {
-    console.error("Freshworks CRM is not initialized.");
-    toast.error("Unable to connect to CRM. Please try again later.");
-  }
+  //   fwcrm.identify(identifier, newContact);
+  //   // toast.success("Form submitted successfully!");
+  // } else {
+  //   console.error("Freshworks CRM is not initialized.");
+  //   toast.error("Unable to connect to CRM. Please try again later.");
+  // }
+
+
 };
 
   // onMount(() => {
