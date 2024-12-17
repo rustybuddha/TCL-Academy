@@ -2,7 +2,7 @@
     import { onMount } from "svelte";
   
     // Set your target date here
-    let targetDate = new Date("2024-12-15T23:59:59"); // Update with your desired target date
+    let targetDate = new Date("2025-01-01T23:59:59"); // Update with your desired target date
     let days = 0, hours = 0, minutes = 0, seconds = 0;
   
     const calculateTime = () => {
