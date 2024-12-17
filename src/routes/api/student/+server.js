@@ -111,6 +111,58 @@ export const POST = async ({ request }) => {
             const currentTime = new Date();
             const timeDifference = (currentTime - lastUpdatedTime) / 1000 / 60; // Time difference in minutes
 
+
+            if (paymentStatus === "INTEREST") {
+                // Update the existing record with new form data and set paymentStatus to 'PENDING'
+                const updateQuery = `
+                    UPDATE "Student"
+                    SET "fullName" = $1,
+                        "phone" = $2,
+                        "linkedIn" = $3,
+                        "mailingAddress" = $4,
+                        "referedBy" = $5,
+                        "organization" = $6,
+                        "profession" = $7,
+                        "paymentStatus" = 'PENDING',
+                        "updatedAt" = NOW()
+                    WHERE email = $8
+                    RETURNING id;
+                `;
+                const updateValues = [
+                    fullName,
+                    phone,
+                    linkedIn || null,
+                    mailingAddress || null,
+                    referedBy || null,
+                    organization || null,
+                    profession || null,
+                    email,
+                ];
+
+                const updateRes = await client.query(updateQuery, updateValues);
+                const userId = updateRes.rows[0].id;
+
+                // Generate new PhonePe URL
+                const paymentURL = await generatePhonePeUrl(userId);
+
+                return new Response(
+                    JSON.stringify({
+                        message: "Student data updated and payment URL generated.",
+                        id: userId,
+                        URL: paymentURL,
+                    }),
+                    {
+                        status: 200,
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Access-Control-Allow-Origin': '*', // Allow all origins or specify specific ones
+                            'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+                            'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+                        },
+                    }
+                );
+            }
+
             //   
             if ((paymentStatus === 'FAILED' || paymentStatus === 'PENDING') && timeDifference > 5) {
                 // Generate new PhonePe URL if last updated > 5 minutes
@@ -148,8 +200,8 @@ export const POST = async ({ request }) => {
             }
         }
 
-        const { contact_id, deal_id }  = await createDeal(fullName, email, phone, linkedIn, mailingAddress, countryCode.countryname)
-        
+        const { contact_id, deal_id } = await createDeal(fullName, email, phone, linkedIn, mailingAddress, countryCode.countryname, profession, organization, referedBy)
+
 
 
         // If no existing entry, insert new record

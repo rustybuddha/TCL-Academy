@@ -23,6 +23,8 @@ export async function createContact(fullname, email, linkedin, address, mobile_n
     };
 
     console.log(payload)
+    console.log(JSON.stringify(payload))
+
 
     try {
         const response = await fetch(url, {
