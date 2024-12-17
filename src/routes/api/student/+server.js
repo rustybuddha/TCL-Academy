@@ -2,7 +2,7 @@ import pkg from 'pg';
 const { Client } = pkg;
 import { v4 as uuidv4 } from 'uuid';
 import { sendPhonePeRequest } from '../utils/phonepe-init.js';
-import { createDeal } from '../utils/freshsales.js';
+import { createDeal,updateContact } from '../utils/freshsales.js';
 
 const dbUri = "postgresql://neondb_owner:ieZAv95SntYJ@ep-lively-shape-a5ts91cg.us-east-2.aws.neon.tech/neondb?sslmode=require";
 
@@ -106,10 +106,64 @@ export const POST = async ({ request }) => {
 
         if (checkRes.rows.length > 0) {
             const existingUser = checkRes.rows[0];
-            const { paymentStatus, updatedAt, id: userId } = existingUser;
+            const { paymentStatus, updatedAt, contact_id, id: userId } = existingUser;
             const lastUpdatedTime = new Date(updatedAt);
             const currentTime = new Date();
             const timeDifference = (currentTime - lastUpdatedTime) / 1000 / 60; // Time difference in minutes
+
+
+            if (paymentStatus === "INTEREST") {
+
+                await updateContact(contact_id, fullName, linkedIn, mailingAddress, profession, phone, organization, referedBy, countryCode.countryname)
+                // Update the existing record with new form data and set paymentStatus to 'PENDING'
+                const updateQuery = `
+                    UPDATE "Student"
+                    SET "fullName" = $1,
+                        "phone" = $2,
+                        "linkedIn" = $3,
+                        "mailingAddress" = $4,
+                        "referedBy" = $5,
+                        "organization" = $6,
+                        "profession" = $7,
+                        "paymentStatus" = 'PENDING',
+                        "updatedAt" = NOW()
+                    WHERE email = $8
+                    RETURNING id;
+                `;
+                const updateValues = [
+                    fullName,
+                    phone,
+                    linkedIn || null,
+                    mailingAddress || null,
+                    referedBy || null,
+                    organization || null,
+                    profession || null,
+                    email,
+                ];
+
+                const updateRes = await client.query(updateQuery, updateValues);
+                const userId = updateRes.rows[0].id;
+
+                // Generate new PhonePe URL
+                const paymentURL = await generatePhonePeUrl(userId);
+
+                return new Response(
+                    JSON.stringify({
+                        message: "Student data updated and payment URL generated.",
+                        id: userId,
+                        URL: paymentURL,
+                    }),
+                    {
+                        status: 200,
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Access-Control-Allow-Origin': '*', // Allow all origins or specify specific ones
+                            'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+                            'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+                        },
+                    }
+                );
+            }
 
             //   
             if ((paymentStatus === 'FAILED' || paymentStatus === 'PENDING') && timeDifference > 5) {
@@ -148,16 +202,16 @@ export const POST = async ({ request }) => {
             }
         }
 
-        const dealId  = await createDeal(fullName, email, phone, linkedIn, mailingAddress, countryCode.countryname)
-        
+        const { contact_id, deal_id } = await createDeal(fullName, email, phone, linkedIn, mailingAddress, countryCode.countryname, profession, organization, referedBy)
+
 
 
         // If no existing entry, insert new record
         const userId = uuidv4();
         const updatedAt = new Date();
         const query = `
-            INSERT INTO "Student" (id, "fullName", email, phone, "linkedIn", "mailingAddress", "referedBy", "paymentStatus", "updatedAt", "countryCode", organization, profession, deal_id)
-            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)
+            INSERT INTO "Student" (id, "fullName", email, phone, "linkedIn", "mailingAddress", "referedBy", "paymentStatus", "updatedAt", "countryCode", organization, profession, deal_id, contact_id)
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
             RETURNING id;
         `;
         const values = [
@@ -173,7 +227,8 @@ export const POST = async ({ request }) => {
             countryCode,
             organization,
             profession,
-            dealId,
+            deal_id,
+            contact_id,
         ];
 
         const res = await client.query(query, values);
