@@ -167,7 +167,8 @@
       // }
 
       toast.success("Thanks for your interest.");
-      // showModal = true;
+      showPopup = false;
+      successPopup = true;
     } else {
       toast.error("Please try again!");
     }
