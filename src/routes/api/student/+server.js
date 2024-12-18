@@ -71,8 +71,8 @@ const generatePhonePeUrl = async (userId) => {
             callbackURL,
             "PGTESTPAYUAT86", // MerchantUserID (replace with dynamic if needed)
             userId,           // MerchantTransactionID
-            8999,           // Payment amount in INR
-            false             // Set to true for production
+            1,           // Payment amount in INR
+            true             // Set to true for production
         );
         return paymentURL;
     } catch (error) {
