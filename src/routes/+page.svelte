@@ -22,8 +22,8 @@
   <StrugglingSection />
   <VideoSection />
   <ExperienceSection />
-  <ReminderSection />
   <TestimonialsSection />
+  <ReminderSection />
   <EmpowerSection />
   <SkillsSection />
   <ModuleSection />
