@@ -8,7 +8,7 @@
   // let courseImage = "/academy/course-image.jpg";
   let originalPrice = "₹36,000.00";
   let discountedPrice = "₹8999.00";
-  let courseTitle = "Blockchain Pro Course";
+  let courseTitle = "Blockchain Mastery Program";
   let discountPercentage = "75% off";
 </script>
 
@@ -36,7 +36,7 @@
 </footer>
 
 <style>
-  @media (max-width: 464px) {
+  @media (max-width: 500px) {
   .course-title-sm {
     font-size: 10px !important;
   }
@@ -48,7 +48,7 @@
     font-size: 8px !important;
   }
   .discounted-price-text-sm {
-    font-size: 14px !important;
+    font-size: 18px !important;
   }
   .original-price-text-sm {
     font-size: 8px !important;
@@ -57,7 +57,7 @@
 
 
 
-@media (max-width: 360px) {
+@media (max-width: 420px) {
   .course-title-sm {
     font-size: 7.5px !important;
   }
@@ -70,6 +70,26 @@
   }
   .discounted-price-text-sm {
     font-size: 14px !important;
+  }
+  .original-price-text-sm {
+    font-size: 6px !important;
+  }
+
+}
+
+@media (max-width: 350px) {
+  .course-title-sm {
+    font-size: 7.5px !important;
+  }
+  .price-text-sm {
+    font-size: 6px !important;
+    margin-top: -8px !important;
+  }
+  .discount-price-text-sm {
+    font-size: 6px !important;
+  }
+  .discounted-price-text-sm {
+    font-size: 8.8px !important;
   }
   .original-price-text-sm {
     font-size: 6px !important;
