@@ -9,7 +9,7 @@
   <div class="hidden max-w-full md:flex  mx-auto bg-cover bg-center py-4"
   style="background-image: url('/academy/empower-section-1.svg');">
   <div class="max-w-[1440px] md:flex  mx-auto">
-  <div class="w-1/2"><img src="/academy/empowernewdesk.svg" alt=""></div>
+  <div class="w-1/2"><img src="/academy/empowerDesknew.svg" alt=""></div>
   <div class="w-1/2 flex flex-col justify-center pr-[5%]">
     <div class="pb-2 pt-6">
       <p class="text-desk sm:text-3xl md:text-4xl lg:text-5xl !font-[500] text-[#333333] text-left bai-jamjuree-font -tracking-[0.8px] relative z-10">
@@ -45,31 +45,31 @@
       <p class="mt-4 text-sm text-size-2 text-gray-600 text-center sm:text-2xl">
         We are transforming careers in blockchain technology through comprehensive programs. Our partnerships with colleges worldwide foster a global community of skilled professionals ready to make an impact.
       </p>
-      <img src="/academy/empowernew.svg" alt="" class="m-auto">
+      <img src="/academy/newEmpower.svg" alt="" class="m-auto">
       <div class="-mt-10 flex justify-between items-center">
       <div class="mx-auto max-w-7xl py-10 px-3 text-center">
         <div class="grid grid-cols-2 gap-6 md:grid-cols-2 lg:grid-cols-4">
           <!-- Counter 1 -->
           <div class="flex flex-col items-start  text-gray-800">
-            <p class="text-3xl sm:text-4xl !font-[600] text-[#093BAA] bai-jamjuree-font">4000+</p>
+            <p class="text-3xl sm:text-4xl !font-[600] text-[#093BAA] bai-jamjuree-font">4139</p>
             <p class="mt-2 text-sm !font-[300] text-[#5C5C5C] text-left">Students Registered in the past 2 years</p>
           </div>
       
           <!-- Counter 2 -->
           <div class="flex flex-col items-start  text-gray-800">
-            <p class="text-3xl sm:text-4xl !font-[600] text-[#093BAA] bai-jamjuree-font">250+</p>
+            <p class="text-3xl sm:text-4xl !font-[600] text-[#093BAA] bai-jamjuree-font">526</p>
             <p class="mt-2 text-sm !font-[300] text-[#5C5C5C] text-left">Institutions have students in our program</p>
           </div>
       
           <!-- Counter 3 -->
           <div class="flex flex-col items-start  text-gray-800">
-            <p class="text-3xl sm:text-4xl !font-[600] text-[#093BAA] bai-jamjuree-font">400+</p>
+            <p class="text-3xl sm:text-4xl !font-[600] text-[#093BAA] bai-jamjuree-font">350</p>
             <p class="mt-2 text-sm !font-[300] text-[#5C5C5C] text-left">Certified Developers</p>
           </div>
       
           <!-- Counter 4 -->
           <div class="flex flex-col items-start  text-gray-800">
-            <p class="text-3xl sm:text-4xl !font-[600] text-[#093BAA] bai-jamjuree-font">10+</p>
+            <p class="text-3xl sm:text-4xl !font-[600] text-[#093BAA] bai-jamjuree-font">10</p>
             <p class="mt-2 text-sm !font-[300] text-[#5C5C5C] text-left">Total Countries Reached</p>
           </div>
         </div>

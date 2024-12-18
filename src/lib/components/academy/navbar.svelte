@@ -1,5 +1,4 @@
 <script>
-  import { initializeCalendlyPopup } from "../../utils";
   import { onMount } from "svelte";
   import { browser } from "$app/environment";
   import { goto } from "$app/navigation";
@@ -8,7 +7,7 @@
   let prevScrollPos = 0;
   let isScrolling = true;
   let isActive = false;
-
+  let isScrollingDown = false; 
   const navLinks = [
     { label: "Blogs", href: "/blogs" },
     { label: "News and Media", href: "/news-and-media" },
@@ -41,9 +40,9 @@
       if (currentScrollPos <= 0) {
         isScrolling = true;
       } else if (prevScrollPos > currentScrollPos) {
-        isScrolling = true;
+        isScrollingDown = false;
       } else {
-        isScrolling = false;
+        isScrollingDown = true;
       }
       prevScrollPos = currentScrollPos;
     }
@@ -56,28 +55,28 @@
 
     return () => {
       if (browser) {
-        windowNaNpxoveEventListener("scroll", handleScroll);
+        window.removeEventListener("scroll", handleScroll);
       }
     };
   });
-      const navItems = [
-        // { label: 'Community', href: '/community' },
-        { label: 'Curriculum', href: '/#curriculum' },
-        { label: 'Testimonials', href: 'https://academy.timechainlabs.io/#testimonials' },
-        { label: 'Blog', href: '/blogs?section=all-posts' }
-      ];
-    const redirectTo = (url) => {
-      goto(url);  
-    };
-    </script>
-
-
+  const navItems = [
+    // { label: 'Community', href: '/community' },
+    { label: 'Curriculum', href: '/#curriculum' },
+    { label: 'Testimonials', href: 'https://academy.timechainlabs.io/#testimonials' },
+    { label: 'Blog', href: '/blogs?section=all-posts' }
+  ];
+  const redirectTo = (url) => {
+    goto(url);  
+  };
+</script>
 
 <div class="flex justify-center">
   <nav
-    class="w-full fixed top-0 left-0 z-[20] transition-all duration-[0.3s] ease-[ease-in-out] border-x-0 border-[.0625rem] border-b-[rgba(0,0,0,0.05)]"
-    style="background-color: white; border-bottom: solid .0625rem rgba(0, 0, 0, 0.05);"
-  >
+  class="w-full fixed top-0 left-0 z-[20] transition-all duration-[0.3s] ease-[ease-in-out] border-x-0 border-[.0625rem] border-b-[rgba(0,0,0,0.05)]"
+  style="background-color: white; border-bottom: solid .0625rem rgba(0, 0, 0, 0.05);"
+  class:translate-y-[-100%]={isScrollingDown}
+  class:translate-y-0="{!isScrollingDown}"
+>
     <div
       class="relative laptop:hidden block bg-white desktop:px-[6.25rem] laptop:px-[3.75rem] mbl-lg:px-[2.5rem] mbl-sm:px-[1.5625rem] px-[1rem]"
       style=" border-bottom: solid .0625rem rgba(0, 0, 0, 0.05);
@@ -230,4 +229,10 @@
 </div>
 
 <style>
+  nav {
+    transition: transform 0.3s ease-in-out;
+  }
+  .scrolling-down {
+    transform: translateY(-100%);
+  }
 </style>

@@ -14,47 +14,52 @@
     answer: "Blockchain Mastery program is designed to take beginners and non-technical students from zero experience to blockchain mastery in just six weeks. Led by blockchain expert Rohan Sharan, the program offers hands-on learning, real-world projects, and a pathway to build a strong blockchain development portfolio."
   },
   {
-    question: "What are the prerequisites for enrolling in the Blockchain Mastery Program?",
-    answer: "Since this is a beginner-friendly program, you need no prior knowledge. The mentor will train you in the fundamentals of blockchain and help you navigate the hands-on coding sessions. Many resources will be shared to fortify your basic development skills. A good internet connection and a computer system are a plus for a smooth journey throughout this program."
+    question: "What are the prerequisites for enrolling in the Blockchain Mastery Program? Is there any selection criteria?",
+    answer: "No, there is no selection criteria. Since this is a beginner-friendly program, you need no prior knowledge. Even if you don’t know any development, the fullstack development lectures are covered in this program. The mentor will train you in the fundamentals of blockchain and help you navigate the hands-on coding sessions. Many resources will be shared to fortify your basic development skills. A good internet connection and a computer system are a plus for a smooth journey throughout this program."
   },
   {
-    question: "Where will the classes be hosted?",
-    answer: "All the classes in the program will be scheduled Live on YouTube. During the live class, the mentor will be available full-time on chat, and after the class, he will be available to solve students' doubts and queries."
+    question: "Where will the classes be hosted, is the program virtual?",
+    answer: "Yes, the program is fully virtual. All the lectures will be scheduled. During the live class, the mentor will be available full-time on chat, and after the class, there will be separate doubt clearing sessions to solve students' doubts and queries. Assignments and projects would have to be done within the stipulated time to complete the program as a cohort."
   },
   {
-    question: "What is the program's validity?",
-    answer: "The program will run for 3 months including LIVE classes and project completion. During this time you can complete all the workshops and projects. After the final submission of the project, you will get certified as a Full Stack Developer by Timechain Labs."
+    question: "What is the program's duration, will recordings be available?",
+    answer: "The program will run for 3 months including LIVE classes and project completion. You will complete all the workshops and projects during this time."
   },
   {
     question: "What projects will I be working on during the program?",
-    answer: "We have a wide range of projects from beginner, intermediate, to advanced level. These projects are designed to test your development skills and implement your knowledge in a real-world application."
+    answer: "We have a wide range of projects from beginner, intermediate, to advanced level. These projects are designed to hone your development skills and build a portfolio of projects that you can showcase as your own, with mastery."
   },
   {
-    question: "How much time in a day do I need to give, for the Blockchain Mastery Program?",
-    answer: "The LIVE classes will be scheduled at a fixed time. There isn’t any fixed time schedule to work on the projects. You can dedicate as much time to solving bugs, adding new features, and developing blockchain projects."
+    question: "How much time in a day do I need to give, for the Blockchain Mastery Program? When are the live sessions scheduled?",
+    answer: "The LIVE classes will be scheduled at a fixed time of 3 hours on Saturdays & Sundays. There isn’t any fixed time schedule to work on the projects. You can dedicate as much time to solving bugs, adding new features, and developing the projects."
   },
   {
     question: "How can I buy the Blockchain Mastery Program?",
-    answer: "Buying the course is very simple. All you have to do is click on the REGISTER button, you will be redirected to the checkout page, then complete the purchase, after the successful payment, you will be redirected to the confirmation page where you have to click on the confirm payment button."
+    answer: "Click on the REGISTER button. You will be redirected to the checkout page, then complete the payment. After successful payment, you will be redirected to the confirmation page where you have to click on the confirm payment button."
   },
   {
     question: "What if I need help?",
-    answer: "With the program, you will also get access to a members-only Discord server. If you get stuck or don't understand a specific part of a lesson, you can share your problem to get help."
+    answer: "With the program, you will also get access to a members-only community server where you will collaborate with your fellow participants and join teams to work on the many projects. If you get stuck or don't understand a specific part of a lesson, you can share your problem to get help."
   },
   {
     question: "What is the refund policy for the Blockchain Mastery Program?",
-    answer: "The Blockchain Mastery Program is a non-refundable program. We are committed to providing a great experience. Reach out to our customer support if you have any queries."
+    answer: "The payment made is refundable until before your cohort begins. We are committed to providing a great experience. Reach out to our customer support if you have any queries."
   },
   {
-    question: "Will I receive a certificate of completion after finishing the program?",
-    answer: "Yes, you will receive a certificate of completion, that you can showcase in your resume or add to your LinkedIn profile."
+    question: "Will I receive a certificate of completion for successfully completing the program?",
+    answer: "Yes, you will receive a certificate of completion, that you can showcase in your resume or add to your LinkedIn profile. After the final submission of the project, you will be granted a Skilled Blockchain Developer certificate by Timechain Labs and offered opportunities to pursue your career with various companies in the ecosystem."
+  },
+  {
+    question: "Who is the instructor and does the program fulfill internship requirements?",
+    answer: "There are 6 instructors for the Blockchain Mastery Program with the chief instructor being Rohan Sharan, Founder & CEO Timechain Labs. Through the program, you will receive full internship training for working on real-world projects. A certificate of internship will be provided for successfully completing the program."
   }
 ];
 
+
   </script>
   
-  <div class="max-w-[1200px] mx-auto mt-12 mb-16 p-4">
-    <h2 class="text-3xl max-[360px]:text-xl max-[425px]:text-2xl md:text-5xl  font-[500] text-center mb-2 font-['Bai Jamjuree']" style="line-height: 55px;">Frequently Asked Questions</h2>
+  <div class="max-w-[1200px] mx-auto mt-12 mb-16 px-2 sm:p-4">
+    <h2 class="text-3xl max-[360px]:text-xl max-[425px]:text-2xl md:text-5xl  font-[500] text-center mb-2 font-['Bai Jamjuree']">Frequently Asked Questions</h2>
     <p class="text-center text-sm md:text-[20px] font-[300] font-['Rubik'] text-[#5C5C5C] mb-6" style="margin-top: 20px;">
       Have other questions? Get in touch with our team via
       <a href="mailto:support@timechainlabs.io" class="text-[#333333] underline">support@timechainlabs.io</a>
@@ -62,9 +67,8 @@
   
     <div class= "p-6 pt-4 ">
       {#each faqs as faq, index}
-        <div class="faq-item py-2 {openIndex === index ? 'mb-4' : ''}" style="margin-top:20px">
+        <div  on:click={() => toggleFAQ(index)} class="faq-item py-2 {openIndex === index ? 'mb-4' : ''}" style="margin-top:20px">
           <button
-            on:click={() => toggleFAQ(index)}
             class="flex justify-between items-center w-full px-3 py-4 text-left focus:outline-none"
           >
             <span class="text-lg lg:text-xl font-[500] font-['Bai Jamjuree'] text-[#292929] pr-5" style="line-height: 20px;"><h3>{faq.question}</h3></span>
@@ -89,11 +93,12 @@
   
   <style>
     .faq-item {
-      /* Removes any extra margin when an FAQ is closed */
       margin-bottom: 0;
       border: 1px solid #e5e7eb;
       border-radius:8px ;
       margin-top: 10px;
+      max-width: 848px !important ;
+      margin:auto;
     }
   
   </style>

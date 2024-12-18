@@ -40,7 +40,7 @@
     <div class="flex justify-center items-center px-1 md:px-4 mt-4 mb-4">
       <img
         class="max-w-[400px] sm:max-w-[400px] w-full h-auto" 
-        src="/academy/herosection-Rohan.svg" 
+        src="/academy/rohannewhero.svg" 
         alt="img" 
         loading="lazy">
     </div>
@@ -211,7 +211,7 @@
     </div>
   </div>
   <div class="w-1/2 mt-[2%] mr-[2.5%]">
-    <img class="mr-[5%] max-w-full h-auto" src="/academy/herosection-Rohan.svg" alt="img" loading="lazy">
+    <img class="mr-[5%] max-w-full h-auto" src="/academy/rohannewhero.svg" alt="img" loading="lazy">
   </div>
 </div>
 

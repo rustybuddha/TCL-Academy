@@ -64,7 +64,7 @@
     ];
   </script>
  
- <div class="py-20 bg-gray-50" style="width: 100vw; height: full; background-image: url('/academy/newbgTesti.svg'); background-repeat: no-repeat; background-size: cover; background-position: center;">
+ <div class="py-20 bg-gray-50 mt-10" style="width: 100vw; height: full; background-image: url('/academy/newbgTesti.svg'); background-repeat: no-repeat; background-size: cover; background-position: center;">
     <div class="flex justify-between h-15 mb-5 ">
         <img src="/academy/greatAchievments.svg" alt="img" style="margin-top:-80px !important">
                <p class="text-center text-4xl lg:text-5xl !font-[500] mb-8 bai-jamjuree-font">
