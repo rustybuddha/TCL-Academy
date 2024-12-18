@@ -2,9 +2,9 @@
     import { onMount } from "svelte";
   
     let counters = [
-      { id: 1, label: "Students Registered in the past 2 years", target: 4000 },
-      { id: 2, label: "Certified Developers", target: 400 },
-      { id: 3, label: "Institutions with students in our program", target: 250 },
+      { id: 1, label: "Students Registered in the past 2 years", target: 4139 },
+      { id: 2, label: "Certified Developers", target: 526 },
+      { id: 3, label: "Institutions with students in our program", target: 350 },
       { id: 4, label: "Total Countries Reached", target: 10 }
     ];
   
@@ -46,7 +46,7 @@
         <div class="flex flex-col  md:items-center">
           <div class="flex justify-start w-full">
             <p id={`counter-${counter.id}`} class="text-4xl font-extrabold text-[#093BAA] text-left">0</p>
-            <p class="text-left text-4xl font-extrabold text-[#093BAA]">+</p>
+            <p class="text-left text-4xl font-extrabold text-[#093BAA]"></p>
           </div>
           <p class="mt-2 text-gray-700 text-left">{counter.label}</p>
         </div>
