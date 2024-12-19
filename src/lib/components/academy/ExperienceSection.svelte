@@ -4,7 +4,7 @@
       img: "/academy/DivyanshuPrasad.svg",
       header: "I was not a developer previously",
       name: "Divyanshu Prasad",
-      role: "Developer Intern, DOT Exchange",
+      role: "ex-SDE Intern at Timechain Labs",
       description: "Working with Timechainlabs, I got to know what real development looks like.",
       videoUrl: "https://youtube.com/embed/1YYd34lWRH0"
     },
@@ -12,7 +12,7 @@
       img: "/academy/RiteekRakesh.svg",
       header: "Got opportunity to work on real projects.",
       name: "Riteek Rakesh",
-      role: "Developer Intern, DOT Exchange",
+      role: "Software Developer at Timechain labs",
       description: "I basically learnt how to write backend APIs for any fullstack applications.",
       videoUrl: "https://youtube.com/embed/0VPPR1PNuXY"
     },
