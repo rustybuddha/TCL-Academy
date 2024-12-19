@@ -31,7 +31,7 @@
     source: z.string().min(1, "Source is required").optional(),
     educationalBackground: z
       .string()
-      .min(1, "Educational Background is required")
+      .min(1, "University is required")
       .optional(),
     companyName: z.string().min(1, "Company Name is required").optional(),
     otherSource: z.string().min(1, "Please specify the source").optional(),
@@ -157,7 +157,7 @@
 
 <Toaster />
 <!--Mobile View-->
-<div class="sm:hidden mx-auto w-full mt-5">
+<div class="sm:hidden mx-auto w-full mt-0">
   <img class="mx-auto w-full" src="/academy/register-for-mobile.png" alt="" />
 </div>
 <div
@@ -334,7 +334,7 @@
               type="text"
               id="educational-background"
               name="educational-background"
-              placeholder="Educational Background"
+              placeholder="University Name"
               class="w-full p-2 lg:px-4 lg:py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               bind:value={educationalBackground}
               required
@@ -479,7 +479,7 @@
 
 <!--Desktop View-->
 <div
-  class="hidden sm:flex mx-auto bg-cover bg-center justify-between p-4 md:p-4 xl:p-10"
+  class="hidden -mt-8 sm:flex mx-auto bg-cover bg-center justify-between p-4 md:p-4 xl:p-10"
   style="background-image: url('/academy/register-section-1.jpg');"
 >
   <div class="w-1/2">
@@ -671,7 +671,7 @@
               type="text"
               id="educational-background"
               name="educational-background"
-              placeholder="Educational Background"
+              placeholder="University Name"
               class="w-full p-2 lg:px-4 lg:py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               bind:value={educationalBackground}
               required
