@@ -15,7 +15,11 @@
 
 
       <!-- Notification Form -->
-      <!-- <p class="desc text-center text-[#333333] mb-4 sm:text-lg">Notify me by email when it’s time for the event</p>
+      <p class="desc text-center text-[10px] text-[#333333] mb-4 sm:text-lg sm:mt-10">
+        Hurry Up! Only <span class="curved-underline !font-[400]">limited seats</span> are available for the next cohort.
+      </p>
+      
+      <!-- 
       <div class="flex justify-center max-w-[617px] mx-auto">
           <input type="email" placeholder="Email Address"
               class=" mr-3 py-2 px-2 rounded-lg border border-gray-300 w-full">
@@ -31,7 +35,8 @@
     font-size: 24px !important;
   }
   .desc{
-    font-size: 14px !important;
+    font-size: 10px !important;
+    font-weight:400 !important ;
   }
 }
 @media (max-width: 356px) {
@@ -39,7 +44,26 @@
     font-size: 21px !important;
   }
   .desc{
-    font-size: 12px !important;
+    font-size: 8px !important;
   }
+}
+.curved-underline {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+.curved-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -5px; 
+  left: 0;
+  width: 100%;
+  border-top: 3px solid #39E5D9 ;
+  height: 10px; 
+  background-color: transparent;
+  border-radius: 48%; 
+  transform: rotate(3deg); 
+  transform-origin: center;
 }
 </style>
