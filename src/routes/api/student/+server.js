@@ -2,7 +2,7 @@ import pkg from 'pg';
 const { Client } = pkg;
 import { v4 as uuidv4 } from 'uuid';
 import { sendPhonePeRequest } from '../utils/phonepe-init.js';
-import { createDeal,updateContact } from '../utils/freshsales.js';
+import { createDeal,createSalesAccount,updateContact, updateDealSales } from '../utils/freshsales.js';
 
 const dbUri = "postgres://default:V5kO8cAFriym@ep-tight-surf-a4yjbe8r.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require";
 
@@ -102,17 +102,44 @@ export const POST = async ({ request }) => {
             FROM "student" 
             WHERE email = $1;
         `;
+        const checkOrganization = `
+            SELECT * 
+            FROM "organization" 
+            WHERE name = $1;
+        `;
         const checkRes = await client.query(checkQuery, [email]);
+        const checkOrg = await client.query(checkOrganization, [organization]);
+    
+        let sales_account;
+        if(checkOrg.rows.length >0){
+            sales_account = checkOrg.rows[0].freshsales_id;
+        }else{
+            sales_account = await createSalesAccount(organization)
+            const orgAddQuerry  = `
+                INSERT INTO organization ("name", "freshsales_id") VALUES ($1, $2) 
+                RETURNING id;
+            `
+            const orgValues = [
+                organization,
+                sales_account,
+            ]
+
+            const resOrg = await client.query(orgAddQuerry, orgValues)
+
+            console.log(resOrg)
+        }
 
         if (checkRes.rows.length > 0) {
             const existingUser = checkRes.rows[0];
-            const { paymentstatus, updatedat, contact_id, id: userId } = existingUser;
+            const { paymentstatus, updatedat, contact_id, deal_id, id: userId } = existingUser;
             const lastUpdatedTime = new Date(updatedat);
             const currentTime = new Date();
             const timeDifference = (currentTime - lastUpdatedTime) / 1000 / 60; // Time difference in minutes
 
 
             if (paymentstatus === "INTEREST") {
+
+                await updateDealSales(deal_id, sales_account)
 
                 await updateContact(contact_id, fullName, linkedIn, mailingAddress, phone, profession,  organization, referedBy, countryCode.countryname)
                 // Update the existing record with new form data and set paymentStatus to 'PENDING'
@@ -199,7 +226,7 @@ export const POST = async ({ request }) => {
             }
         }
 
-        const { contact_id, deal_id } = await createDeal(fullName, email, phone, linkedIn, mailingAddress, countryCode.countryname, profession, organization, referedBy)
+        const { contact_id, deal_id } = await createDeal(fullName, email, phone, linkedIn, mailingAddress, countryCode.countryname, profession, organization, referedBy, sales_account)
 
 
 
