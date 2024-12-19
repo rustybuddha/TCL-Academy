@@ -55,7 +55,7 @@ export const POST = async ({ request }) => {
             );
         }
 
-        const { contact_id, deal_id }  = await createDeal(fullName, email, phone, "", "", countryCode.countryname,"", "", message)
+        const { contact_id, deal_id }  = await createDeal(fullName, email, phone, "", "", countryCode.countryname,"", "", message, "")
         
 
 

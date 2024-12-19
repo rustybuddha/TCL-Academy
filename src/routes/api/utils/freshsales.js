@@ -49,7 +49,7 @@ export async function createContact(fullname, email, linkedin, address, mobile_n
     }
 }
 
-export async function createDeal(name, email, contactNumber, linkedIN, address, countryName, profession, organization, referedBy) {
+export async function createDeal(name, email, contactNumber, linkedIN, address, countryName, profession, organization, referedBy, sales_account_id) {
 
     const contact_id = await createContact(name, email, linkedIN, address, contactNumber, profession, organization, referedBy, countryName)
     const url = "https://tclabs.myfreshworks.com/crm/sales/api/deals";
@@ -58,13 +58,7 @@ export async function createDeal(name, email, contactNumber, linkedIN, address, 
         deal: {
             name: name,
             amount: 8999,
-            sales_account: {
-                name: email,
-                phone: contactNumber,
-                linkedin: linkedIN,
-                address: address,
-                country: countryName,
-            },
+            "sales_account_id": sales_account_id,
             "currency_id": 402000190124,
             "deal_pipeline_id": 402000189098,
             "contacts_added_list": [contact_id],
@@ -77,6 +71,8 @@ export async function createDeal(name, email, contactNumber, linkedIN, address, 
             ]
         },
     };
+
+    console.log(JSON.stringify(payload))
 
     try {
         const response = await fetch(url, {
@@ -109,6 +105,38 @@ export async function updateDeal(dealId) {
     const payload = {
         deal: {
             "deal_stage_id": 402001325531,
+        },
+    };
+
+    try {
+        const response = await fetch(url, {
+            method: "PUT",
+            headers: {
+                "Authorization": "Token token=t6MwZk-wEKklzOlJmcIWGA",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload),
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        // console.log("Response data:", data);
+
+        // Return the updated deal data
+        return data;
+    } catch (error) {
+        console.error("Error while updating the deal:", error);
+    }
+}
+export async function updateDealSales(dealId, accountId) {
+    const url = `https://tclabs.myfreshworks.com/crm/sales/api/deals/${dealId}`;
+
+    const payload = {
+        deal: {
+            "sales_account_id": accountId,
         },
     };
 
@@ -182,4 +210,36 @@ export async function updateContact(contactId, fullname, linkedin, address, mobi
     }
 }
 
+export async function createSalesAccount(organization) {
+    const url = "https://tclabs.myfreshworks.com/crm/sales/api/sales_accounts";
+
+    const payload = {
+        sales_account: {
+            name: organization
+        }
+    };
+
+    try {
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Authorization": "Token t6MwZk-wEKklzOlJmcIWGA",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log("Response:", data);
+        return data.sales_account.id;
+        
+    } catch (error) {
+        console.error("Error:", error);
+        return null;
+    }
+}
 
