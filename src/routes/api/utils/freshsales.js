@@ -1,5 +1,5 @@
 export async function createContact(fullname, email, linkedin, address, mobile_number, profession, organization, referedBy, country) {
-    const url = "https://tclabs.myfreshworks.com/crm/sales/api/contacts";
+    const url = "https://tclabs.myfreshworks.com/crm/sales/api/contacts/upsert";
 
     // Split the fullname into first and last names
     const [first_name, ...lastNameParts] = fullname.split(" ");
@@ -7,10 +7,12 @@ export async function createContact(fullname, email, linkedin, address, mobile_n
 
 
     const payload = {
+        "unique_identifier":{
+            "emails": email,
+        },
         contact: {
             first_name: first_name,
             last_name: last_name,
-            email: email,
             linkedin: linkedin,
             address: address,
             mobile_number: mobile_number,
