@@ -423,7 +423,7 @@
     <div class="text-center !max-w-[1050px] m-auto">
       <p class="text-2xl sm:text-3xl md:text-4xl bai-jamjuree-font !font-[500] text-[#333333] text-size">
         <span class="!font-[500] text-size text-2xl sm:text-2xl md:text-4xl mr-1">Over</span>
-        <span class="text-size text-[#093BAA] !font-[600] mr-1 text-2xl sm:text-2xl md:text-4xl">400+ Students</span>
+        <span class="text-size text-[#093BAA] !font-[600] mr-1 text-2xl sm:text-2xl md:text-4xl">526 Students</span>
         <span class=" text-size hidden sm:inline-block !font-[500] text-2xl sm:text-2xl md:text-4xl">
           have benefited
         </span>
