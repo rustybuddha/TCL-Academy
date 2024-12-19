@@ -42,7 +42,7 @@ export const POST = async ({ request }) => {
         }
 
         // Step 6: Calculate checksum
-        const checksumInput = callbackData.response + "96434309-7796-489d-8924-ab56988a6076" //20974b1d-ae1c-42f5-9685-22d6c8da9dc7// Prod key  //'96434309-7796-489d-8924-ab56988a6076' test key 
+        const checksumInput = callbackData.response + "20974b1d-ae1c-42f5-9685-22d6c8da9dc7" //20974b1d-ae1c-42f5-9685-22d6c8da9dc7// Prod key  //'96434309-7796-489d-8924-ab56988a6076' test key 
         const calculatedChecksum = sha256(checksumInput);
         console.log("Step 6: Calculated checksum:", calculatedChecksum);
 
