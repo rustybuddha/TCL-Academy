@@ -415,7 +415,7 @@
 
 
  <div class="px-4 sm:px-2" id="testimonials">
-<div class="flex flex-col items-center max-w-6xl mx-auto mt-[100px]" >
+<div class="flex flex-col items-center max-w-6xl mx-auto mt-[3rem] sm:mt-[100px]" >
   <div class="text-center mb-8">
     <div class="!max-w-[650px] flex justify-center mt-2 mb-2">
       <p class="bg-[#E6EBF4] w-[150px] sm:w-[170px] rounded-full text-[#093BAA] bai-jamjuree-font font-[500] text-[12px] sm:text-base md:text-[1rem] p-1"> FEATURED STORIES </p>
