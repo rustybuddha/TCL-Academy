@@ -2,6 +2,8 @@ import pkg from 'pg';
 const { Client } = pkg;
 import { v4 as uuidv4 } from 'uuid';
 import { createDeal } from '../utils/freshsales.js';
+import { popupemail } from '../utils/popup.js';
+import sendEmail from '../utils/email.js';
 
 const dbUri = "postgres://default:V5kO8cAFriym@ep-tight-surf-a4yjbe8r.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require";
 
@@ -18,6 +20,17 @@ export const POST = async ({ request }) => {
 
         // Destructure the form data
         const { fullName, email, phone, message, countryCode } = formData;
+        try {
+            await sendEmail(
+                email,    
+                'Thank you for your interest!',
+                popupemail,
+                `Dear ${fullName},\n\nThank you for your interest in our course.\n\nWe look forward to seeing you in the course!`
+            );
+            console.log("Confirmation email sent successfully!");
+        } catch (emailError) {
+            console.error("Error sending confirmation email:", emailError);
+        }
 
         await client.connect(); // Establish database connection
 
