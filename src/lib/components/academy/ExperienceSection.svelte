@@ -4,7 +4,7 @@
       img: "/academy/DivyanshuPrasad.svg",
       header: "I was not a developer previously",
       name: "Divyanshu Prasad",
-      role: "Developer Intern, DOT Exchange",
+      role: "ex-SDE Intern at Timechain Labs",
       description: "Working with Timechainlabs, I got to know what real development looks like.",
       videoUrl: "https://youtube.com/embed/1YYd34lWRH0"
     },
@@ -12,7 +12,7 @@
       img: "/academy/RiteekRakesh.svg",
       header: "Got opportunity to work on real projects.",
       name: "Riteek Rakesh",
-      role: "Developer Intern, DOT Exchange",
+      role: "Software Developer at Timechain labs",
       description: "I basically learnt how to write backend APIs for any fullstack applications.",
       videoUrl: "https://youtube.com/embed/0VPPR1PNuXY"
     },
@@ -415,7 +415,7 @@
 
 
  <div class="px-4 sm:px-2" id="testimonials">
-<div class="flex flex-col items-center max-w-6xl mx-auto mt-[100px]" >
+<div class="flex flex-col items-center max-w-6xl mx-auto mt-[3rem] sm:mt-[100px]" >
   <div class="text-center mb-8">
     <div class="!max-w-[650px] flex justify-center mt-2 mb-2">
       <p class="bg-[#E6EBF4] w-[150px] sm:w-[170px] rounded-full text-[#093BAA] bai-jamjuree-font font-[500] text-[12px] sm:text-base md:text-[1rem] p-1"> FEATURED STORIES </p>
@@ -423,7 +423,7 @@
     <div class="text-center !max-w-[1050px] m-auto">
       <p class="text-2xl sm:text-3xl md:text-4xl bai-jamjuree-font !font-[500] text-[#333333] text-size">
         <span class="!font-[500] text-size text-2xl sm:text-2xl md:text-4xl mr-1">Over</span>
-        <span class="text-size text-[#093BAA] !font-[600] mr-1 text-2xl sm:text-2xl md:text-4xl">400+ Students</span>
+        <span class="text-size text-[#093BAA] !font-[600] mr-1 text-2xl sm:text-2xl md:text-4xl">526 Students</span>
         <span class=" text-size hidden sm:inline-block !font-[500] text-2xl sm:text-2xl md:text-4xl">
           have benefited
         </span>

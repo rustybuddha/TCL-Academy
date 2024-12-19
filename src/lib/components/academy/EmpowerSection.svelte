@@ -48,29 +48,30 @@
       <img src="/academy/newEmpower.svg" alt="" class="m-auto">
       <div class="-mt-10 flex justify-between items-center">
       <div class="mx-auto max-w-7xl py-10 px-3 text-center">
-        <div class="grid grid-cols-2 gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div class="max-w-[428px] grid grid-cols-2 gap-6 gap-x-[50px] md:grid-cols-2 lg:grid-cols-4">
+
           <!-- Counter 1 -->
-          <div class="flex flex-col items-start  text-gray-800">
+          <div class="flex flex-col items-center  text-gray-800">
             <p class="text-3xl sm:text-4xl !font-[600] text-[#093BAA] bai-jamjuree-font">4139</p>
-            <p class="mt-2 text-sm !font-[300] text-[#5C5C5C] text-left">Students Registered in the past 2 years</p>
+            <p class="mt-2 text-sm !font-[300] text-[#5C5C5C] ">Students Registered in the past 2 years</p>
           </div>
       
           <!-- Counter 2 -->
-          <div class="flex flex-col items-start  text-gray-800">
+          <div class="flex flex-col items-center  text-gray-800">
             <p class="text-3xl sm:text-4xl !font-[600] text-[#093BAA] bai-jamjuree-font">526</p>
-            <p class="mt-2 text-sm !font-[300] text-[#5C5C5C] text-left">Institutions have students in our program</p>
+            <p class="mt-2 text-sm !font-[300] text-[#5C5C5C]">Institutions have students in our program</p>
           </div>
       
           <!-- Counter 3 -->
-          <div class="flex flex-col items-start  text-gray-800">
+          <div class="flex flex-col items-center  text-gray-800">
             <p class="text-3xl sm:text-4xl !font-[600] text-[#093BAA] bai-jamjuree-font">350</p>
-            <p class="mt-2 text-sm !font-[300] text-[#5C5C5C] text-left">Certified Developers</p>
+            <p class="mt-2 text-sm !font-[300] text-[#5C5C5C] ">Certified Developers</p>
           </div>
       
           <!-- Counter 4 -->
-          <div class="flex flex-col items-start  text-gray-800">
+          <div class="flex flex-col items-center  text-gray-800">
             <p class="text-3xl sm:text-4xl !font-[600] text-[#093BAA] bai-jamjuree-font">10</p>
-            <p class="mt-2 text-sm !font-[300] text-[#5C5C5C] text-left">Total Countries Reached</p>
+            <p class="mt-2 text-sm !font-[300] text-[#5C5C5C] ">Total Countries Reached</p>
           </div>
         </div>
       </div>
