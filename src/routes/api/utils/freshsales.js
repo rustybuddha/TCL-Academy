@@ -213,10 +213,10 @@ export async function updateContact(contactId, fullname, linkedin, address, mobi
 }
 
 export async function createSalesAccount(organization) {
-    const url = "https://tclabs.myfreshworks.com/crm/sales/api/sales_accounts";
+    const url = "https://tclabs.myfreshworks.com/crm/sales/api/sales_accounts/upsert";
 
     const payload = {
-        sales_account: {
+        "unique_identifier": {
             name: organization
         }
     };
