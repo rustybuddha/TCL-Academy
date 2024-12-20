@@ -13,7 +13,7 @@
   };
 
   const userId = getUserIdFromLocalStorage();
-  console.log("userId from localStorage: ", userId);
+  // console.log("userId from localStorage: ", userId);
 
   const dynamicIntervals = [
     { delay: 0, interval: 3000, duration: 30000 },
