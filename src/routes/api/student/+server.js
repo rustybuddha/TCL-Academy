@@ -131,7 +131,7 @@ export const POST = async ({ request }) => {
 
         if (checkRes.rows.length > 0) {
             const existingUser = checkRes.rows[0];
-            let { paymentstatus, updatedat, contact_id, deal_id, id: userId, eOrganization, phone, profession, linkedIn } = existingUser;
+            let { paymentstatus, updatedat, contact_id, deal_id, id: userId, phone, profession, linkedIn } = existingUser;
             const lastUpdatedTime = new Date(updatedat);
             const currentTime = new Date();
             const timeDifference = (currentTime - lastUpdatedTime) / 1000 / 60; // Time difference in minutes
@@ -193,19 +193,18 @@ export const POST = async ({ request }) => {
             } else if ((paymentstatus === 'FAILED' || paymentstatus === 'PENDING')) {
                 // Generate new PhonePe URL if last updated > 5 minutes
 
-                if (paymentstatus === 'FAILED') {
-                    const newuserId = uuidv4();
+                const newuserId = uuidv4();
                     const query = `
-                        UPDATE student SET "id" = $1 WHERE email = $2;
+                    UPDATE student
+                    SET "id" = $1,
+                        "paymentstatus" = $2
+                        WHERE email = $3;
                     `;
-                    const values = [
-                        newuserId, email
-                    ];
+                    const values = [newuserId, "PENDING", email];
 
                     const res = await client.query(query, values);
                     console.log(res)
                     userId =newuserId
-                }
 
                 if (existingUser.organization !== organization){
                     await updateDealSales(deal_id, sales_account)
@@ -233,9 +232,9 @@ export const POST = async ({ request }) => {
         await client.query(updateQuery, updateValues);
     }
 
-                const paymentURL = await generatePhonePeUrl(userId);
+                const paymentURL = await generatePhonePeUrl(newuserId);
                 return new Response(
-                    JSON.stringify({ message: "Payment URL generated.", id: userId, URL: paymentURL }),
+                    JSON.stringify({ message: "Payment URL generated.", id: newuserId, URL: paymentURL }),
                     {
                         status: 200,
                         headers: {

@@ -1,4 +1,3 @@
-import { checkStatus } from '../../utils/phonepe-init.js';
 import pkg from 'pg';
 const { Pool } = pkg;
 
@@ -7,16 +6,14 @@ const pool = new Pool({
     connectionString: 'postgres://default:V5kO8cAFriym@ep-tight-surf-a4yjbe8r.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require',
 });
 export async function GET({ params }) {
-    const { param: txID } = params; // Extract the transaction ID from the URL
-    console.log('Transaction ID:', txID);
+    const { param: userID } = params; 
   
     try {
-      // Call the checkStatus function with the extracted parameter
-      let status = await checkStatus(txID);
+      
       const client = await pool.connect();
       const { rows } = await client.query(
         `SELECT * FROM "student" WHERE id = $1`,
-        [txID]
+        [userID]
     );
 
     if (rows.length === 0) {
@@ -25,19 +22,14 @@ export async function GET({ params }) {
 
 
 
-    const student = rows[0]; // Extract student details
-    const dbstatus = student.paymentstatus;
-
-    if (dbstatus !=='PENDING'){
-        status = dbstatus
-    }
+    const student = rows[0]; 
 
     client.release();
 
 
 
 
-      return new Response(JSON.stringify(status), {
+      return new Response(JSON.stringify(student), {
         status: 200,
         headers: {
           'Content-Type': 'application/json',
