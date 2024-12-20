@@ -19,6 +19,7 @@
   ];
   let modal = false; 
   let currentVideoUrl = '';  
+  let hoveredIndex = -1;
 
   function openModal(videoUrl) {
     currentVideoUrl = videoUrl;
@@ -66,12 +67,6 @@
   let dropdownOpen = false;
   let isLoading = false;
   
-  // const closeDropdown = (event) => {
-    //   if (!event.target.closest(".dropdown")) {
-      //     dropdownOpen = false;
-      //   }
-      // };
-      
       const formSchema = z.object({
         fullName: z.string().min(1, "Full Name is required"),
         email: z.string().email("Invalid email address"),
@@ -123,7 +118,6 @@
   };
 
   const result = formSchema.safeParse(data);
-  // console.log("Result :: ", data);
 
   if (!result.success) {
     result.error.errors.forEach((err) => toast.error(err.message));
@@ -143,7 +137,6 @@
   };
 
 
-// console.log(payload)
   try {
     isLoading = true;
     const response = await axios.post(
@@ -155,16 +148,8 @@
         },
       }
     );
-    // console.log(response);
     if (response.status === 200) {
-      // const result = response.data;
-      // console.log(result)
       isLoading = false;
-      // const redirectUrl = result.URL;
-
-      // if (redirectUrl) {
-        // window.open(redirectUrl);
-      // }
 
       toast.success("Thanks for your interest.");
       showPopup = false;
@@ -178,35 +163,14 @@
     isLoading = false;
   }
 
-  // CRM Integration
-  // if (fwcrm) {
-  //   const newContact = {
-  //     "First name": data.fullName.split(" ")[0],
-  //     "Last name": data.fullName.split(" ").slice(1).join(" ") || "",
-  //     "Email": data.email,
-  //     "Mobile": data.phone,
-  //     "Message": data.message,
-  //   };
-
-  //   const identifier = data.email;
-
-  //   fwcrm.identify(identifier, newContact);
-  //   // toast.success("Form submitted successfully!");
-  // } else {
-  //   console.error("Freshworks CRM is not initialized.");
-  //   toast.error("Unable to connect to CRM. Please try again later.");
-  // }
-
-
 };
 
-  // onMount(() => {
-  //   if (browser) {
-  //     setTimeout(() => {
-  //       isPageLoaded = true;
-  //     }, 1000);
-  //   }
-  // });
+  const getVideoUrl = (url) => {
+    if (url.includes('youtube.com') || url.includes('youtu.be')) {
+      return `${url}?autoplay=1&mute=1`;
+    }
+    return url;
+  };
 </script>
 
 
@@ -442,30 +406,49 @@
 
 <!-- Testimonial Cards -->
 <div class=" !-mt-4 md:pt-10 flex container-care sm:flex-col md:flex-row gap-6 justify-center items-start max-w-[1300px] m-auto" style="margin-top: 30px;">
-  {#each testimonials as testimonial}
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <!-- svelte-ignore a11y-no-static-element-interactions -->
-    <div class="bg-white border rounded-lg  sm:w-1/2 flex flex-col card-care  md:flex-row gap-4 sm:gap-6 text-sm sm:text-base cursor-pointer" on:click={() => openModal(testimonial.videoUrl)}>
-      <div class="text-white overflow-hidden w-full relative">
+  {#each testimonials as testimonial, index}
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
+  <!-- svelte-ignore a11y-no-static-element-interactions -->
+  <div class="bg-white border rounded-lg sm:w-1/2 flex flex-col card-care md:flex-row gap-4 sm:gap-6 text-sm sm:text-base cursor-pointer"
+       on:click={() => openModal(testimonial.videoUrl)}>
+    <div class="text-white overflow-hidden w-full relative"
+         on:mouseover={() => hoveredIndex = index} 
+         on:mouseout={() => hoveredIndex = -1} 
+    >
+      {#if hoveredIndex === index}
+        <!-- Show Video when hovered -->
+        <img src={testimonial.img} alt={testimonial.name} class="w-full block sm:hidden rounded-l-[8px] img-care">
+        <iframe 
+        class="w-full hidden sm:block md:h-[300px] lg:h-[320px] xl:h-[400px] rounded-l-[8px] vid-care" 
+        src={getVideoUrl(testimonial.videoUrl)}
+        title="Video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen
+      ></iframe>
+      {:else}
+        <!-- Show Image when not hovered -->
         <img src={testimonial.img} alt={testimonial.name} class="w-full rounded-l-[8px] img-care">
-        <img src="/academy/play-circle-02.svg" alt="" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-      </div>
-      
-      <div class="flex flex-col justify-between px-2">
-        <p class="text-green-500 text-2xl font-bold quote mt-5"><img src="/academy/card-quote.svg" alt=""></p>
-        <p class="text-[#333333] mt-2 text-xl sm:text-2xl text  lg:text-3xl !font-[400] rubik-font italic">{testimonial.description}</p>
-        <div class="mt-4 mb-6 flex justify-between items-center">
-         <div>
-           <p class="font-[400] rubik-font">{testimonial.name}</p>
-           <p class="text-xs font-[400] text-[#5C5C5C] rubik-font">{testimonial.role}</p>
-          </div>
-          <!-- <button on:click={() => openModal(testimonial.videoUrl)} class="mt-2 w-10 !mr-[15px] h-10 rounded-full bg-blue-50 text-blue-500 flex items-center justify-center shadow-md hover:bg-blue-100">
-          <img src="/academy/play-btn.svg" alt="">
-          </button> -->
+        <img src="/academy/play-circle-02.svg" alt="Play" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+      {/if}
+    </div>
+
+    <div class="flex flex-col justify-between px-2">
+      <p class="text-green-500 text-2xl font-bold quote mt-5">
+        <img src="/academy/card-quote.svg" alt="">
+      </p>
+      <p class="text-[#333333] mt-2 text-xl sm:text-2xl text lg:text-3xl !font-[400] rubik-font italic">
+        {testimonial.description}
+      </p>
+      <div class="mt-4 mb-6 flex justify-between items-center">
+        <div>
+          <p class="font-[400] rubik-font">{testimonial.name}</p>
+          <p class="text-xs font-[400] text-[#5C5C5C] rubik-font">{testimonial.role}</p>
         </div>
       </div>
     </div>
-  {/each}
+  </div>
+{/each}
 </div>
 </div>
 {#if modal}
