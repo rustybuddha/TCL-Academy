@@ -190,7 +190,7 @@ export const POST = async ({ request }) => {
                         },
                     }
                 );
-            }else if ((paymentstatus === 'FAILED' || paymentstatus === 'PENDING') && timeDifference > 5) {
+            }else if ((paymentstatus === 'FAILED' || paymentstatus === 'PENDING')) {
                 // Generate new PhonePe URL if last updated > 5 minutes
                 const paymentURL = await generatePhonePeUrl(userId);
                 return new Response(
