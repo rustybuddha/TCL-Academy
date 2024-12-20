@@ -158,7 +158,28 @@
 <Toaster />
 <!--Mobile View-->
 <div class="sm:hidden mx-auto w-full mt-0">
-  <img class="mx-auto w-full" src="/academy/register-for-mobile.png" alt="" />
+  <div class="mx-auto mt-0 text-center px-4">
+
+
+    <div class="flex w-full justify-between items-center">
+      <img src="/academy/register2.svg" alt="">
+     </div>
+
+    <p class="text text-3xl sm:text-4xl font-[500] leading-tight text-[#333333]">
+      Join Our Next Cohort –  <br> <span class="text-[#093BAA] !font-[600]">  
+        Register Now!</span>
+    </p>
+
+    
+
+
+    <p class="text-para mt-4 text-[#5C5C5C] max-w-[400px] text-sm font-['Rubik'] sm:text-lg leading-relaxed mx-auto">
+      Complete the form to secure your place in our upcoming cohort and advance your tech career. Limited spaces—register now! Our team will guide you through each step toward success.    </p>
+      <div class="flex w-full justify-end items-end">
+        <img src="/academy/register1.svg" alt="">
+       </div>
+  
+    </div>
 </div>
 <div
   class="sm:hidden mx-auto bg-cover bg-center opacity-80 justify-center p-4 flex flex-col"
@@ -897,4 +918,11 @@
       transform: rotate(360deg);
     }
   }
+
+  @media (max-width: 360px) {
+  .text {
+    font-size: 24px !important;
+  }
+}
+
 </style>
