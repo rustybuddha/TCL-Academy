@@ -1,7 +1,7 @@
 import pkg from 'pg';
 const { Client } = pkg;
 import { v4 as uuidv4 } from 'uuid';
-import { sendPhonePeRequest } from '../utils/phonepe-init.js';
+import { checkStatus, generateXVerifyforCheck, sendPhonePeRequest } from '../utils/phonepe-init.js';
 import { createDeal, createSalesAccount, updateContact, updateDealSales } from '../utils/freshsales.js';
 
 const dbUri = "postgres://default:V5kO8cAFriym@ep-tight-surf-a4yjbe8r.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require";
@@ -299,6 +299,9 @@ export const POST = async ({ request }) => {
 
         // Close database connection
         await client.end();
+
+        // const check = await checkStatus(userId)
+        // console.log(check)
 
 
         return new Response(
