@@ -91,17 +91,17 @@
           </div>
         </div>
     </div>
-    <!-- desktop -->
+    <!-- Mobile -->
     <div class="lg:w-1/1 block sm:hidden">
       {#each cards as card, i}
       <div 
-      class="mb-8 {i === cards.length - 1 ? '' : 'mb-32'} sticky"
-      style="top: calc(120px + {i} * 50px);"
+      class="mb-8 sticky"
+      style="top: calc(60px + {i} * 50px);"
   >
         <div
-          class="transform transition-all duration-500 ease-out {card.bgColor} rounded-xl shadow-lg "
+          class="transform transition-all duration-500 ease-out {card.bgColor} {i === cards.length - 1  ? ' h-[460px]' : ''} rounded-xl shadow-lg "
         >
-        <div class="flex justify-start items-center {card.headColor} rounded-t-[8px] h-[3.5rem] sm:h-[5rem]">
+        <div class="flex justify-start adjust items-center {card.headColor} rounded-t-[8px] h-[3.5rem] sm:h-[5rem]">
           <p class="text-[12px] ml-6 flex justify-center items-center !font-[500] text-center rounded-full w-[5rem] sm:w-[6rem] h-6 sm:h-8 {card.moduleColor} rubik-font bg-[#FFFFFF]" style="font-weight: 300;">{card.module}</p>
           
           <p class=" text-lg sm:text-2xl ml-5 font-[500] text-[#FFFFFF] bai-jamjuree-font">{card.title}</p>
@@ -174,11 +174,11 @@
     <div class="lg:w-1/1 hidden sm:block">
       {#each cards as card, i}
       <div 
-      class="mb-8 {i === cards.length - 1 ? '' : 'mb-32'} sticky"
+      class="mb-8 sticky"
       style="top: calc(120px + {i} * 68px);"
   >
         <div
-          class="transform transition-all duration-500 ease-out {card.bgColor} rounded-xl shadow-lg "
+          class="transform transition-all duration-500 ease-out {card.bgColor} {i === cards.length - 1  ? ' h-[485px]' : ''}   rounded-xl shadow-lg "
         >
         <div class="flex justify-start items-center {card.headColor} rounded-t-[8px] h-[3.5rem] sm:h-[5rem]">
           <p class="text-[12px] ml-6 flex justify-center items-center !font-[500] text-center rounded-full w-[5rem] sm:w-[6rem] h-6 sm:h-8 {card.moduleColor} rubik-font bg-[#FFFFFF]" style="font-weight: 300;">{card.module}</p>
@@ -315,6 +315,15 @@
   }
 } 
 
+@media (max-width: 360px) {
+  .adjust{
+    padding: 10px 0px;
+    justify-items: start !important;
+    align-items: start !important;
+    flex-direction: column !important;
+  }
+  
+} 
 
 
 </style>
