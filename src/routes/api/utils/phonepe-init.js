@@ -65,3 +65,27 @@ function generateXVerifyWithSalt(base64Payload, saltKey) {
   const hash = crypto.createHash("sha256").update(data).digest("hex");
   return `${hash}###${SaltIndex}`;
 }
+
+export function generateXVerifyforCheck(txID){
+  const string = `/pg/v1/status/TIMECHAINONLINE/${txID}` + "20974b1d-ae1c-42f5-9685-22d6c8da9dc7";
+  const sha256 = crypto.createHash('sha256').update(string).digest('hex');
+  const checksum = sha256 + "###" + 1;
+  return checksum;
+}
+
+
+export async function checkStatus(txID){
+  const checksum = generateXVerifyforCheck(txID)
+  try {
+    const response = await axios.get(`https://api.phonepe.com/apis/hermes/pg/v1/status/TIMECHAINONLINE/${txID}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        'X-VERIFY': checksum,
+        'X-MERCHANT-ID': ProdMerchantId
+      }
+    });
+    return response.data
+  } catch (error) {
+    console.error("Error in making the API request:", error.message);
+  }
+}
