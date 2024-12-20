@@ -131,7 +131,7 @@ export const POST = async ({ request }) => {
 
         if (checkRes.rows.length > 0) {
             const existingUser = checkRes.rows[0];
-            let { paymentstatus, updatedat, contact_id, deal_id, id: userId, organization, phone, profession, linkedIn } = existingUser;
+            let { paymentstatus, updatedat, contact_id, deal_id, id: userId, eOrganization, phone, profession, linkedIn } = existingUser;
             const lastUpdatedTime = new Date(updatedat);
             const currentTime = new Date();
             const timeDifference = (currentTime - lastUpdatedTime) / 1000 / 60; // Time difference in minutes
@@ -205,6 +205,10 @@ export const POST = async ({ request }) => {
                     const res = await client.query(query, values);
                     console.log(res)
                     userId =newuserId
+                }
+
+                if (existingUser.organization !== organization){
+                    await updateDealSales(deal_id, sales_account)
                 }
 
                 // Check for mismatched data
