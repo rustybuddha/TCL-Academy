@@ -81,6 +81,9 @@
           const result = response.data;
           isLoading = false;
           const redirectUrl = result.URL;
+          if(result?.id){
+            localStorage.setItem("phonepe-user_id", result.id)
+          }
 
           if (redirectUrl) {
             window.open(redirectUrl);
