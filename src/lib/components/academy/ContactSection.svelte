@@ -2,10 +2,10 @@
     import { z } from "zod";
     import {toast,Toaster} from "svelte-french-toast";
     import countryCodes from "$lib/assets/countries-flag.json";
-  
+
     let showModal = false;
     let phone = "";
-    let disable = true;
+    let isLoading = false;
   
     const formSchema = z.object({
       fullName: z.string().min(1, "Full Name is required"),
@@ -15,28 +15,55 @@
       agreement: z.boolean().refine(val => val === true, "You must accept the agreement"),
     });
 
-    const handleSubmit = (event) => {
-      
-      event.preventDefault();
-        const formData = new FormData(event.target);
-        const data = {
-        fullName: formData.get("full-name"),
-        email: formData.get("email"),
-        phone: formData.get("phone"),
-        message: formData.get("message"),
-        agreement: formData.get("agreement") === "on",
-        
-      };
-  
-      const result = formSchema.safeParse(data);
+    const handleSubmit = async (event) => {
+    event.preventDefault();
 
-      if (!result.success) {
-        result.error.errors.forEach(err => toast.error(err.message));
-      } else {
-        toast.success("Form submitted successfully!");
-        showModal = true;
-      }
-    };
+  const formData = new FormData(event.target);
+  const data = {
+    fullName: formData.get("full-name"),
+    email: formData.get("email"),
+    phone: formData.get("phone"),
+    message: formData.get("message"),
+    agreement: formData.get("agreement") === "on",
+  };
+
+  const result = formSchema.safeParse(data);
+
+  if (!result.success) {
+    result.error.errors.forEach((err) => {
+      toast.error(err.message);
+    });
+    return;
+  }
+
+  try {
+    isLoading = true;
+    const apiResponse = await fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+   
+
+    if ( apiResponse.status === 200 ){
+      isLoading = false;
+      toast.success("Form submitted successfully!");
+      showModal = true;
+
+      event.target.reset();
+    } else {
+      const errorData = await apiResponse.json();
+      toast.error(`Error: ${errorData.message || 'There was an issue submitting the form'}`);
+      isLoading = false;
+    }
+  } catch (error) {
+    console.error("Error sending data to API:", error);
+    toast.error("There was an error submitting your form. Please try again later.");
+    isLoading = false;
+  }
+};
 
   let selectedCountry = {
     countryname: "India",
@@ -165,14 +192,18 @@
           <!-- Submit Button -->
           <button 
           type="submit" 
-          class="w-full font-['Rubik'] px-4 py-2 text-[#FFFFFF] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500"
+          class="w-full flex justify-center items-center font-['Rubik'] px-4 py-2 text-[#FFFFFF] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500"
           disabled={isButtonDisabled}
           class:text-gray-400={isButtonDisabled}  
           class:bg-[#093baa]={!isButtonDisabled}  
           class:bg-gray-400={isButtonDisabled}  
           class:cursor-not-allowed={isButtonDisabled} 
         >
-          Submit
+        {#if isLoading}
+        <div class="loader" />
+      {:else}
+        Submit
+      {/if}
         </button>
         
         </form>
@@ -292,8 +323,12 @@
           class:bg-[#093baa]={!isButtonDisabled}  
           class:bg-gray-400={isButtonDisabled}  
           class:cursor-not-allowed={isButtonDisabled} 
-          type="submit" class="w-full font-['Rubik'] px-4 py-2 text-white bg-[#093baa] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500">
-            Submit
+          type="submit" class="w-full flex justify-center items-center font-['Rubik'] px-4 py-2 text-white bg-[#093baa] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500">
+          {#if isLoading}
+          <div class="loader" />
+        {:else}
+          Submit
+        {/if}
           </button>
         </form>
       </div>
@@ -370,15 +405,6 @@
   color: #111827;
 }
 
-/* .loader {
-  border: 4px solid #e5e7eb;
-  border-top: 4px solid #4f46e5;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  animation: spin 1.5s linear infinite;
-} */
-
 button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
@@ -409,5 +435,22 @@ button:disabled {
   }
 }
 
+.loader {
+    border: 4px solid #e5e7eb; 
+    border-top: 4px solid #4f46e5; 
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1.5s linear infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
   </style>
   
