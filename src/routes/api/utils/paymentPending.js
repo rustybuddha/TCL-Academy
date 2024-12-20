@@ -175,7 +175,7 @@ export const pendingPayment = `
               to pick up where you left off:
               <br />
               <span style="color: #093baa"
-                >timechainlabs.io/academy/registration</span
+                >academy.timechainlabs.io/registration</span
               >
             </p>
             <p>
