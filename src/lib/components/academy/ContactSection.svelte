@@ -306,6 +306,11 @@
   <div class="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center z-50 px-4 sm:px-8">
     <div class="bg-white p-8 rounded-lg shadow-lg relative w-full max-w-md">
       <button class="absolute top-2 right-2 text-gray-500 hover:text-black focus:outline-none" on:click={closeModal}>&times;</button>
+      <img
+      class="w-32 md:w-auto rounded-full m-auto" 
+      src="/academy/success.gif"
+      alt="checkmark"
+    />
       <h2 class="text-xl font-bold mb-4 text-center">Thank You for Reaching Out!</h2>
       <p class="text-gray-600 mb-6 text-center">Your message has been received, a member of the team will be in touch with you shortly. </p>
       <button
