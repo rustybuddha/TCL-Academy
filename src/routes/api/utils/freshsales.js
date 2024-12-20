@@ -218,7 +218,10 @@ export async function createSalesAccount(organization) {
     const payload = {
         "unique_identifier": {
             name: organization
-        }
+        },
+        "sales_account":{
+    "city": "Sample City"
+  }
     };
 
     try {
@@ -236,7 +239,7 @@ export async function createSalesAccount(organization) {
         }
 
         const data = await response.json();
-        console.log("Response:", data);
+        console.log("Response Organization:", data);
         return data.sales_account.id;
         
     } catch (error) {
