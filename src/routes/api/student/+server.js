@@ -2,7 +2,7 @@ import pkg from 'pg';
 const { Client } = pkg;
 import { v4 as uuidv4 } from 'uuid';
 import { sendPhonePeRequest } from '../utils/phonepe-init.js';
-import { createDeal,createSalesAccount,updateContact, updateDealSales } from '../utils/freshsales.js';
+import { createDeal, createSalesAccount, updateContact, updateDealSales } from '../utils/freshsales.js';
 
 const dbUri = "postgres://default:V5kO8cAFriym@ep-tight-surf-a4yjbe8r.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require";
 
@@ -109,13 +109,13 @@ export const POST = async ({ request }) => {
         `;
         const checkRes = await client.query(checkQuery, [email]);
         const checkOrg = await client.query(checkOrganization, [organization]);
-    
+
         let sales_account;
-        if(checkOrg.rows.length >0){
+        if (checkOrg.rows.length > 0) {
             sales_account = checkOrg.rows[0].freshsales_id;
-        }else{
+        } else {
             sales_account = await createSalesAccount(organization)
-            const orgAddQuerry  = `
+            const orgAddQuerry = `
                 INSERT INTO organization ("name", "freshsales_id") VALUES ($1, $2) 
                 RETURNING id;
             `
@@ -131,7 +131,7 @@ export const POST = async ({ request }) => {
 
         if (checkRes.rows.length > 0) {
             const existingUser = checkRes.rows[0];
-            const { paymentstatus, updatedat, contact_id, deal_id, id: userId } = existingUser;
+            let { paymentstatus, updatedat, contact_id, deal_id, id: userId, organization, phone, profession, linkedIn } = existingUser;
             const lastUpdatedTime = new Date(updatedat);
             const currentTime = new Date();
             const timeDifference = (currentTime - lastUpdatedTime) / 1000 / 60; // Time difference in minutes
@@ -141,7 +141,7 @@ export const POST = async ({ request }) => {
 
                 await updateDealSales(deal_id, sales_account)
 
-                await updateContact(contact_id, fullName, linkedIn, mailingAddress, phone, profession,  organization, referedBy, countryCode.countryname)
+                await updateContact(contact_id, fullName, linkedIn, mailingAddress, phone, profession, organization, referedBy, countryCode.countryname)
                 // Update the existing record with new form data and set paymentStatus to 'PENDING'
                 const updateQuery = `
                     UPDATE "student"
@@ -169,7 +169,7 @@ export const POST = async ({ request }) => {
                 ];
 
                 const updateRes = await client.query(updateQuery, updateValues);
-                const userId = updateRes.rows[0].id;
+                let userId = updateRes.rows[0].id;
 
                 // Generate new PhonePe URL
                 const paymentURL = await generatePhonePeUrl(userId);
@@ -190,8 +190,45 @@ export const POST = async ({ request }) => {
                         },
                     }
                 );
-            }else if ((paymentstatus === 'FAILED' || paymentstatus === 'PENDING')) {
+            } else if ((paymentstatus === 'FAILED' || paymentstatus === 'PENDING')) {
                 // Generate new PhonePe URL if last updated > 5 minutes
+
+                if (paymentstatus === 'FAILED') {
+                    const newuserId = uuidv4();
+                    const query = `
+                        UPDATE student SET "id" = $1 WHERE email = $2;
+                    `;
+                    const values = [
+                        newuserId, email
+                    ];
+
+                    const res = await client.query(query, values);
+                    console.log(res)
+                    userId =newuserId
+                }
+
+                // Check for mismatched data
+    const mismatchedFields = {};
+    if (existingUser.fullname !== fullName) mismatchedFields["fullname"] = fullName;
+    if (existingUser.phone !== phone) mismatchedFields["phone"] = phone;
+    if (existingUser.linkedin !== linkedIn) mismatchedFields["linkedin"] = linkedIn || null;
+    if (existingUser.mailingaddress !== mailingAddress) mismatchedFields["mailingaddress"] = mailingAddress || null;
+    if (existingUser.referedby !== referedBy) mismatchedFields["referedby"] = referedBy || null;
+    if (existingUser.organization !== organization) mismatchedFields["organization"] = organization || null;
+    if (existingUser.profession !== profession) mismatchedFields["profession"] = profession || null;
+
+    // Update mismatched fields except email
+    if (Object.keys(mismatchedFields).length > 0) {
+        const updateQuery = `
+            UPDATE "student"
+            SET ${Object.keys(mismatchedFields).map((key, idx) => `"${key}" = $${idx + 1}`).join(", ")},
+                "updatedat" = NOW()
+            WHERE email = $${Object.keys(mismatchedFields).length + 1}
+        `;
+        const updateValues = [...Object.values(mismatchedFields), email];
+        await client.query(updateQuery, updateValues);
+    }
+
                 const paymentURL = await generatePhonePeUrl(userId);
                 return new Response(
                     JSON.stringify({ message: "Payment URL generated.", id: userId, URL: paymentURL }),
