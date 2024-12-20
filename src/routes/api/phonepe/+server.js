@@ -99,11 +99,11 @@ export const POST = async ({ request }) => {
                     paymentStatus = 'COMPLETED';
                     break;
                 case 'FAILED':
-                    paymentStatus = 'Failed';
+                    paymentStatus = 'FAILED';
                     break;
             }
 
-            if (paymentStatus === 'Failed') {
+            if (paymentStatus === 'FAILED') {
 
                 try {
                     await sendEmail(
@@ -116,6 +116,11 @@ export const POST = async ({ request }) => {
                 } catch (emailError) {
                     console.error("Error sending confirmation email:", emailError);
                 }
+
+                await client.query(
+                    `UPDATE "student" SET "paymentstatus" = $1 WHERE id = $2`,
+                    [paymentStatus, merchantTransactionId]
+                );
 
 
                 return new Response(
