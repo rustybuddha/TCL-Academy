@@ -16,9 +16,6 @@
   import TakeThisSection from '$lib/components/academy/TakeThisSection.svelte';
   import TestimonialsSection from '$lib/components/academy/TestimonialsSection.svelte';
   import VideoSection from '$lib/components/academy/VideoSection.svelte';
-  import zipy from 'zipyai'
-
-  zipy.init('16881064')
 </script>
 
   <HeroSection/>
