@@ -28,7 +28,7 @@
     crossorigin="anonymous"
   ></script>
   <script>
-    window.zipy && window.zipy.init("2ba38e1a");
+    window.zipy && window.zipy.init("16881064");
   </script>
 
   <!-- {#if !$popup} -->
