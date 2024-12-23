@@ -1,19 +1,14 @@
 import client from "$lib/sanityClient.js";
 import groq from "groq";
 
-const website = "https://timechainlabs.io";
+const website = "https://academy.timechainlabs.io/";
 const pages = [
   { route: "/", priority: 1.0 },
-  { route: "/about", priority: 0.8 },
-  { route: "/contact", priority: 0.7 },
-  { route: "/solutions", priority: 0.7 },
-  { route: "/career", priority: 0.5 },
-  { route: "/blogs", priority: 0.6 },
-  { route: "/smartpool", priority: 0.6 },
-  { route: "/resources", priority: 0.6 },
-  { route: "/news-and-media", priority: 0.6 },
-  { route: "/privacy-policy", priority: 0.4 },
-  { route: "/terms-and-condition", priority: 0.4 },
+  { route: "/blogs", priority: 0.8 },
+  { route: "/registration", priority: 0.8 },
+  { route: "/registerdone", priority: 0.4 },
+  { route: "/privacy-policy", priority: 0.6 },
+  { route: "/terms-and-condition", priority: 0.6 },
 ];
 
 export async function GET() {
