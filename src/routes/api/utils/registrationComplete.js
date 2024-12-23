@@ -260,7 +260,7 @@ export const registrationDone = `
                           line-height: 1.6;
                         "
                       >
-                        1st January 2025
+                        15th January 2025
                       </p>
                     </td>
                   </tr>
@@ -390,7 +390,7 @@ export const registrationDone = `
                         "
                       >
                         If you have any questions, feel free to reply to this
-                        email or contact us at [Support Email].
+                        email or contact us at +91-8999351806.
                       </p>
                     </td>
                   </tr>
