@@ -13,14 +13,12 @@
   };
 
   const userId = getUserIdFromLocalStorage();
-  // console.log("userId from localStorage: ", userId);
 
   const dynamicIntervals = [
-    { delay: 0, interval: 3000, duration: 30000 },
-    { delay: 50000, interval: 6000, duration: 60000 },
-    { delay: 110000, interval: 10000, duration: 60000 },
-    { delay: 170000, interval: 30000, duration: 60000 },
-    { delay: 230000, interval: 60000, duration: 1080000 },
+    { delay: 0 },
+    { delay: 3000 },
+    { delay: 9000 },
+    { delay: 21000 },
   ];
 
   const getData = async (userId) => {
@@ -55,7 +53,7 @@
     } catch (error) {
       console.error("There was a problem with the axios operation:", error);
       apiStatus = "FAILED";
-      message = "An error occurred. Please try again later.";
+      message = "Please check your inbox for registration confirmation email.";
       isCompleted = true;
       clearInterval(timer);
     } finally {
@@ -64,24 +62,50 @@
   };
 
   const startDynamicIntervals = (userId) => {
-    dynamicIntervals.forEach(({ delay, interval, duration }) => {
+    dynamicIntervals.forEach(({ delay }) => {
       setTimeout(() => {
         if (isCompleted) return;
 
-        const intervalId = setInterval(() => {
-          getData(userId);
-        }, interval);
-
-        setTimeout(() => {
-          clearInterval(intervalId);
-        }, duration);
+        getData(userId);
       }, delay);
     });
   };
 
+  const checkStatusAfter30Secs = async (userId) => {
+  setTimeout(async () => {
+    if (apiStatus === "PENDING") {
+      try {
+        const response = await axios.get(
+          `https://academy.timechainlabs.io/api/student/${userId}`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        const responseData = response.data;
+
+        if (responseData.data.paymentstatus === "SUCCESS") {
+          apiStatus = "SUCCESS";
+          message = "Registration Successful!";
+        } else if (responseData.data.paymentstatus === "FAILED") {
+          apiStatus = "FAILED";
+          message = "Registration Failed. Please try again.";
+        }
+      } catch (error) {
+        console.error("There was a problem with the second axios operation:", error);
+        apiStatus = "FAILED";
+        message = "Please check your inbox for registration confirmation email.";
+      }
+    }
+  }, 30000);
+};
+
+
   if (userId) {
     getData(userId);
     startDynamicIntervals(userId);
+    checkStatusAfter30Secs(userId);
   } else {
     console.log("UserId not found in localStorage");
   }
