@@ -47,7 +47,6 @@
 		"sveltekit-superforms": "^1.11.0",
 		"swiper": "^11.0.3",
 		"uuid": "^11.0.3",
-		"zipyai": "^1.7.35",
 		"zod": "^3.22.4"
 	},
 	"description": "",
