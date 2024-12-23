@@ -88,8 +88,6 @@
           if (redirectUrl) {
             window.open(redirectUrl);
           }
-
-          toast.success("Registration successful!");
           showModal = true;
         } else {
           toast.error("Registration failed. Please try again.");

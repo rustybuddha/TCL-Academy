@@ -85,17 +85,20 @@
         );
         const responseData = response.data;
 
-        if (responseData.data.paymentstatus === "SUCCESS") {
+        if (responseData.paymentstatus === "SUCCESS") {
           apiStatus = "SUCCESS";
           message = "Registration Successful!";
-        } else if (responseData.data.paymentstatus === "FAILED") {
+        } else if (responseData.paymentstatus === "FAILED") {
           apiStatus = "FAILED";
           message = "Registration Failed. Please try again.";
-        }
+        } else if (responseData.paymentstatus === "PENDING") {
+          apiStatus = "pendingby";
+          message = "Please check your inbox for registration confirmation email.";
+        } 
       } catch (error) {
         console.error("There was a problem with the second axios operation:", error);
         apiStatus = "FAILED";
-        message = "Please check your inbox for registration confirmation email.";
+        message = "Registration Failed. Please try again.";
       }
     }
   }, 30000);
@@ -132,6 +135,10 @@
     {#if apiStatus === "FAILED"}
       <p class="text-2xl sm:text-3xl font-[600] text-[#333333] text-center">{message}</p>
     {/if}
+
+    {#if apiStatus === "pendingby"}
+    <p class="text-2xl sm:text-3xl font-[600] text-[#333333] text-center">{message}</p>
+  {/if}
   </div>
 </div>
 
