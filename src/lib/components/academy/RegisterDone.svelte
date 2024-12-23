@@ -39,7 +39,7 @@
       );
       const responseData = response.data;
 
-      if (responseData.data.state === "SUCCESS") {
+      if (responseData.data.state === "COMPLETED") {
         apiStatus = "SUCCESS";
         message = "Registration Successful!";
         isCompleted = true;
@@ -85,7 +85,7 @@
         );
         const responseData = response.data;
 
-        if (responseData.paymentstatus === "SUCCESS") {
+        if (responseData.paymentstatus === "COMPLETED") {
           apiStatus = "SUCCESS";
           message = "Registration Successful!";
         } else if (responseData.paymentstatus === "FAILED") {
