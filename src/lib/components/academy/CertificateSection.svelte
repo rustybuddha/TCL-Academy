@@ -11,7 +11,7 @@
   <div class="flex flex-col justify-center items-center h-full px-4">
     <!-- Left Container -->
     <div class="max-w-[360px] mt-6">
-      <img src="/academy/TimechainAcademyCertificateGold1.svg" alt="">
+      <img src="/academy/newcertificate-mobile.svg" alt="">
       <div class="w-full flex justify-start items-start mt-4">
         <p class="text-[#333333] !font-[500] text-3xl ">Get certified from <br>
          Timechain Labs</p>
@@ -44,7 +44,7 @@
 </div>
 
 <!-- Desktop View -->
- <div class="hidden bg-cover bg-center py-10" style="background-image: url('/academy/certificate-section-1.svg'); width: 100%; background-repeat:no-repeat;" >
+ <div class=" bg-cover bg-center py-10" style="background-image: url('/academy/certificate-section-1.svg'); width: 100%; background-repeat:no-repeat;" >
 
  
 <div class="hidden m-auto sm:flex justify-center max-w-[1440px]">
@@ -55,15 +55,15 @@
          <p class="text-[#333333] font-bold sm:text-2xl md:text-3xl lg:text-5xl">Get certified from <br>
           Timechain Labs</p>
         </div>
-        <div class="mt-7 w-fit flex sm:text-lg md:text-xl text-[#333333] border-b-2 border-[#e1e1e1]">
+        <div class="mt-7 w-fit flex sm:text-sm md:text-lg text-[#333333] border-b-2 border-[#e1e1e1]">
           <img src="/academy/certiImg1.svg" alt="">
           <p class="ml-3 font-[300] pb-3">Become a certified Full Stack Blockchain Developer</p>
         </div>
-        <div class="flex w-fit mt-4 sm:text-lg md:text-xl text-[#333333] border-b-2 border-[#e1e1e1]">
+        <div class="flex w-fit mt-4 sm:text-sm md:text-lg text-[#333333] border-b-2 border-[#e1e1e1]">
           <img src="/academy/certiImg2.svg" alt="">
           <p class="ml-3 font-[300] pb-3">Share your verified certificate across socials</p>
         </div>
-        <div class="flex w-fit mt-4 sm:text-lg md:text-xl text-[#333333] border-b-2 border-[#e1e1e1]">
+        <div class="flex w-fit mt-4 sm:text-sm md:text-lg text-[#333333] border-b-2 border-[#e1e1e1]">
           <img src="/academy/certiImg3.svg" alt="">
           <p class="ml-3 font-[300] pb-3">Add the certificate to your Linkedin and in your Resume</p>
         </div>
@@ -73,7 +73,7 @@
     </div>
     <!-- Right Container -->
     <div class="w-1/2 flex justify-end ">
-      <img src="/academy/TimechainAcademyCertificateGold1.svg" alt="">
+      <img src="/academy/newcertificate.svg" alt="">
     </div>
   </div>
 </div>
