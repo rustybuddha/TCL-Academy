@@ -96,8 +96,8 @@
         }
       } catch (error) {
         console.error("Error during API call:", error);
-        // console.log("error.response.data.message", error.response)
-        toast.error(error.response.data.message);
+        // console.log(""Error in inititaing payment please try again."", error.response)
+        toast.error("Error in initiating payment please try again.");
         isLoading = false;
       }
     } else {
