@@ -92,7 +92,7 @@
           apiStatus = "FAILED";
           message = "Registration Failed. Please try again.";
         } else if (responseData.paymentstatus === "PENDING") {
-          apiStatus = "FAILED";
+          apiStatus = "pendingby";
           message = "Please check your inbox for registration confirmation email.";
         } 
       } catch (error) {
@@ -135,6 +135,10 @@
     {#if apiStatus === "FAILED"}
       <p class="text-2xl sm:text-3xl font-[600] text-[#333333] text-center">{message}</p>
     {/if}
+
+    {#if apiStatus === "pendingby"}
+    <p class="text-2xl sm:text-3xl font-[600] text-[#333333] text-center">{message}</p>
+  {/if}
   </div>
 </div>
 
