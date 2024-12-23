@@ -32,7 +32,7 @@ background-color: #ffffff;">
             <td style=" font-size: 16px; color: #333333;">
                 <p style="font-size: 26px; font-weight: 600;">Hey Champ!</p>
                 <p style="margin-top: 20px; font-size: 22px; font-weight: 400;">Greetings from Timechain Labs 🍿</p>
-                <p style="margin-top: 20px; font-size: 22px; font-weight: 400;">We saw you exploring our <span style="font-weight: 600; color: #093BAA;">Blockchain Mastery Program</span>. Glad that you found us. 👀</p>
+                <p style="margin-top: 20px; font-size: 22px; font-weight: 400;">I saw you exploring our <span style="font-weight: 600; color: #093BAA;">Blockchain Mastery Program</span>. Glad that you found us. 👀</p>
             </td>
         </tr>
         <tr>

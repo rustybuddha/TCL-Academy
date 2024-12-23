@@ -66,7 +66,7 @@ export const pendingPayment = `
             <h3>Hey Champ!</h3>
             <p>Greetings from Timechain Labs 🍿</p>
             <p>
-              We noticed you started enrolling in the
+              I noticed you started enrolling in the
               <span style="color: #093baa; font-weight: bold"
                 >Blockchain Mastery Program</span
               >
@@ -75,9 +75,9 @@ export const pendingPayment = `
             <p>
               Is everything okay on your end?
               <br />
-              We understand that things come up, and we’re here to help. If
+              I understand that things come up, and I'mere to help. If
               there’s anything holding you back or if you have questions, let us
-              know we’d love to make this process smoother for you.
+              know I’d love to make this process smoother for you.
             </p>
             <p>
               This program is your gateway to mastering blockchain development
@@ -171,7 +171,7 @@ export const pendingPayment = `
             "
           >
             <p>
-              And don’t worry we’ve saved your spot. Simply click the link below
+              And don’t worry I’ve saved your spot. Simply click the link below
               to pick up where you left off:
               <br />
               <span style="color: #093baa"
@@ -186,8 +186,7 @@ export const pendingPayment = `
               P.S.
               <br />
               If you experienced any issues during checkout or have
-              questions, reply to this email or reach out to us at [Support
-              Email]. We’re here to help you every step of the way!
+              questions, reply to this email or reach out to us at +91-8999351806. I'm here to help you every step of the way!
             </p>
             <p>
               Looking
