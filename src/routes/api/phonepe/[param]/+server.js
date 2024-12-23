@@ -29,7 +29,7 @@ export async function GET({ params }) {
     const dbstatus = student.paymentstatus;
 
     if (dbstatus !=='PENDING'){
-        status = dbstatus
+        status.data.state = dbstatus
     }
 
     client.release();
