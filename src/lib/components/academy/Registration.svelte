@@ -86,8 +86,12 @@
           }
 
           if (redirectUrl) {
-            window.open(redirectUrl);
+            var newWindow = window.open(redirectUrl, "_blank");
+            if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+                alert('Pop-up was blocked. Please allow pop-ups for this site.');
+            }
           }
+          
           showModal = true;
         } else {
           toast.error("Registration failed. Please try again.");

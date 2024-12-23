@@ -53,7 +53,7 @@
     } catch (error) {
       console.error("There was a problem with the axios operation:", error);
       apiStatus = "FAILED";
-      message = "Please check your inbox for registration confirmation email.";
+      message = "Registration Failed. Please try again.";
       isCompleted = true;
       clearInterval(timer);
     } finally {
