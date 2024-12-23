@@ -186,8 +186,7 @@ export const pendingPayment = `
               P.S.
               <br />
               If you experienced any issues during checkout or have
-              questions, reply to this email or reach out to us at [Support
-              Email]. I'm here to help you every step of the way!
+              questions, reply to this email or reach out to us at +91-8999351806. I'm here to help you every step of the way!
             </p>
             <p>
               Looking
