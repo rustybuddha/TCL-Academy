@@ -50,11 +50,13 @@ export default async function sendEmail(email, subject, bodyHtml = '', bodyText 
 
 	// Construct email payload
 	const mailOptions = {
-		from: `"Rebecca from Timechain Academy" <"academy@timechainlabs.io">`,
+		from: {
+			name: 'Rebecca from Timechain Academy',
+			address: 'academy@timechainlabs.io'
+		},
 		to: email,
 		subject: subject,
-		...(bodyHtml ? { html: bodyHtml } : {}),
-		...(bodyText ? { text: bodyText } : {})
+		...(bodyHtml ? { html: bodyHtml } : {})
 	};
 
 	try {
