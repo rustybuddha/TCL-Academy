@@ -28,7 +28,7 @@
           </div>
 <!-- 2nd card -->
           <div class="flex flex-col px-2 justify-center items-center max-w-[308px] border-b pb-5 mt-6">
-            <img src="/academy/a2.svg" alt="newroadmapitem">
+            <img src="/academy/a3.svg" alt="newroadmapitem">
             <p class="font-['Rubik'] font-[400] text-sm text-left mt-5 -ml-10">Get a grip on frontend and backend <br> technologies and learn how to deploy a <br> fullstack application.</p>
             <ul class="list-disc list-inside w-full mt-5">
               <li class="font-['Rubik'] !font-[400] text-sm text-left tracking-[-0.8px]">
@@ -53,7 +53,7 @@
           </div>
 <!-- 3rd card -->
 <div class="flex flex-col px-2 justify-center items-center max-w-[313px] border-b pb-5 mt-6">
-  <img src="/academy/a3.svg" alt="newroadmapitem">
+  <img src="/academy/a4.svg" alt="newroadmapitem">
   <p class="font-['Rubik'] font-[400] text-sm text-left mt-5">Dive deeply into the crux of blockchain <br> technology and explore how to deploy smart <br> contracts and build architecture for scalable <br> blockchain applications.</p>
   <ul class="list-disc list-inside w-full mt-5">
     <li class="font-['Rubik'] !font-[400] text-sm text-left tracking-[-0.6px]">Comparative Analysis of Blockchain Networks</li>
@@ -69,7 +69,7 @@
 </div>
 <!-- 4th card -->
 <div class="flex flex-col px-2 justify-center items-center max-w-[313px] pb-5 mt-6">
-  <img src="/academy/a4.svg" alt="newroadmapitem">
+  <img src="/academy/a2.svg" alt="newroadmapitem">
   <p class="font-['Rubik'] font-[400] text-sm text-left mt-5">Build your proof of work and be placement <br> ready with resume review, mock interviews <br> and feedback.</p>
   <ul class="list-disc list-inside w-full mt-5">
     <li class="font-['Rubik'] !font-[400] text-sm text-left tracking-[-0.6px]">Wallet Integration with Frontend</li>
@@ -122,7 +122,7 @@
 
 <!-- 2nd card -->
         <div class="flex flex-col px-2 justify-center items-center max-w-[308px] pb-5 mt-6 h-[40%]">
-          <img src="/academy/a2.svg" alt="newroadmapitem">
+          <img src="/academy/a3.svg" alt="newroadmapitem">
 
           <div class="flex flex-col w-full border-r pr-3 min-h-[20rem] h-auto overflow-auto">
           <p class="font-['Rubik'] font-[400] text-sm text-left mt-5 ">Get a grip on frontend and backend <br> technologies and learn how to deploy a <br> fullstack application.</p>
@@ -150,7 +150,7 @@
         </div>
 <!-- 3rd card -->
 <div class="flex flex-col px-2 justify-center items-center max-w-[313px] pb-5 mt-6 h-[40%]">
-        <img src="/academy/a3.svg" alt="newroadmapitem">
+        <img src="/academy/a4.svg" alt="newroadmapitem">
         <div class="flex flex-col w-full border-r pr-3 min-h-[20rem] h-auto overflow-auto">
         <p class="font-['Rubik'] font-[400] text-sm text-left mt-5">Dive deeply into the crux of blockchain <br> technology and explore how to deploy <br> smart contracts and build architecture <br> for scalable blockchain applications.</p>
         <ul class="list-disc pl-4 w-full mt-5">
@@ -168,7 +168,7 @@
 </div>
 <!-- 4th card -->
 <div class="flex flex-col px-2 justify-center items-center max-w-[313px] pb-5 mt-6">
-    <img src="/academy/a4.svg" alt="newroadmapitem">
+    <img src="/academy/a2.svg" alt="newroadmapitem">
 
     <div class="flex flex-col w-full  pr-3 min-h-[20rem] h-auto overflow-auto">
     <p class="font-['Rubik'] font-[400] text-sm text-left mt-5">Build your proof of work and be <br> placement ready with resume review, <br> mock interviews and feedback.</p>
