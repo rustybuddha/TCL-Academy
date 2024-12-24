@@ -232,31 +232,31 @@
       <div id="blog-posts-section">
         <!-- All Blog Posts -->
         <div class="mb-[40px] gap-[20px] flex ">
-          <button
+          <!-- <button
             class="px-4 py-2 text-[20px] text-black"
             class:text-[#093baa]="{$currentSection === 'labs'}"
             class:border-b-2="{$currentSection === 'labs'}"
             class:border-[#093baa]="{$currentSection === 'labs'}"
-            on:click={() => $currentSection = 'labs'}>Timechain Labs</button>
-          <button
+            on:click={() => $currentSection = 'labs'}>Timechain Academy</button> -->
+          <!-- <button
             class="px-4 text-[20px] py-2 text-black"
             class:text-[#093baa]="{$currentSection === 'academy'}"
             class:border-b-2="{$currentSection === 'academy'}"
             class:border-[#093baa]="{$currentSection === 'academy'}"
-            on:click={() => $currentSection = 'academy'}>Timechain Academy</button>
+            on:click={() => $currentSection = 'academy'}>Timechain Academy</button> -->
         </div>
         
-        {#if $currentSection === 'labs'}
+        <!-- {#if $currentSection === 'labs'} -->
           <div class="grid grid-cols-3 max-[1150px]:grid-cols-2 max-[700px]:grid-cols-1 place-items-center gap-[40px] max-[800px]:gap-[30px]">
             {#each blogs as blog}
               <BlogCard {blog} />
             {/each}
           </div>
-        {:else}
-          <div class="grid grid-cols-3 max-[1150px]:grid-cols-2 max-[700px]:grid-cols-1 place-items-center gap-[40px] max-[800px]:gap-[30px]">
+        <!-- {:else} -->
+          <!-- <div class="grid grid-cols-3 max-[1150px]:grid-cols-2 max-[700px]:grid-cols-1 place-items-center gap-[40px] max-[800px]:gap-[30px]">
             <h1 class="text-16 p-12">The academy Will come here once added in the Sanity</h1>
-          </div>
-        {/if}
+          </div> -->
+        <!-- {/if} -->
       </div>
     </section>
   </main>
