@@ -43,23 +43,6 @@
   import axios from "axios";
 
 
-  let fwcrm;
-
-  onMount(() => {
-    // Inject the Freshworks script dynamically
-    const script = document.createElement('script');
-    script.src = 'https://in.fw-cdn.com/32126368/1134713.js';
-    script.setAttribute('chat', 'true');
-    script.onload = () => {
-      fwcrm = window.fwcrm;
-    };
-    document.body.appendChild(script);
-
-    return () => {
-      script.remove(); // Cleanup script when component is unmounted
-    };
-  });
-
 
   let isPageLoaded = false;
   let showPopup = false;
