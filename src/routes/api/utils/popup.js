@@ -16,7 +16,7 @@ background-color: #ffffff;">
     <table align="center" width="640px" style="padding-right: .5rem;">
         <tr>
             <td align="center" style="padding: 20px;">
-                <img src="https://academy.timechainlabs.io/academy/templates/tcl.svg" alt="TCL Logo">
+                <img src="https://academy.timechainlabs.io/academy/templates/tcl-logo-new.png" alt="TCL Logo">
             </td>
         </tr>
         <tr>
@@ -47,7 +47,7 @@ background-color: #ffffff;">
                             <table>
                                 <tr>
                                     <td style="vertical-align: top;">
-                                        <img src="https://academy.timechainlabs.io/academy/templates/checkmark-badge-03.svg" alt="Checkmark" style="width: 20px;">
+                                        <img src="https://academy.timechainlabs.io/academy/templates/checkmark-badge-03-new.png" alt="Checkmark" style="width: 20px;">
                                     </td>
                                     <td style="padding-left: 10px; vertical-align: top; height: 100px;">
                                         <p style="font-size: 14px; font-weight: 600; margin: 0; vertical-align: top;">Proven Expertise</p>
@@ -56,7 +56,7 @@ background-color: #ffffff;">
                                 </tr>
                                 <tr style="margin-top: 24px;">
                                     <td style="vertical-align: top;">
-                                        <img src="https://academy.timechainlabs.io/academy/templates/checkmark-badge-03.svg" alt="Checkmark" style="width: 20px;">
+                                        <img src="https://academy.timechainlabs.io/academy/templates/checkmark-badge-03-new.png" alt="Checkmark" style="width: 20px;">
                                     </td>
                                     <td style="padding-left: 10px; vertical-align: top; height: 90px;">
                                         <p style="font-size: 14px; font-weight: 600; margin: 0; vertical-align: top;">Fast-track your growth</p>
