@@ -43,8 +43,10 @@
       email &&
       phone &&
       mailing &&
-      source &&
-      profession
+      profession &&
+      (source !== "other" ? source : otherSource) && 
+      (educationalBackground || companyName )
+
     );
   };
 
