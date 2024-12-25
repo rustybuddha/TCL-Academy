@@ -134,7 +134,7 @@
             Master Blockchain with <br> portfolio projects & <br> get job opportunities
             <p class="flex">
               in just  
-              <img class="w-1/3 xl:w-1/4" src="/academy/hero-pin.svg" alt="img">
+              <img class="w-1/3 xl:w-[173px] h-[61px]" src="/academy/hero-pin.svg" alt="img">
             </p>
           </span>
         </div>
