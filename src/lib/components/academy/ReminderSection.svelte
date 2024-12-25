@@ -2,7 +2,7 @@
 <script>
     import Timer from "./Timer.svelte";
 </script>
-  <div class="flex items-center justify-center  sm:py-20 max-w-full  mx-auto bg-cover bg-center"
+  <div class="flex items-center justify-center mt-[100px] sm:py-20 max-w-full  mx-auto bg-cover bg-center"
   style="background-image: url('/academy/reminder-section-1.svg');">
 
   <!-- Inner Content Container -->

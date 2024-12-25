@@ -50,37 +50,48 @@
   let dropdownOpen = false;
   let isLoading = false;
   
-      const formSchema = z.object({
-        fullName: z.string().min(1, "Full Name is required"),
-        email: z.string().email("Invalid email address"),
-        phone: z.string().min(1, "Phone Number is Required"),
-        message: z.string().optional(),
-      });
-      
-      let hasModalBeenShown = false;
-      let scrollPosition = 0;
-      
-      const checkScrollPosition = () => {
-        if (typeof window !== 'undefined') { 
-          scrollPosition = window.scrollY;
-          if (scrollPosition >= 900 && !hasModalBeenShown) { 
-            showPopup = true;
-            hasModalBeenShown = true;
-          }
+    const formSchema = z.object({
+      fullName: z.string().min(1, "Full Name is required"),
+      email: z.string().email("Invalid email address"),
+      phone: z.string().min(1, "Phone Number is Required"),
+      message: z.string().optional(),
+    });
+    
+    let hasModalBeenShown = false;
+    let scrollPosition = 0;
+    
+    // const checkScrollPosition = () => {
+    //   if (typeof window !== 'undefined') { 
+    //     scrollPosition = window.scrollY;
+    //     if (!hasModalBeenShown) { 
+    //       showPopup = true;
+    //       hasModalBeenShown = true;
+    //     }
+    //   }
+    // };
+    
+    onMount(() => {
+      // Check if the popup has been shown before
+      if (typeof window !== 'undefined') {
+        const popupSeen = localStorage.getItem('popupSeen');
+        if (!popupSeen) {
+          showPopup = true; // Show popup
         }
-      };
-      
-      onMount(() => {
-    if (typeof window !== 'undefined') {
-      window.addEventListener('scroll', checkScrollPosition);
-    }
-  });
+      }
+    });
 
-  onDestroy(() => {
+  function closePopup() {
+    showPopup = false; // Hide the popup
     if (typeof window !== 'undefined') {
-      window.removeEventListener('scroll', checkScrollPosition);
+      localStorage.setItem('popupSeen', 'true'); // Mark as seen
     }
-  });
+  }
+
+    // onDestroy(() => {
+    //   if (typeof window !== 'undefined') {
+    //     window.removeEventListener('scroll', checkScrollPosition);
+    //   }
+    // });
   
   // Default country code and dropdown state
   let selectedCountry = {
@@ -90,63 +101,62 @@
   }; // Default to India
 
   const handleSubmit = async (event) => {
-  event.preventDefault();
-  const formData = new FormData(event.target);
-  const data = {
-    fullName: formData.get("full-name"),
-    email: formData.get("email"),
-    phone: formData.get("phone"),
-    message: formData.get("message"),
-    countryCode: selectedCountry,
-  };
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const data = {
+      fullName: formData.get("full-name"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      message: formData.get("message"),
+      countryCode: selectedCountry,
+    };
 
-  const result = formSchema.safeParse(data);
+    const result = formSchema.safeParse(data);
 
-  if (!result.success) {
-    result.error.errors.forEach((err) => toast.error(err.message));
-    return; 
-  }
-
-  const payload = {
-    fullName: result.data.fullName,
-    email: result.data.email,
-    phone: result.data.phone,
-    linkedIn: "",
-    mailingAddress: "",
-    referredBy: result.data.message,
-    countryCode: selectedCountry,
-    organization: "",
-    profession: "",
-  };
-
-
-  try {
-    isLoading = true;
-    const response = await axios.post(
-      "https://academy.timechainlabs.io/api/popup",
-      payload,
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    if (response.status === 200) {
-      isLoading = false;
-
-      toast.success("Thanks for your interest.");
-      showPopup = false;
-      successPopup = true;
-    } else {
-      toast.error("Please try again!");
+    if (!result.success) {
+      result.error.errors.forEach((err) => toast.error(err.message));
+      return; 
     }
-  } catch (error) {
-    console.error("Error during API call:", error);
-    toast.error(error.response?.data?.message || "An error occurred");
-    isLoading = false;
-  }
 
-};
+    const payload = {
+      fullName: result.data.fullName,
+      email: result.data.email,
+      phone: result.data.phone,
+      linkedIn: "",
+      mailingAddress: "",
+      referredBy: result.data.message,
+      countryCode: selectedCountry,
+      organization: "",
+      profession: "",
+    };
+
+
+    try {
+      isLoading = true;
+      const response = await axios.post(
+        "https://academy.timechainlabs.io/api/popup",
+        payload,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (response.status === 200) {
+        isLoading = false;
+
+        toast.success("Thanks for your interest.");
+        showPopup = false;
+        successPopup = true;
+      } else {
+        toast.error("Please try again!");
+      }
+    } catch (error) {
+      console.error("Error during API call:", error);
+      toast.error(error.response?.data?.message || "An error occurred");
+      isLoading = false;
+    }
+  };
 
   const getVideoUrl = (url) => {
     if (url.includes('youtube.com') || url.includes('youtu.be')) {
@@ -163,7 +173,7 @@
   </div>
   {/if}
 
-  {#if showPopup && $page.url.pathname !== "/registration"}
+  {#if showPopup}
     <div
       class="w-screen h-screen bg-black/50 backdrop-blur-sm flex justify-center items-center fixed top-0 left-0 z-50"
     >
@@ -174,7 +184,7 @@
           on:click={() => (showPopup = false)}
           class="absolute top-3 right-3 text-white hover:text-gray-400 hidden md:block"
         >
-          <img src="/academy/pop-up-close.png" class="w-5 h-5" alt="close" />
+          <img on:click={closePopup} src="/academy/pop-up-close.png" class="w-5 h-5" alt="close" />
         </button>
         <div
           class="bg-[#093BAA] md:w-1/2 rounded-lg px-4 lg:px-4 xl:p-6 bg-cover bg-no-repeat space-y-2 lg:space-y-5 relative"
