@@ -247,7 +247,7 @@
   left: -100%;
   width: 25px; 
   height: 100%;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.182), rgb(219, 219, 219), rgba(255, 255, 255, 0.084));
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.182), rgb(174, 174, 174), rgba(255, 255, 255, 0.084));
   z-index: -1;
   transition: all 0.5s ease-in-out;
   transform: rotate(5deg);
