@@ -60,38 +60,27 @@
     let hasModalBeenShown = false;
     let scrollPosition = 0;
     
-    // const checkScrollPosition = () => {
-    //   if (typeof window !== 'undefined') { 
-    //     scrollPosition = window.scrollY;
-    //     if (!hasModalBeenShown) { 
-    //       showPopup = true;
-    //       hasModalBeenShown = true;
-    //     }
-    //   }
-    // };
+    const checkScrollPosition = () => {
+      if (typeof window !== 'undefined') { 
+        scrollPosition = window.scrollY;
+        if (scrollPosition >= 900 && !hasModalBeenShown) { 
+          showPopup = true;
+          hasModalBeenShown = true;
+        }
+      }
+    };
     
     onMount(() => {
-      // Check if the popup has been shown before
       if (typeof window !== 'undefined') {
-        const popupSeen = localStorage.getItem('popupSeen');
-        if (!popupSeen) {
-          showPopup = true; // Show popup
-        }
+        window.addEventListener('scroll', checkScrollPosition);
+      }
+    });
+    onDestroy(() => {
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('scroll', checkScrollPosition);
       }
     });
 
-  function closePopup() {
-    showPopup = false; // Hide the popup
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('popupSeen', 'true'); // Mark as seen
-    }
-  }
-
-    // onDestroy(() => {
-    //   if (typeof window !== 'undefined') {
-    //     window.removeEventListener('scroll', checkScrollPosition);
-    //   }
-    // });
   
   // Default country code and dropdown state
   let selectedCountry = {
@@ -173,7 +162,7 @@
   </div>
   {/if}
 
-  {#if showPopup}
+  {#if showPopup && $page.url.pathname !== "/registration"}
     <div
       class="w-screen h-screen bg-black/50 backdrop-blur-sm flex justify-center items-center fixed top-0 left-0 z-50"
     >
@@ -184,7 +173,7 @@
           on:click={() => (showPopup = false)}
           class="absolute top-3 right-3 text-white hover:text-gray-400 hidden md:block"
         >
-          <img on:click={closePopup} src="/academy/pop-up-close.png" class="w-5 h-5" alt="close" />
+          <img src="/academy/pop-up-close.png" class="w-5 h-5" alt="close" />
         </button>
         <div
           class="bg-[#093BAA] md:w-1/2 rounded-lg px-4 lg:px-4 xl:p-6 bg-cover bg-no-repeat space-y-2 lg:space-y-5 relative"

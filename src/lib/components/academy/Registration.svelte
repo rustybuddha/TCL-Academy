@@ -1,6 +1,8 @@
 <script>
   import toast, { Toaster } from "svelte-french-toast";
   import { z } from "zod";
+    import { onMount, onDestroy } from "svelte";
+  import { goto } from "$app/navigation";
   import axios from "axios";
   import countryCodes from "$lib/assets/countries-flag.json";
 
@@ -88,7 +90,9 @@
           }
 
           if (redirectUrl) {
-            window.open(redirectUrl, "_blank");
+            // console.log("redirect url", redirectUrl);
+            window.location.href = redirectUrl;
+            // window.open(redirectUrl);
           }
 
           showModal = true;
@@ -112,7 +116,7 @@
       sourceOpen = false;
     }
   };
-  import { onMount, onDestroy } from "svelte";
+
 
 
   onMount(() => {
@@ -489,7 +493,8 @@
           {#if isLoading}
             <div class="loader" />
           {:else}
-            Register
+          <p>Enroll now for ₹8999<br />
+            <span style="font-size: 0.8em; display: block;">Click here for Registration!</span></p>
           {/if}
         </button>
       </form>
@@ -826,7 +831,8 @@
           {#if isLoading}
             <div class="loader" />
           {:else}
-            Register
+          <p>Enroll now for ₹8999<br />
+  <span style="font-size: 0.8em; display: block;">Click here for Registration!</span></p>
           {/if}
         </button>
       </form>
