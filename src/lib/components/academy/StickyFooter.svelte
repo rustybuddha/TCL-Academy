@@ -16,7 +16,7 @@
   <div class="flex md:flex-row h-fit w-full items-center justify-between px-4 py-2 md:px-5 md:py-2 lg:px-10">
     <div class="flex w-fit items-center gap-x-[20px]">
       <div>
-        <p class="!text-[24px] font-bai course-title-md lg:course-title-lg">{courseTitle}</p>
+        <p class="text-[11px]  sm:text-[14px]  md:text-[18px] lg:text-[24px] course-title-sm  font-bai course-title-md lg:course-title-lg">{courseTitle}</p>
         <p class="price-text-sm !text-sm lg:price-text-md text-[#09E0CF] font-rubik !font-[Rubik] discount-price-text-sm">
           4000+ Students Registered
         </p>
@@ -95,6 +95,12 @@
     font-size: 6px !important;
   }
 
+}
+
+@media (max-width: 390px) {
+  .course-title-sm {
+    font-size: 8px !important;
+  }
 }
 
 </style>
