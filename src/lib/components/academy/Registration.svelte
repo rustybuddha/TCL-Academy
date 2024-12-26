@@ -493,8 +493,8 @@
           {#if isLoading}
             <div class="loader" />
           {:else}
-          <p>Enroll now for ₹8999,<br />
-            <span style="font-size: 0.8em; display: block;">Click here for payment link!</span></p>
+          <p>Enroll now for ₹8999<br />
+            <span style="font-size: 0.8em; display: block;">Click here for Registration!</span></p>
           {/if}
         </button>
       </form>
@@ -831,8 +831,8 @@
           {#if isLoading}
             <div class="loader" />
           {:else}
-          <p>Enroll now for ₹8999,<br />
-  <span style="font-size: 0.8em; display: block;">Click here for payment link!</span></p>
+          <p>Enroll now for ₹8999<br />
+  <span style="font-size: 0.8em; display: block;">Click here for Registration!</span></p>
           {/if}
         </button>
       </form>
