@@ -241,10 +241,6 @@
   left: 110%;
 }
 
-.shiny-glow:hover {
-  color: #fff;
-}
-
   @media(max-width:360px){
     .text{
       font-size: 18px !important;
