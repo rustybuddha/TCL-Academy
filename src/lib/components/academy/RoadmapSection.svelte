@@ -14,7 +14,7 @@
         <div class="flex flex-col justify-center items-center mt-6">
 <!-- 1st card -->
           <div class="flex flex-col px-2 justify-center items-center max-w-[313px] border-b pb-5">
-            <img src="/academy/a1.svg" alt="newroadmapitem">
+            <img src="/academy/GreenArrowMob.svg" alt="newroadmapitem">
             <p class="font-['Rubik'] font-[400] text-sm text-left mt-5">Learn blockchain basics and build a project to <br> fortify your basics.</p>
             <ul class="list-disc list-inside w-full mt-5">
               <li class="font-['Rubik'] !font-[400] text-sm text-left">Wallet Integration with Frontend</li>
@@ -28,7 +28,7 @@
           </div>
 <!-- 2nd card -->
           <div class="flex flex-col px-2 justify-center items-center max-w-[308px] border-b pb-5 mt-6">
-            <img src="/academy/a3.svg" alt="newroadmapitem">
+            <img src="/academy/RedArrowMob.svg" alt="newroadmapitem">
             <p class="font-['Rubik'] font-[400] text-sm text-left mt-5 -ml-10">Get a grip on frontend and backend <br> technologies and learn how to deploy a <br> fullstack application.</p>
             <ul class="list-disc list-inside w-full mt-5">
               <li class="font-['Rubik'] !font-[400] text-sm text-left tracking-[-0.8px]">
@@ -53,7 +53,7 @@
           </div>
 <!-- 3rd card -->
 <div class="flex flex-col px-2 justify-center items-center max-w-[313px] border-b pb-5 mt-6">
-  <img src="/academy/a4.svg" alt="newroadmapitem">
+  <img src="/academy/PurpleArrowMob.svg" alt="newroadmapitem">
   <p class="font-['Rubik'] font-[400] text-sm text-left mt-5">Dive deeply into the crux of blockchain <br> technology and explore how to deploy smart <br> contracts and build architecture for scalable <br> blockchain applications.</p>
   <ul class="list-disc list-inside w-full mt-5">
     <li class="font-['Rubik'] !font-[400] text-sm text-left tracking-[-0.6px]">Comparative Analysis of Blockchain Networks</li>
@@ -69,22 +69,31 @@
 </div>
 <!-- 4th card -->
 <div class="flex flex-col px-2 justify-center items-center max-w-[313px] pb-5 mt-6">
-  <img src="/academy/a2.svg" alt="newroadmapitem">
-  <p class="font-['Rubik'] font-[400] text-sm text-left mt-5">Build your proof of work and be placement <br> ready with resume review, mock interviews <br> and feedback.</p>
-  <ul class="list-disc list-inside w-full mt-5">
-    <li class="font-['Rubik'] !font-[400] text-sm text-left tracking-[-0.6px]">Wallet Integration with Frontend</li>
-    <li class="font-['Rubik'] !font-[400] text-sm text-left tracking-[-0.6px]">Portfolio Project</li>
-  </ul>
-  
-  <div class="mt-5 flex justify-start items-center w-full">
-    <!-- <p class="font-['Rubik'] font-[400] text-sm text-left">Duration:</p> -->
-    <img src="/academy/roadmap4item.svg" alt="" class="">
+  <img src="/academy/YellowArrowMob.svg" alt="newroadmapitem">
+  <div class="flex flex-col w-full  pr-3 min-h-[20rem] h-auto overflow-auto">
+    <p class="font-['Rubik'] font-[400] text-sm text-left mt-5">Build 6 Portfolio projects on the <br> following blockchains:</p>
+    <div class="flex justify-start items-center gap-4 mt-3"> <p class="flex justify-start items-center gap-2"> <img src="/academy/hyperledger.svg" alt="hyper"> Hyperledger </p>  <p class="flex justify-start items-center gap-2"> <img src="/academy/etherium.svg" alt="ether"> Ethereum  </p>  </div>
+    <div class="flex justify-start items-center gap-4 mt-3"> <p class="flex justify-start items-center gap-2"> <img src="/academy/corda.svg" alt="corda"> Corda </p>  <p class="flex justify-start items-center gap-2"> <img src="/academy/hedera.svg" alt="hedera"> Hedera Hashgraph    </p>  </div>
+    <div class="flex justify-start items-center gap-4 mt-3"> <p class="flex justify-start items-center gap-2"> <img src="/academy/polygon.svg" alt="polygon"> Polygon </p>  <p class="flex justify-start items-center gap-2"> <img src="/academy/solana.svg" alt="solana"> Solana    </p>  </div>
+    <p class="font-['Rubik'] font-[400] text-sm text-left mt-5">Be placement ready with resume <br> review, mock interviews and feedback.</p>
+    <ul class="list-disc pl-4 w-full mt-5">
+      <li class="font-['Rubik'] !font-[400] text-sm text-left">Resume Review and Guidance</li>
+      <li class="font-['Rubik'] !font-[400] text-sm text-left">2 Mock Interviews and Feedback</li>
+    </ul>
+
+    <div class="mt-5 flex justify-start items-center w-full">
+      <!-- <p class="font-['Rubik'] font-[400] text-sm text-left">Duration:</p> -->
+      <img src="/academy/becomeMob.svg" alt="" class="">
+    </div>
   </div>
 </div>
 
         </div>
        
     </div>
+
+
+
   <!--Desktop-->
   <div class="hidden sm:flex flex-col px-6  justify-center max-w-[1440px] h-auto pb-8 pt-5 mx-auto bg-cover bg-center" style="background-image: url('/academy/newroadmapdesktopbg.svg');">
     <div class="max-w-[1280px]  h-[80%] m-auto">
@@ -99,10 +108,10 @@
         </div>
       </div>
 
-      <div class="flex md:flex-wrap lg:flex-nowrap justify-center items-baseline gap-4 mt-10 ">
+      <div class="flex sm:flex-wrap lg:flex-nowrap justify-center items-baseline gap-4 mt-10 ">
 <!-- 1st card -->
 <div class="flex flex-col px-2 justify-center items-center max-w-[313px] pb-5 h-auto">
-  <img src="/academy/a1.svg" alt="newroadmapitem" class="mb-4">
+  <img src="/academy/GreenArrow.svg" alt="newroadmapitem" class="mb-4">
   
   <div class="flex flex-col w-full border-r pr-3 min-h-[20rem] h-auto overflow-auto">
     <p class="font-['Rubik'] !font-[400] text-sm text-left mt-5">Learn blockchain basics and build a <br> project to fortify your basics.</p>
@@ -121,8 +130,8 @@
 </div>
 
 <!-- 2nd card -->
-        <div class="flex flex-col px-2 justify-center items-center max-w-[308px] pb-5 mt-6 h-[40%]">
-          <img src="/academy/a3.svg" alt="newroadmapitem">
+        <div class="flex flex-col px-2 justify-center items-center max-w-[308px] pb-5  h-[40%]">
+          <img src="/academy/redarrowroadmap.svg" alt="newroadmapitem">
 
           <div class="flex flex-col w-full border-r pr-3 min-h-[20rem] h-auto overflow-auto">
           <p class="font-['Rubik'] font-[400] text-sm text-left mt-5 ">Get a grip on frontend and backend <br> technologies and learn how to deploy a <br> fullstack application.</p>
@@ -149,8 +158,8 @@
           </div>
         </div>
 <!-- 3rd card -->
-<div class="flex flex-col px-2 justify-center items-center max-w-[313px] pb-5 mt-6 h-[40%]">
-        <img src="/academy/a4.svg" alt="newroadmapitem">
+<div class="flex flex-col px-2 justify-center items-center max-w-[313px] pb-5  h-[40%]">
+        <img src="/academy/PurpleArrow.svg" alt="newroadmapitem">
         <div class="flex flex-col w-full border-r pr-3 min-h-[20rem] h-auto overflow-auto">
         <p class="font-['Rubik'] font-[400] text-sm text-left mt-5">Dive deeply into the crux of blockchain <br> technology and explore how to deploy <br> smart contracts and build architecture <br> for scalable blockchain applications.</p>
         <ul class="list-disc pl-4 w-full mt-5">
@@ -167,19 +176,23 @@
       </div>
 </div>
 <!-- 4th card -->
-<div class="flex flex-col px-2 justify-center items-center max-w-[313px] pb-5 mt-6">
-    <img src="/academy/a2.svg" alt="newroadmapitem">
+<div class="flex flex-col px-2 justify-center items-center max-w-[313px] pb-5 ">
+    <img src="/academy/yellowArrow.svg" alt="newroadmapitem">
 
     <div class="flex flex-col w-full  pr-3 min-h-[20rem] h-auto overflow-auto">
-    <p class="font-['Rubik'] font-[400] text-sm text-left mt-5">Build your proof of work and be <br> placement ready with resume review, <br> mock interviews and feedback.</p>
+    <p class="font-['Rubik'] font-[400] text-sm text-left mt-5">Build 6 Portfolio projects on the <br> following blockchains:</p>
+    <div class="flex justify-start items-center gap-4 mt-3"> <p class="flex justify-start items-center gap-2"> <img src="/academy/hyperledger.svg" alt="hyper"> Hyperledger </p>  <p class="flex justify-start items-center gap-2"> <img src="/academy/etherium.svg" alt="ether"> Ethereum  </p>  </div>
+    <div class="flex justify-start items-center gap-4 mt-3"> <p class="flex justify-start items-center gap-2"> <img src="/academy/corda.svg" alt="corda"> Corda </p>  <p class="flex justify-start items-center gap-2"> <img src="/academy/hedera.svg" alt="hedera"> Hedera Hashgraph    </p>  </div>
+    <div class="flex justify-start items-center gap-4 mt-3"> <p class="flex justify-start items-center gap-2"> <img src="/academy/polygon.svg" alt="polygon"> Polygon </p>  <p class="flex justify-start items-center gap-2"> <img src="/academy/solana.svg" alt="solana"> Solana    </p>  </div>
+    <p class="font-['Rubik'] font-[400] text-sm text-left mt-5">Be placement ready with resume <br> review, mock interviews and feedback.</p>
     <ul class="list-disc pl-4 w-full mt-5">
-      <li class="font-['Rubik'] !font-[400] text-sm text-left">Wallet Integration with Frontend</li>
-      <li class="font-['Rubik'] !font-[400] text-sm text-left">Portfolio Project</li>
+      <li class="font-['Rubik'] !font-[400] text-sm text-left">Resume Review and Guidance</li>
+      <li class="font-['Rubik'] !font-[400] text-sm text-left">2 Mock Interviews and Feedback</li>
     </ul>
 
     <div class="mt-5 flex justify-start items-center w-full">
       <!-- <p class="font-['Rubik'] font-[400] text-sm text-left">Duration:</p> -->
-      <img src="/academy/roadmap4item.svg" alt="" class="">
+      <img src="/academy/become-ready.svg" alt="" class="">
     </div>
   </div>
 </div>
