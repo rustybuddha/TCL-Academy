@@ -26,7 +26,7 @@
     <p class="block sm:hidden text-center text-2xl font-[500] font-[Rubik] discounted-price-text-sm lg:discounted-price-text-lg px-2">{discountedPrice}</p>
     
     <div class="flex items-center justify-start w-fit sm:w-1/2 lg:w-fit lg:gap-8">
-      <span class="hidden sm:block text-sm md:text-xl line-through text-gray-300 font-['Rubik'] original-price-text-sm">{originalPrice}</span>
+      <span class="hidden sm:block text-sm md:text-xl line-through  font-['Rubik'] original-price-text-sm">{originalPrice}</span>
       <span class="hidden sm:block text-lg md:text-3xl font-[500] font-[Rubik] discounted-price-text-sm">{discountedPrice}</span>
       <button on:click={() => redirectTo('/registration')} class="bg-white sm:ml-5 w-[125px] sm:w-full text-black p-2 text-xs md:text-base lg:px-6 lg:py-2 rounded-md border border-black hover:bg-gray-50 transition-colors" style="box-shadow: 0.2rem 0.3rem 0px 0px;">
         Get it Now
