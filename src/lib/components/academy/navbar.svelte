@@ -233,9 +233,6 @@
   nav {
     transition: transform 0.3s ease-in-out;
   }
-  .scrolling-down {
-    transform: translateY(-100%);
-  }
 
   .shiny-glow {
   position: relative;
@@ -248,19 +245,18 @@
   position: absolute;
   top: 0;
   left: -100%;
-  width: 200%; /* To cover the full button area */
+  width: 25px; 
   height: 100%;
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.182), rgb(219, 219, 219), rgba(255, 255, 255, 0.084));
   z-index: -1;
   transition: all 0.5s ease-in-out;
   transform: rotate(5deg);
   opacity: 0.6;
-  filter: blur(15px); /* Heavily blurred background */
+  filter: blur(15px); 
 }
 
 .shiny-glow:hover::before {
-  left: 110%; /* Move the gradient effect from left to right */
+  left: 110%;
 }
-
 
 </style>
