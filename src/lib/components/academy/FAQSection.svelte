@@ -76,10 +76,6 @@
     max-width: 848px !important;
     margin: auto;
   }
-  
-  nav {
-    transition: transform 0.3s ease-in-out;
-  }
 
   .shiny-glow {
   position: relative;
