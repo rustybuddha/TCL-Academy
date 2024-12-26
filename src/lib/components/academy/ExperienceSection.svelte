@@ -20,12 +20,6 @@
   let modal = false; 
   let currentVideoUrl = '';  
   let hoveredIndex = -1;
-
-  function openModal(videoUrl) {
-    currentVideoUrl = videoUrl;
-    modal = true;
-  }
-  
   function closeModal() {
     modal = false;
     currentVideoUrl = ''; 
@@ -36,7 +30,6 @@
   import countryCodes from "$lib/assets/countries-flag.json";
 
   import { onMount, onDestroy } from "svelte";
-  import { browser } from "$app/environment";
   import toast from "svelte-french-toast";
   import { z } from "zod";
   import { page } from "$app/stores";
@@ -153,6 +146,35 @@
     }
     return url;
   };
+  
+  let element0InViewport = false;
+  let element1InViewport = false;
+
+  function setupIntersectionObserver() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.target.id === 'videotesti-0') {
+          element0InViewport = entry.isIntersecting;
+        } else if (entry.target.id === 'videotesti-1') {
+          element1InViewport = entry.isIntersecting;
+        }
+      });
+    }, { threshold: 0.5 }); 
+
+    observer.observe(document.getElementById('videotesti-0'));
+    observer.observe(document.getElementById('videotesti-1'));
+    return () => {
+      observer.disconnect();
+    };
+  }
+ 
+  onMount(() => {
+    const cleanupObserver = setupIntersectionObserver();
+    onDestroy(() => {
+      cleanupObserver();
+    });
+  });
+ 
 </script>
 
 
@@ -391,17 +413,17 @@
   {#each testimonials as testimonial, index}
   <!-- svelte-ignore a11y-click-events-have-key-events -->
   <!-- svelte-ignore a11y-no-static-element-interactions -->
-  <div class="bg-white border rounded-lg sm:w-1/2 flex flex-col card-care md:flex-row gap-4 sm:gap-6 text-sm sm:text-base cursor-pointer"
-       on:click={() => openModal(testimonial.videoUrl)}>
-    <div class="text-white overflow-hidden w-full relative"
+<!-- desktop -->
+  <div  class="bg-white hidden sm:flex border rounded-lg sm:w-1/2 xl:h-[405px]  flex-col card-care md:flex-row gap-4 sm:gap-6 text-sm sm:text-base cursor-pointer">
+    <div class="text-white overflow-hidden w-full rounded-t-[8px] sm:!rounded-l-[8px] sm:!rounded-t-[0px] relative"
          on:mouseover={() => hoveredIndex = index} 
          on:mouseout={() => hoveredIndex = -1} 
     >
       {#if hoveredIndex === index}
         <!-- Show Video when hovered -->
-        <img src={testimonial.img} alt={testimonial.name} class="w-full block sm:hidden rounded-l-[8px] img-care">
+        <!-- <img src={testimonial.img} alt={testimonial.name} class="w-full block sm:hidden rounded-l-[8px] img-care"> -->
         <iframe 
-        class="w-full hidden sm:block md:h-[300px] lg:h-[320px] xl:h-[400px] rounded-l-[8px] vid-care" 
+        class="w-full h-[400px] sm:block md:h-[300px] lg:h-[320px] xl:h-[410px]  sm:rounded-l-[8px] vid-care" 
         src={getVideoUrl(testimonial.videoUrl)}
         title="Video player" 
         frameborder="0" 
@@ -430,6 +452,56 @@
       </div>
     </div>
   </div>
+
+<!-- Mobile -->
+<div id={`videotesti-${index}`} class="bg-white flex sm:hidden border rounded-lg sm:w-1/2 xl:h-[405px]  flex-col card-care md:flex-row gap-4 sm:gap-6 text-sm sm:text-base cursor-pointer">
+  <div class="text-white overflow-hidden w-full rounded-t-[8px] sm:!rounded-l-[8px] sm:!rounded-t-[0px] relative"
+       on:mouseover={() => hoveredIndex = index} 
+       on:mouseout={() => hoveredIndex = -1} 
+  >
+  {#if element0InViewport && index === 0}
+  <!-- Show Video for element 0 -->
+  <iframe 
+    class="w-full h-[668px] sm:block md:h-[300px] lg:h-[320px] xl:h-[410px] sm:rounded-l-[8px] vid-care" 
+    src={getVideoUrl(testimonial.videoUrl)} 
+    title="Video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen
+  ></iframe>
+{:else if element1InViewport && index === 1}
+  <!-- Show Video for element 1 -->
+  <iframe 
+    class="w-full h-[668px] sm:block md:h-[300px] lg:h-[320px] xl:h-[410px] sm:rounded-l-[8px] vid-care" 
+    src={getVideoUrl(testimonial.videoUrl)} 
+    title="Video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen
+  ></iframe>
+{:else}
+  <!-- Show Image when neither is in the viewport -->
+  <img src={testimonial.img} alt={testimonial.name} class="w-full rounded-l-[8px] img-care">
+  <img src="/academy/play-circle-02.svg" alt="Play" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+{/if}
+  </div>
+
+  <div class="flex flex-col justify-between px-2">
+    <p class="text-green-500 text-2xl font-bold quote mt-5">
+      <img src="/academy/card-quote.svg" alt="">
+    </p>
+    <p class="text-[#333333] mt-2 text-xl sm:text-2xl text lg:text-3xl !font-[400] rubik-font italic">
+      {testimonial.description}
+    </p>
+    <div class="mt-4 mb-6 flex justify-between items-center">
+      <div>
+        <p class="font-[400] rubik-font">{testimonial.name}</p>
+        <p class="text-xs font-[400] text-[#5C5C5C] rubik-font">{testimonial.role}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 {/each}
 </div>
 </div>
