@@ -47,7 +47,7 @@
       fullName: z.string().min(1, "Full Name is required"),
       email: z.string().email("Invalid email address"),
       phone: z.string().min(1, "Phone Number is Required"),
-      message: z.string().optional(),
+      // message: z.string().optional(),
     });
     
     let hasModalBeenShown = false;
@@ -315,13 +315,13 @@
             </div>
             <!-- Message Textarea -->
 
-            <textarea
+            <!-- <textarea
               id="message"
               name="message"
               rows="3"
               placeholder="Message"
               class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
+            /> -->
 
             <!-- Submit Button -->
             <button
