@@ -117,11 +117,11 @@
 
   </div>
   <div class="mx-auto flex justify-center items-center pt-4 pb-2 w-full">
-    <button 
-      class="px-8  py-2 w-[80%] text-white bg-[#093baa] rounded whitespace-nowrap border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500"
-      on:click={() => redirectTo('/registration')}> 
-      Register Now
-    </button>
+    <button
+    class="px-8 py-2 w-[80%] text-white bg-[#093baa] rounded whitespace-nowrap border border-[#111] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500 shiny-glow"
+    on:click={() => redirectTo('/registration')}>
+    Register Now
+  </button>
   </div>
 </div>
 
@@ -150,10 +150,10 @@
       <div class="flex gap-8 items-center">
         <div class="sm:size w-1/4 items-center">
           <button
-            class="font-['Rubik'] sm:text-[0.5rem] md:text-[0.7rem] lg:text-base xl:text-lg sm:px-4 sm:py-2 text-white bg-[#093baa] rounded whitespace-nowrap border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500"
-            on:click={() => redirectTo('/registration')}>
-            Register Now
-          </button>
+          class="font-['Rubik'] sm:text-[0.5rem] md:text-[0.7rem] lg:text-base xl:text-lg sm:px-4 sm:py-2 text-white bg-[#093baa] rounded whitespace-nowrap border border-[#111] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500 shiny-glow"
+          on:click={() => redirectTo('/registration')}>
+          Register Now
+        </button>
         </div>
         <div class="w-3/4 ml-[4.3%]">
           <div class="flex items-center space-x-4">
@@ -216,6 +216,31 @@
 </div>
 
 <style>
+
+.shiny-glow {
+  position: relative;
+  overflow: hidden;
+  z-index: 0; 
+}
+
+.shiny-glow::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 25px;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.182), rgb(219, 219, 219), rgba(255, 255, 255, 0.084));
+  z-index: -1;
+  transition: all 0.5s ease-in-out;
+  transform: rotate(5deg); 
+  filter: blur(15px); 
+}
+
+.shiny-glow:hover::before {
+  left: 110%;
+}
+
   @media(max-width:360px){
     .text{
       font-size: 18px !important;

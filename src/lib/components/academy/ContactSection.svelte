@@ -192,7 +192,7 @@
           <!-- Submit Button -->
           <button 
           type="submit" 
-          class="w-full flex justify-center items-center font-['Rubik'] px-4 py-2 text-[#FFFFFF] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500"
+          class="w-full flex justify-center items-center font-['Rubik'] px-4 py-2 text-[#FFFFFF] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 border border-[#111]  shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500 shiny-glow"
           disabled={isButtonDisabled}
           class:text-gray-400={isButtonDisabled}  
           class:bg-[#093baa]={!isButtonDisabled}  
@@ -323,7 +323,7 @@
           class:bg-[#093baa]={!isButtonDisabled}  
           class:bg-gray-400={isButtonDisabled}  
           class:cursor-not-allowed={isButtonDisabled} 
-          type="submit" class="w-full flex justify-center items-center font-['Rubik'] px-4 py-2 text-white bg-[#093baa] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500">
+          type="submit" class="w-full flex justify-center items-center font-['Rubik'] px-4 py-2 text-white bg-[#093baa] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 border border-[#111] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500 shiny-glow">
           {#if isLoading}
           <div class="loader" />
         {:else}
@@ -411,6 +411,29 @@ button:disabled {
   background-color: #d1d1d1;
 }
 
+.shiny-glow {
+  position: relative;
+  overflow: hidden;
+  z-index: 0; 
+}
+
+.shiny-glow::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 25px;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.182), rgb(219, 219, 219), rgba(255, 255, 255, 0.084));
+  z-index: -1;
+  transition: all 0.5s ease-in-out;
+  transform: rotate(5deg); 
+  filter: blur(15px); 
+}
+
+.shiny-glow:hover::before {
+  left: 110%;
+}
 @keyframes spin {
   0% {
     transform: rotate(0deg);

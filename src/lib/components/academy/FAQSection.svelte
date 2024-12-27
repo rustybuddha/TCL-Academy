@@ -60,7 +60,7 @@
 
     <div class="w-full flex justify-center items-center mt-5">
       <button on:click={toggleShowMore}
-        class="w-[128px] font-['Rubik'] bg-white text-black px-6 py-2 rounded-[.25rem] border border-black hover:bg-gray-50 transition-colors duration-200 shadow-[.1875rem_.375rem_0rem_#000000]">
+        class="w-[128px] font-['Rubik'] bg-white text-black px-6 py-2 rounded-[.25rem] border border-black hover:bg-gray-50 transition-colors duration-200 shadow-[.1875rem_.375rem_0rem_#000000] shiny-glow">
         {showMore ? 'View less' : 'View more'}
       </button>
     </div>
@@ -76,4 +76,30 @@
     max-width: 848px !important;
     margin: auto;
   }
+
+  .shiny-glow {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.shiny-glow::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 25px; 
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.182), rgb(174, 174, 174), rgba(255, 255, 255, 0.084));
+  z-index: -1;
+  transition: all 0.5s ease-in-out;
+  transform: rotate(5deg);
+  opacity: 0.6;
+  filter: blur(15px); 
+}
+
+.shiny-glow:hover::before {
+  left: 110%;
+}
+
 </style>

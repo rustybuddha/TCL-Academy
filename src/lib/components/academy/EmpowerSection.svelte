@@ -28,7 +28,7 @@
         </div>
         <!-- <img class="" src="/academy/empower-section-3.svg" alt=""> -->
       </div>
-      <div class="pt-[2%] pb-[2%]"><button class="font-['Rubik'] px-[2%] py-[1%] text-white bg-[#093baa] rounded whitespace-nowrap border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500"  on:click={()=>{redirectTo('/registration')}}>Register Now</button></div>
+      <div class="pt-[2%] pb-[2%]"><button class="font-['Rubik'] px-[2%] py-[1%] text-white bg-[#093baa] rounded whitespace-nowrap border border-[#111] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500 shiny-glow"  on:click={()=>{redirectTo('/registration')}}>Register Now</button></div>
       <!-- <div class="hidden pt-4 pb-4"><a href="/"><button class="px-8 py-2 text-white bg-[#093baa] rounded whitespace-nowrap border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500">Register Now</button></a></div> -->
   </div>
 </div>
@@ -78,7 +78,7 @@
       
     </div>
   </div>
-  <div class="pt-[2%] pb-[2%] mx-auto w-full flex justify-center items-center"><button class=" w-[80%] px-[24px] py-[8px] text-white bg-[#093baa] rounded whitespace-nowrap border border-[#111] hover:bg-[#1f3569] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500"  on:click={()=>{redirectTo('/registration')}}>Register Now</button></div>
+  <div class="pt-[2%] pb-[2%] mx-auto w-full flex justify-center items-center"><button class=" w-[80%] px-[24px] py-[8px] text-white bg-[#093baa] rounded whitespace-nowrap border border-[#111] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500 shiny-glow"  on:click={()=>{redirectTo('/registration')}}>Register Now</button></div>
 </div>
 
 <style>
@@ -89,6 +89,32 @@
 .rubik-font {
   font-family: 'Rubik', sans-serif !important;
 }
+
+
+.shiny-glow {
+  position: relative;
+  overflow: hidden;
+  z-index: 0; 
+}
+
+.shiny-glow::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 25px;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.182), rgb(219, 219, 219), rgba(255, 255, 255, 0.084));
+  z-index: -1;
+  transition: all 0.5s ease-in-out;
+  transform: rotate(5deg); 
+  filter: blur(15px); 
+}
+
+.shiny-glow:hover::before {
+  left: 110%;
+}
+
 @media (max-width:420px){
     .hrmanipulate1{
       width: 275px !important;
