@@ -498,6 +498,7 @@
           {/if}
         </button>
       </form>
+      <p class="mt-3 text-sm text-center">Stuck Somewhere ? We’d love to help <br> <a href="https://wa.link/rbygpd" class="text-[#093baa]">click here</a>.</p>
     </div>
   </div>
 </div>
@@ -836,6 +837,7 @@
           {/if}
         </button>
       </form>
+      <p class="mt-4 text-sm text-center text-[#333333]">Stuck Somewhere ? We’d love to help <br> <a href="https://wa.link/rbygpd" class="text-[#093baa]">click here</a>.</p>
     </div>
   </div>
 </div>
