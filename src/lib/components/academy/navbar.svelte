@@ -62,7 +62,7 @@
   const navItems = [
     // { label: 'Community', href: '/community' },
     { label: 'Curriculum', href: '/#curriculum' },
-    { label: 'Testimonials', href: 'https://academy.timechainlabs.io/#testimonials' },
+    { label: 'Testimonials', href: '/#testimonials' },
     { label: 'Blog', href: '/blogs?section=all-posts' }
   ];
   const redirectTo = (url) => {

@@ -159,22 +159,27 @@
           element1InViewport = entry.isIntersecting;
         }
       });
-    }, { threshold: 0.5 }); 
+    }, { threshold: 0.5 });
 
     observer.observe(document.getElementById('videotesti-0'));
     observer.observe(document.getElementById('videotesti-1'));
+
     return () => {
       observer.disconnect();
     };
   }
- 
+
+  let cleanupObserver;
+
   onMount(() => {
-    const cleanupObserver = setupIntersectionObserver();
-    onDestroy(() => {
-      cleanupObserver();
-    });
+    cleanupObserver = setupIntersectionObserver();
   });
- 
+
+  onDestroy(() => {
+    if (cleanupObserver) {
+      cleanupObserver();
+    }
+  });
 </script>
 
 
