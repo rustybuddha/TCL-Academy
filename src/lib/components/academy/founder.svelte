@@ -34,22 +34,6 @@
 </section>
 
 <style>
-  .cut-text {
-      position: relative;
-      display: inline-block;
-      font-weight: 500 !important;
-    }
-
-    .cut-text::after {
-      content: "";
-      position: absolute;
-      bottom: 6px; /* Adjust position to avoid cutting into text */
-      left: 0;
-      right: 0;
-      height: 5px; /* Thickness of the underline */
-      background-color:#059E93;
-      opacity:0.7;    
-      }
       .custom-underline {
         text-decoration: underline;
         text-decoration-color: #059E93;
