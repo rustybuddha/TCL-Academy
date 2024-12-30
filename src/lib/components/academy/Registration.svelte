@@ -174,7 +174,7 @@
      </div>
 
     <p class="text text-3xl sm:text-4xl font-[500] leading-tight text-[#333333]">
-      Join Our Next Cohort –  <br> <span class="text-[#093BAA] !font-[600]">  
+      You are one step away from mastering blockchain development – <span class="text-[#093BAA] !font-[600]">  
         Register Now!</span>
     </p>
 
@@ -516,9 +516,9 @@
   <div class="w-1/2">
     <div class="mx-auto pr-6 pt-8 pl-8">
       <h1 class="text-xl md:text-2xl lg:text-4xl font-[600] text-gray-800">
-        Join Our Next Cohort –
-        <br />
-        <p class="font-bold text-[#093BAA]">Register Now!</p>
+        You are one step away from mastering blockchain development –
+        
+        <span class="!font-bold text-[#093BAA]">Register Now!</span>
       </h1>
       <p class="mt-4 text-xs md:text-xs lg:text-base w-3/4 text-gray-600">
         Complete the form to secure your place in our upcoming cohort and
