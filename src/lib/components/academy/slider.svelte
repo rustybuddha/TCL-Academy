@@ -84,7 +84,7 @@
               </div>
               
               <p class="text-[#5C5C5C] font-[300] text-sm text-center sm:text-left sm:text-lg rubik-font mt-5 md:pr-[50px]">
-                Through our Blockchain Pro course specifically tailored for students and developers
+                The blockchain mastery program is specifically tailored for students and developers
                 even without any prior experience in development, you will explore the following modules in detail:
               </p>
             </div>
