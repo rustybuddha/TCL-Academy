@@ -6,5 +6,8 @@ export default defineConfig({
 	// envPrefix: 'VITE_',
 	test: {
 		include: ['src/**/*.{test,spec}.{js,ts}']
+	},
+	server: {
+		hmr: true
 	}
 });
