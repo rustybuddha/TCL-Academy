@@ -1,7 +1,7 @@
 <script>
     import { onMount } from 'svelte';
     import Button from '$lib/components/button.svelte';
-    export let data;
+    // export let data;
     // const { blogs } = data;
     // const { form, enhance, errors, message, delayed } = superForm(data.form);
   
