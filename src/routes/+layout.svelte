@@ -17,7 +17,7 @@
         "Blockchain Certification Courses - Become a Blockchain Expert",
       description:
         "Master blockchain with online certification courses.  Launch your tech career in 6 weeks!",
-      ogImage: "/academy/newogbanner.jpg",
+      ogImage: "https://academy.timechainlabs.io/academy/newogbanner.jpg",
     });
   }
 </script>
