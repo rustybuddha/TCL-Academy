@@ -92,12 +92,12 @@
           </div>
         {/each}
       </div>
-      <div class="absolute top-1/2 left-2 transform -translate-y-1/2 cursor-pointer z-10" on:click={prev}>
+      <button class="absolute top-1/2 left-2 transform -translate-y-1/2 cursor-pointer z-10" aria-label="Previous" on:click={prev}>
         <img src="/arrow-white.png" alt="Previous" class="w-[40px] h-[40px] rotate-180">
-      </div>
-      <div class="absolute top-1/2 right-2 transform -translate-y-1/2 cursor-pointer z-10" on:click={next}>
+      </button>
+      <button class="absolute top-1/2 right-2 transform -translate-y-1/2 cursor-pointer z-10" aria-label="Next" on:click={next}>
         <img src="/arrow-white.png" alt="Next" class="w-[40px] h-[40px]">
-      </div>
+      </button>
     </div>
   </div>
 
