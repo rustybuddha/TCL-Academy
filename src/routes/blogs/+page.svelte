@@ -262,6 +262,7 @@
 
       <div id="blog-posts-section">
         <!-- All Blog Posts -->
+         <p class="!font-[500] text-[#33444F] text-3xl md:text-4xl lg:text-5xl mt-8"> All Blog Posts</p>
         <div class="mb-[40px] gap-[20px] flex ">
           <!-- <button
             class="px-4 py-2 text-[20px] text-black"
