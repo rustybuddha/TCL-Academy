@@ -144,7 +144,9 @@ export const newsletteremail = `
     <table align="center" style="padding: 30px;">
         <tr>
             <td style="padding: 20px; text-align: center;">
-                <img src="https://academy.timechainlabs.io/academy/templates/tcl.png" alt="TCL Logo">
+                <a href="http://timechainlabs.io">
+                    <img src="https://timechainlabs.io/email-template/logo.png" style="height: 40px; width: auto" alt="Timechainlabs logo" srcset="">
+                </a>
             </td>
         </tr>
         <tr>
@@ -160,25 +162,26 @@ export const newsletteremail = `
             </td>
         </tr>
         <tr>
-            <td class="content" style="gap:10px; display: flex; justify-content: start; align-items: start; flex-direction: column;">
-                <p class="newsletter-text" style="display: flex; justify-content: start; align-items: center; gap:10px; font-size: 18px;">
-                    <img src="https://academy.timechainlabs.io/academy/templates/newsletter1.png" alt="newsletter"> 
-                    Curated insights to keep you updated on latest trends.
-                </p>
-                <p class="newsletter-text" style="display: flex; justify-content: start; align-items: center; margin-top: 10px; gap:10px; font-size: 18px;">
-                    <img src="https://academy.timechainlabs.io/academy/templates/newsletter2.png" alt="newsletter"> 
-                    Practical tips to help you grow and succeed.
-                </p>
-                <p class="newsletter-text" style="display: flex; justify-content: start; align-items: center; margin-top: 10px; gap:10px; font-size: 18px;">
-                    <img src="https://academy.timechainlabs.io/academy/templates/newsletter3.png" alt="newsletter"> 
-                    Exciting updates about our journey, events, and offerings.
-                </p>
-            </td>
+            <td class="content">
+    <p class="newsletter-text" style="display: flex; justify-content: start; align-items: center; gap:10px; font-size: 18px; margin-top:12px;">
+        <img src="https://academy.timechainlabs.io/academy/templates/newsletter1.png" alt="newsletter" style="margin-right:10px; width: 24px; height: 24px;">
+        Curated insights to keep you updated on latest trends.
+    </p>
+    <p class="newsletter-text" style="display: flex; justify-content: start; align-items: center; margin-top: 10px; gap:10px; font-size: 18px; margin-top:12px;">
+        <img src="https://academy.timechainlabs.io/academy/templates/newsletter2.png" alt="newsletter" style="margin-right:10px; width: 24px; height: 24px;">
+        Practical tips to help you grow and succeed.
+    </p>
+    <p class="newsletter-text" style="display: flex; justify-content: start; align-items: center; margin-top: 10px; gap:10px; font-size: 18px; margin-top:12px;">
+        <img src="https://academy.timechainlabs.io/academy/templates/newsletter3.png" alt="newsletter" style="margin-right:10px; width: 24px; height: 24px;">
+        Exciting updates about our journey, events, and offerings.
+    </p>
+</td>
+
         </tr>
         <tr>
             <td class="content">
                 <p class="newsletter-text-sub" style="font-size: 20px; line-height: 25px;">Our goal is to bring you value with every email and keep you inspired along the way.</p>
-                <p class="newsletter-text-sub" style="font-size: 20px; margin-top:20px; line-height: 25px;">In the meantime, feel free to check out <a href="https://academy.timechainlabs.io/blog/the-future-of-technology-and-careers:-why-blockchain-is-the-answer-">article</a> for more insights.</p>     
+                <p class="newsletter-text-sub" style="font-size: 20px; margin-top:20px; line-height: 25px;">In the meantime, feel free to check out <a href="https://academy.timechainlabs.io/blog/the-future-of-technology-and-careers:-why-blockchain-is-the-answer-">blog</a> for more insights.</p>     
                 <p class="newsletter-text-sub" style="font-size: 20px; margin-top:20px; line-height: 25px;">Let’s make this journey together!</p>
             </td>
         </tr>
