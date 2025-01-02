@@ -9,7 +9,8 @@
   export let data;
   const { form, enhance, errors, message, delayed } = superForm(data.form);
   const { featuredBlog, blogs, popularBlogs } = data;
-  console.log("data: ",  data);
+  // console.log("data: ",  data);
+
   // import {blogsList} from '$lib/store.js'
   // blogsList.set(popularBlogs);
   // blogsList.subscribe(value => {
@@ -21,15 +22,15 @@
   // });
   // console.log("blogsList...", blogsList);
 
-  $: if ($message?.status == "success" && $message.content) {
-    toast.success($message.content, {
-      position: "top-right",
-    });
-  } else if ($message?.status == "failed" && $message.content) {
-    toast.error("Error occuured while joining newletter! Try again.", {
-      position: "top-right",
-    });
-  }
+  // $: if ($message?.status == "success" && $message.content) {
+  //   toast.success($message.content, {
+  //     position: "top-right",
+  //   });
+  // } else if ($message?.status == "failed" && $message.content) {
+  //   toast.error("Error occuured while joining newletter! Try again.", {
+  //     position: "top-right",
+  //   });
+  // }
   const currentSection = writable('labs');
 
   import { page } from '$app/stores';
@@ -52,6 +53,43 @@
       }, 0);
     }
   });
+
+
+  const onSubmitClickHandle = async () => {
+  try {
+    const email = $form.emailID;
+
+    if (!email || email.trim() === '') {
+      toast.error("Email is required.");
+      return;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      toast.error("Please enter a valid email address.");
+      return;
+    }
+
+    const apiResponse = await fetch('/api/newsletter', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email }),
+    });
+
+    if (apiResponse.status === 200) {
+      toast.success("Subscription successful!");
+    } else {
+      const errorData = await apiResponse.json();
+      toast.error(`Error: ${errorData.message || 'There was an issue submitting the request'}`);
+    }
+  } catch (error) {
+    console.error("Error sending data to API:", error);
+    toast.error("There was an error submitting your request. Please try again later.");
+  }
+ };
+
 </script>
 
 <Toaster />
@@ -151,48 +189,41 @@
             </p>
           </div>
         </div>
+
         <div class="flex-1 flex flex-col gap-[16px]">
-          <div
-            class="py-[39px] max-[360px]:py-[12px] px-[20px] max-[360px]:px-[12px] rounded-[10px]"
-            style="border: 0.5px solid rgba(0, 0, 0, 0.10);
-          "
-          >
-            <h2
-              class="font-[500] text-[24px] max-[360px]:text-[20px] text-blue-gray"
-            >
-              Subscribe to our newsletter
-            </h2>
-            <p
-              class="font-rubik font-[300] text-[16px] max-[360px]:text-[12px] text-blue-gray mb-[20px] max-[400px]:mb-[12px]"
-            >
-              Be the first to hear about translation best practices and guides
-            </p>
-            <form
-              class="flex items-center gap-[20px]"
-              action="?/subscribeNewletter"
-              method="POST"
-              use:enhance
-              novalidate
-            >
-              <div class="flex-1">
-                <input
-                  type="email"
-                  placeholder="Email"
-                  bind:value={$form.emailID}
-                  name="emailID"
-                  aria-invalid={$errors.emailID ? "true" : undefined}
-                  class="font-[300] font-rubik text-[16px] px-[16px] py-[8px] w-full rounded-[4px]"
-                  style="border: 0.5px solid rgba(0, 0, 0, 0.10);"
-                />
-                {#if $errors.emailID != null}
-                  <span class="text-red-600 text-xs font-medium"
-                    >{$errors.emailID[0]}</span
-                  >
-                {/if}
-              </div>
-              <Button text="Subscribe" htmlType="submit" />
-            </form>
-          </div>
+
+          <div class="py-[39px] max-[360px]:py-[12px] px-[20px] max-[360px]:px-[12px] rounded-[10px]"
+     style="border: 0.5px solid rgba(0, 0, 0, 0.10);">
+  <h2 class="font-[500] text-[24px] max-[360px]:text-[20px] text-blue-gray">
+    Subscribe to our newsletter
+  </h2>
+  <p class="font-rubik font-[300] text-[16px] max-[360px]:text-[12px] text-blue-gray mb-[20px] max-[400px]:mb-[12px]">
+    Be the first to hear about translation best practices and guides
+  </p>
+  <form
+    class="flex items-center gap-[20px]"
+    on:submit|preventDefault={onSubmitClickHandle} 
+    novalidate>
+    <div class="flex-1">
+      <input
+        type="email"
+        placeholder="Email"
+        bind:value={$form.emailID}
+        name="emailID"
+        aria-invalid={$errors.emailID ? "true" : undefined}
+        class="font-[300] font-rubik text-[16px] px-[16px] py-[8px] w-full rounded-[4px]"
+        style="border: 0.5px solid rgba(0, 0, 0, 0.10);"
+      />
+      {#if $errors.emailID != null}
+        <span class="text-red-600 text-xs font-medium">
+          {$errors.emailID[0]}
+        </span>
+      {/if}
+    </div>
+    <Button text="Subscribe" htmlType="submit" />
+  </form>
+</div>
+
           <div
             class="p-[20px] max-[360px]:px-[12px] rounded-[10px]"
             style="border: 0.5px solid rgba(0, 0, 0, 0.10);
