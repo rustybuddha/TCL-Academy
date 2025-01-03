@@ -23,7 +23,7 @@
             header: "I gained valuable knowledge in blockchain development.",
             name: "Rohit Raj",
             role: "Contributor at TSoC 2024",
-            description: " I have gained invaluable knowledge about blockchain development",
+            description: "In this program, I have gained invaluable knowledge about blockchain development",
             videoUrl: "https://www.youtube.com/embed/ZvNImiHJe2I"
         },
         {
@@ -31,10 +31,11 @@
             header: "Got opportunity to work on real projects.",
             name: "Aditi Raj",
             role: "Contributor at TSoC 2024",
-            description: "This blockchain program has helped me to learn about blockchain technology",
+            description: "The program has helped me to learn about blockchain technology and also to grow personally",
             videoUrl: "https://www.youtube.com/embed/-AwWuS-hor0"
         },
     ];
+
 
     let showVideoIndex = -1;
     let touchStartX = 0;
