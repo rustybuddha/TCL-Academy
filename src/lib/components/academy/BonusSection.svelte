@@ -21,7 +21,11 @@
       </p>
     </div>
    </div>  
-    <div class="mx-auto pb-2 pt-4"><img class="mx-auto" src="/academy/newbonusmobile.svg" alt=""></div>
+    <div class="mx-auto pb-2 pt-4 flex flex-col justify-center items-center gap-y-6">
+      <img class="mx-auto" src="/academy/FrontendCheatsheet.svg" alt="bonus">
+      <img class="mx-auto" src="/academy/BackendCheatsheet.svg" alt="bonus">
+      <img class="mx-auto" src="/academy/FullstackModule.svg" alt="bonus">
+    </div>
     <div class="pt-[2%] pb-[2%] mx-auto mt-4"><button on:click={() => redirectTo('/registration')} class="cursor-pointer px-[24px] py-[8px] text-white bg-[#093baa] rounded whitespace-nowrap border border-[#111] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500 shiny-glow">Unlock Bonuses</button></div>
   </div>
   
@@ -33,7 +37,7 @@
         <div class="text-2xl md:text-3xl lg:text-5xl !font-bold mb-4 leading-snug">
           Unlock bonuses <br />
           <p class="flex">
-          Worth <img src="/academy/15999.svg" alt="">
+          Worth <img src="/academy/15999.svg" alt="rs15999">
           </p>
         </div>
         <p class=" text-sm leading-relaxed lg:text-lg text-[#5C5C5C]">
@@ -45,17 +49,16 @@
     <div class="pt-[2%] pb-[2%] mt-2"><button on:click={() => redirectTo('/registration')} class="cursor-pointer font-['Rubik'] px-[2%] py-[1%] text-white bg-[#093baa] rounded whitespace-nowrap border border-[#111] shadow-[3px_6px_0px_#000000] transition-all ease-in duration-500 shiny-glow">Unlock Bonuses</button></div>
   </div>
   <div class="w-3/5">
-    <img src="/academy/newbonus.svg" alt=""></div>
+    <img src="/academy/newbonusdesk.svg" alt="bonus"></div>
   </div>
 
 
   <style>
-    
-.shiny-glow {
-  position: relative;
-  overflow: hidden;
-  z-index: 0; 
-}
+  .shiny-glow {
+    position: relative;
+    overflow: hidden;
+    z-index: 0; 
+  }
 
 .shiny-glow::before {
   content: "";
