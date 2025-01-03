@@ -19,20 +19,20 @@
             videoUrl: "https://youtube.com/embed/0VPPR1PNuXY"
         },
         {
-            img: "/academy/DivyanshuPrasad.svg",
-            header: "I was not a developer previously",
-            name: "Divyanshu Prasad",
-            role: "ex-SDE Intern at Timechain Labs",
-            description: "Working with Timechainlabs, I got to know what real development looks like.",
-            videoUrl: "https://youtube.com/embed/1YYd34lWRH0"
+            img: "/academy/RohitRaj-IntroSlideBW.svg",
+            header: "I gained valuable knowledge in blockchain development.",
+            name: "Rohit Raj",
+            role: "Contributor at TSoC 2024",
+            description: " I have gained invaluable knowledge about blockchain development",
+            videoUrl: "https://www.youtube.com/embed/ZvNImiHJe2I"
         },
         {
-            img: "/academy/RiteekRakesh.svg",
+            img: "/academy/AditiRaj-IntroSlide.svg",
             header: "Got opportunity to work on real projects.",
-            name: "Riteek Rakesh",
-            role: "Software Developer at Timechain labs",
-            description: "I basically learnt how to write backend APIs for any fullstack applications.",
-            videoUrl: "https://youtube.com/embed/0VPPR1PNuXY"
+            name: "Aditi Raj",
+            role: "Contributor at TSoC 2024",
+            description: "This blockchain program has helped me to learn about blockchain technology",
+            videoUrl: "https://www.youtube.com/embed/-AwWuS-hor0"
         },
     ];
 
