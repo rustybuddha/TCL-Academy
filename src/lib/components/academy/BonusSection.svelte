@@ -54,12 +54,11 @@
 
 
   <style>
-    
-.shiny-glow {
-  position: relative;
-  overflow: hidden;
-  z-index: 0; 
-}
+  .shiny-glow {
+    position: relative;
+    overflow: hidden;
+    z-index: 0; 
+  }
 
 .shiny-glow::before {
   content: "";
