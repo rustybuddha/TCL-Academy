@@ -1,25 +1,6 @@
 <script>
-  const testimonials = [
-    {
-      img: "/academy/DivyanshuPrasad.svg",
-      header: "I was not a developer previously",
-      name: "Divyanshu Prasad",
-      role: "ex-SDE Intern at Timechain Labs",
-      description: "Working with Timechainlabs, I got to know what real development looks like.",
-      videoUrl: "https://youtube.com/embed/1YYd34lWRH0"
-    },
-    {
-      img: "/academy/RiteekRakesh.svg",
-      header: "Got opportunity to work on real projects.",
-      name: "Riteek Rakesh",
-      role: "Software Developer at Timechain labs",
-      description: "I basically learnt how to write backend APIs for any fullstack applications.",
-      videoUrl: "https://youtube.com/embed/0VPPR1PNuXY"
-    },
-  ];
   let modal = false; 
   let currentVideoUrl = '';  
-  let hoveredIndex = -1;
   function closeModal() {
     modal = false;
     currentVideoUrl = ''; 
@@ -28,12 +9,15 @@
 
   import Loader from "$lib/components/academy/loader.svelte";
   import countryCodes from "$lib/assets/countries-flag.json";
+  import {getCountryInfoByCode} from "../../countries-flag.js";
 
   import { onMount, onDestroy } from "svelte";
   import toast from "svelte-french-toast";
   import { z } from "zod";
   import { page } from "$app/stores";
   import axios from "axios";
+    import VideotestimoniDesk from "./videotestimoniDesk.svelte";
+    import VideotestimoniMob from "./videotestimoniMob.svelte";
 
 
 
@@ -139,47 +123,47 @@
       isLoading = false;
     }
   };
-
-  const getVideoUrl = (url) => {
-    if (url.includes('youtube.com') || url.includes('youtu.be')) {
-      return `${url}?autoplay=1&mute=1`;
-    }
-    return url;
-  };
   
-  let element0InViewport = false;
-  let element1InViewport = false;
 
-  function setupIntersectionObserver() {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.target.id === 'videotesti-0') {
-          element0InViewport = entry.isIntersecting;
-        } else if (entry.target.id === 'videotesti-1') {
-          element1InViewport = entry.isIntersecting;
+  const getCoordinates = async () => {
+  try {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
+
+          const apiKey = "bdc_3084b3b7e45e40de9af72b9b435a4f6e"; // Replace with your API key
+          const apiUrl = `https://api-bdc.net/data/reverse-geocode?latitude=${latitude}&longitude=${longitude}&localityLanguage=en&key=${apiKey}`;
+
+          try {
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+
+            if (data.countryName) {
+              selectedCountry = getCountryInfoByCode(data.countryName) || selectedCountry;
+            }
+          } catch (apiError) {
+            selectedCountry = getCountryInfoByCode("91"); // India as default
+          }
+        },
+        (error) => {
+          alert("Unable to retrieve your location. Please allow location access.");
+          selectedCountry = getCountryInfoByCode("91"); // India as default
         }
-      });
-    }, { threshold: 0.5 });
-
-    observer.observe(document.getElementById('videotesti-0'));
-    observer.observe(document.getElementById('videotesti-1'));
-
-    return () => {
-      observer.disconnect();
-    };
-  }
-
-  let cleanupObserver;
-
-  onMount(() => {
-    cleanupObserver = setupIntersectionObserver();
-  });
-
-  onDestroy(() => {
-    if (cleanupObserver) {
-      cleanupObserver();
+      );
+    } else {
+      alert("Geolocation is not supported by your browser.");
+      selectedCountry = getCountryInfoByCode("91"); // India as default
     }
-  });
+  } catch (error) {
+    selectedCountry = getCountryInfoByCode("91"); // India as default
+  }
+};
+
+
+
+  getCoordinates();
 </script>
 
 
@@ -415,118 +399,15 @@
 
 <!-- Testimonial Cards -->
 <div class=" !-mt-4 md:pt-10 flex container-care sm:flex-col md:flex-row gap-6 justify-center items-start max-w-[1300px] m-auto" style="margin-top: 30px;">
-  {#each testimonials as testimonial, index}
-  <!-- svelte-ignore a11y-click-events-have-key-events -->
-  <!-- svelte-ignore a11y-no-static-element-interactions -->
-<!-- desktop -->
-  <div  class="bg-white hidden sm:flex border rounded-lg sm:w-1/2 xl:h-[405px]  flex-col card-care md:flex-row gap-4 sm:gap-6 text-sm sm:text-base cursor-pointer">
-    <div class="text-white overflow-hidden w-full rounded-t-[8px] sm:!rounded-l-[8px] sm:!rounded-t-[0px] relative"
-         on:mouseover={() => hoveredIndex = index} 
-         on:mouseout={() => hoveredIndex = -1} 
-    >
-      {#if hoveredIndex === index}
-        <!-- Show Video when hovered -->
-        <!-- <img src={testimonial.img} alt={testimonial.name} class="w-full block sm:hidden rounded-l-[8px] img-care"> -->
-        <iframe 
-        class="w-full h-[400px] sm:block md:h-[300px] lg:h-[320px] xl:h-[410px]  sm:rounded-l-[8px] vid-care" 
-        src={getVideoUrl(testimonial.videoUrl)}
-        title="Video player" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen
-      ></iframe>
-      {:else}
-        <!-- Show Image when not hovered -->
-        <img src={testimonial.img} alt={testimonial.name} class="w-full rounded-l-[8px] img-care">
-        <img src="/academy/play-circle-02.svg" alt="Play" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-      {/if}
-    </div>
-
-    <div class="flex flex-col justify-between px-2">
-      <p class="text-green-500 text-2xl font-bold quote mt-5">
-        <img src="/academy/card-quote.svg" alt="">
-      </p>
-      <p class="text-[#333333] mt-2 text-xl sm:text-2xl text lg:text-3xl !font-[400] rubik-font italic">
-        {testimonial.description}
-      </p>
-      <div class="mt-4 mb-6 flex justify-between items-center">
-        <div>
-          <p class="font-[400] rubik-font">{testimonial.name}</p>
-          <p class="text-xs font-[400] text-[#5C5C5C] rubik-font">{testimonial.role}</p>
-        </div>
+      <!--Desktop-->
+      <div class="hidden md:flex">
+          <VideotestimoniDesk/>
       </div>
+      <div class="md:hidden">
+        <VideotestimoniMob/>
     </div>
-  </div>
-
-<!-- Mobile -->
-<div id={`videotesti-${index}`} class="bg-white flex sm:hidden border rounded-lg sm:w-1/2 xl:h-[405px]  flex-col card-care md:flex-row gap-4 sm:gap-6 text-sm sm:text-base cursor-pointer">
-  <div class="text-white overflow-hidden w-full rounded-t-[8px] sm:!rounded-l-[8px] sm:!rounded-t-[0px] relative"
-       on:mouseover={() => hoveredIndex = index} 
-       on:mouseout={() => hoveredIndex = -1} 
-  >
-  {#if element0InViewport && index === 0}
-  <!-- Show Video for element 0 -->
-  <iframe 
-    class="w-full h-[668px] sm:block md:h-[300px] lg:h-[320px] xl:h-[410px] sm:rounded-l-[8px] vid-care" 
-    src={getVideoUrl(testimonial.videoUrl)} 
-    title="Video player" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-    allowfullscreen
-  ></iframe>
-{:else if element1InViewport && index === 1}
-  <!-- Show Video for element 1 -->
-  <iframe 
-    class="w-full h-[668px] sm:block md:h-[300px] lg:h-[320px] xl:h-[410px] sm:rounded-l-[8px] vid-care" 
-    src={getVideoUrl(testimonial.videoUrl)} 
-    title="Video player" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-    allowfullscreen
-  ></iframe>
-{:else}
-  <!-- Show Image when neither is in the viewport -->
-  <img src={testimonial.img} alt={testimonial.name} class="w-full rounded-l-[8px] img-care">
-  <img src="/academy/play-circle-02.svg" alt="Play" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-{/if}
-  </div>
-
-  <div class="flex flex-col justify-between px-2">
-    <p class="text-green-500 text-2xl font-bold quote mt-5">
-      <img src="/academy/card-quote.svg" alt="">
-    </p>
-    <p class="text-[#333333] mt-2 text-xl sm:text-2xl text lg:text-3xl !font-[400] rubik-font italic">
-      {testimonial.description}
-    </p>
-    <div class="mt-4 mb-6 flex justify-between items-center">
-      <div>
-        <p class="font-[400] rubik-font">{testimonial.name}</p>
-        <p class="text-xs font-[400] text-[#5C5C5C] rubik-font">{testimonial.role}</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-{/each}
 </div>
 </div>
-{#if modal}
-  <div class="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50" on:click={closeModal}>
-   <div class="px-4 w-full flex justify-center">
-    <div class="bg-white p-8 rounded-lg max-w-lg w-full relative" on:click|stopPropagation>
-      <button class="absolute top-2 right-2 text-3xl font-bold text-gray-600 hover:text-gray-900" on:click={closeModal}>&times;</button>
-      <iframe 
-        class="w-full h-64 sm:h-80 rounded-lg" 
-        src={currentVideoUrl}
-        title="Video player" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-      </iframe>
-    </div>
-  </div>
-  </div>
-{/if}
 
 <style>
   @media (max-width: 400px) {
@@ -545,9 +426,7 @@
 .bai-jamjuree-font {
   font-family: 'Bai Jamjuree', sans-serif !important;
 }
-.rubik-font {
-  font-family: 'Rubik', sans-serif !important;
-}
+
   @media (max-width: 640px) {
     .container-care {
       flex-direction: column !important;
@@ -558,19 +437,7 @@
     .text-lg {
       font-size: 1.25rem !important; 
     }
-    .dis{
-      font-size: 18px;
-    }
-  }
 
-  @media (max-width: 960px) {
-    .dis{
-      font-size: 14px;
-    }
-    .quote{
-      width: 30px  !important;
-      height: 40px !important;
-    }
   }
 
   @media (max-width: 940px) {
@@ -580,27 +447,10 @@
       align-items: center;
       padding: 0px !important;
     }
-    .dis{
-      font-size: 14px;
-    }
+
   }
 
-  @media (max-width: 900px) {
-  .card-care {
-    flex-direction: column !important;
-  }
   
-  
-  .img-care {
-    border-top-left-radius: 8px !important;
-    border-top-right-radius: 8px !important;
-    border-bottom-left-radius: 0px !important;
-    border-bottom-right-radius: 0px !important;
-    width: 100% !important;   
-    height: auto !important;  
-    object-fit: cover; 
-  }
-}
 
   @media (min-width: 1024px) {
     .container-care {
@@ -608,11 +458,6 @@
     }
   }
 
-  @media (max-width: 1130px) and (min-width: 890px) {
-  .text {
-    font-size: 18px !important;
-  }
-}
 
 .loader {
     border: 4px solid #e5e7eb; 

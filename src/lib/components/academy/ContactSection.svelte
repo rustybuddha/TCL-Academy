@@ -2,11 +2,12 @@
     import { z } from "zod";
     import {toast,Toaster} from "svelte-french-toast";
     import countryCodes from "$lib/assets/countries-flag.json";
+    import {getCountryInfoByCode} from "../../countries-flag.js";
 
     let showModal = false;
     let phone = "";
     let isLoading = false;
-  
+    
     const formSchema = z.object({
       fullName: z.string().min(1, "Full Name is required"),
       email: z.string().email("Invalid email address"),
@@ -65,21 +66,66 @@
   }
 };
 
-  let selectedCountry = {
-    countryname: "India",
-    countrycode: "91",
-    flagurl: "https://flaglog.com/codes/official-ratio-120px/IN.png",
-  };
-  
-  let dropdownOpen = false;
-    const closeModal = () => {
-      showModal = false;
-    };
-  
-    let isAgreementChecked = false;
+
+let dropdownOpen = false;
+const closeModal = () => {
+  showModal = false;
+};
+
+let isAgreementChecked = false;
 
 
-    $: isButtonDisabled = !isAgreementChecked;
+$: isButtonDisabled = !isAgreementChecked;
+
+
+// Default selectedCountry is India
+let selectedCountry = {
+  countryname: "India",
+  countrycode: "91",
+  flagurl: "https://flaglog.com/codes/official-ratio-120px/IN.png"
+};
+
+const getCoordinates = async () => {
+  try {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
+
+          const apiKey = "bdc_3084b3b7e45e40de9af72b9b435a4f6e"; // Replace with your API key
+          const apiUrl = `https://api-bdc.net/data/reverse-geocode?latitude=${latitude}&longitude=${longitude}&localityLanguage=en&key=${apiKey}`;
+
+          try {
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+
+            if (data.countryName) {
+              selectedCountry = getCountryInfoByCode(data.countryName) || selectedCountry;
+            }
+          } catch (apiError) {
+            selectedCountry = getCountryInfoByCode("91"); // India as default
+          }
+        },
+        (error) => {
+          alert("Unable to retrieve your location. Please allow location access.");
+          selectedCountry = getCountryInfoByCode("91"); // India as default
+        }
+      );
+    } else {
+      alert("Geolocation is not supported by your browser.");
+      selectedCountry = getCountryInfoByCode("91"); // India as default
+    }
+  } catch (error) {
+    selectedCountry = getCountryInfoByCode("91"); // India as default
+  }
+};
+
+
+
+
+
+  getCoordinates();
   </script>
 
 <Toaster/>
@@ -126,11 +172,11 @@
                   on:click={() => (dropdownOpen = !dropdownOpen)}
                 >
                   <img
-                    src={selectedCountry.flagurl}
+                    src={selectedCountry?.flagurl}
                     class="w-5 h-5 rounded-full"
                     alt="flag"
                   />
-                  +{selectedCountry.countrycode.toString()}
+                  +{selectedCountry?.countrycode.toString()}
                   <span class="text-gray-500 font-bold">
                     {#if dropdownOpen}
                       <img
@@ -253,11 +299,11 @@
                   on:click={() => (dropdownOpen = !dropdownOpen)}
                 >
                   <img
-                    src={selectedCountry.flagurl}
+                    src={selectedCountry?.flagurl}
                     class="w-5 h-5 rounded-full"
                     alt="flag"
                   />
-                  +{selectedCountry.countrycode.toString()}
+                  +{selectedCountry?.countrycode.toString()}
                   <span class="text-gray-500 font-bold">
                     {#if dropdownOpen}
                       <img
