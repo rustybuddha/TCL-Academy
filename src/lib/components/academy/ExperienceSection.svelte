@@ -9,6 +9,7 @@
 
   import Loader from "$lib/components/academy/loader.svelte";
   import countryCodes from "$lib/assets/countries-flag.json";
+  import {getCountryInfoByCode} from "../../countries-flag.js";
 
   import { onMount, onDestroy } from "svelte";
   import toast from "svelte-french-toast";
@@ -122,41 +123,47 @@
       isLoading = false;
     }
   };
-
   
-  let element0InViewport = false;
-  let element1InViewport = false;
 
-  function setupIntersectionObserver() {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.target.id === 'videotesti-0') {
-          element0InViewport = entry.isIntersecting;
-        } else if (entry.target.id === 'videotesti-1') {
-          element1InViewport = entry.isIntersecting;
+  const getCoordinates = async () => {
+  try {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
+
+          const apiKey = "bdc_3084b3b7e45e40de9af72b9b435a4f6e"; // Replace with your API key
+          const apiUrl = `https://api-bdc.net/data/reverse-geocode?latitude=${latitude}&longitude=${longitude}&localityLanguage=en&key=${apiKey}`;
+
+          try {
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+
+            if (data.countryName) {
+              selectedCountry = getCountryInfoByCode(data.countryName) || selectedCountry;
+            }
+          } catch (apiError) {
+            selectedCountry = getCountryInfoByCode("91"); // India as default
+          }
+        },
+        (error) => {
+          alert("Unable to retrieve your location. Please allow location access.");
+          selectedCountry = getCountryInfoByCode("91"); // India as default
         }
-      });
-    }, { threshold: 0.5 });
-
-    observer.observe(document.getElementById('videotesti-0'));
-    observer.observe(document.getElementById('videotesti-1'));
-
-    return () => {
-      observer.disconnect();
-    };
-  }
-
-  let cleanupObserver;
-
-  onMount(() => {
-    cleanupObserver = setupIntersectionObserver();
-  });
-
-  onDestroy(() => {
-    if (cleanupObserver) {
-      cleanupObserver();
+      );
+    } else {
+      alert("Geolocation is not supported by your browser.");
+      selectedCountry = getCountryInfoByCode("91"); // India as default
     }
-  });
+  } catch (error) {
+    selectedCountry = getCountryInfoByCode("91"); // India as default
+  }
+};
+
+
+
+  getCoordinates();
 </script>
 
 

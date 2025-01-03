@@ -5,6 +5,7 @@
   import { goto } from "$app/navigation";
   import axios from "axios";
   import countryCodes from "$lib/assets/countries-flag.json";
+  import {getCountryInfoByCode} from "../../countries-flag.js";
 
   let fullName = "";
   let email = "";
@@ -161,6 +162,46 @@
   const closeModal = () => {
     showModal = false;
   };
+
+  const getCoordinates = async () => {
+  try {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
+
+          const apiKey = "bdc_3084b3b7e45e40de9af72b9b435a4f6e"; // Replace with your API key
+          const apiUrl = `https://api-bdc.net/data/reverse-geocode?latitude=${latitude}&longitude=${longitude}&localityLanguage=en&key=${apiKey}`;
+
+          try {
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+
+            if (data.countryName) {
+              selectedCountry = getCountryInfoByCode(data.countryName) || selectedCountry;
+            }
+          } catch (apiError) {
+            selectedCountry = getCountryInfoByCode("91"); // India as default
+          }
+        },
+        (error) => {
+          alert("Unable to retrieve your location. Please allow location access.");
+          selectedCountry = getCountryInfoByCode("91"); // India as default
+        }
+      );
+    } else {
+      alert("Geolocation is not supported by your browser.");
+      selectedCountry = getCountryInfoByCode("91"); // India as default
+    }
+  } catch (error) {
+    selectedCountry = getCountryInfoByCode("91"); // India as default
+  }
+};
+
+
+
+  getCoordinates();
 </script>
 
 <Toaster />
